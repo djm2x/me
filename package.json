@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "f": "ng serve --port 4206",
-    "p": "ng build --prod --base-href=https://djm2x.github.io/me/",
+    "p": "ng build --prod --base-href=/me/",
     "git": "---------------------------------------------------------------------",
     "create-branch": "git branch new-one",
     "move-to-branch": "git checkout new-one",
