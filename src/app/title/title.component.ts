@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { animations } from '../animations';
 import { SharedService } from '../service.service';
-const ASSETS = '/assets/';
+const ASSETS = 'assets/';
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',
