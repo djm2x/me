@@ -9,7 +9,17 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="styles.41d1b3cfc491cead69b1.css"></head>
+<link rel="stylesheet" href="styles.41d1b3cfc491cead69b1.css">
+<script>
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+</head>
 <body>
   <style>
     #vex-splash-screen {
