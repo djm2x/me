@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
   @Input() events = new Observable<number>();
   counter = 5;
   // list = [1, 2, 3, 4];
-  img = '../../../assets/skills.png';
+  img = 'assets/skills.png';
   state = 'hide';
   list = [
     { icon: 'fas fa-envelope', name: 'mohamed.mourabit@outlook.com' },

@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   @ViewChild('div') divHTML: ElementRef;
   mobileQuery: MediaQueryList;
   currentSection = 'section1';
-  userImg = '../assets/2.png';
+  userImg = 'assets/2.png';
   color = 'accent';
   checked = false;
   disabled = false;

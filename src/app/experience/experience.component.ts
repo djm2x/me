@@ -9,8 +9,8 @@ import { animations } from '../animations';
 })
 export class ExperienceComponent implements OnInit {
   state = 'hide';
-  reccete = '../../assets/recette.jpg';
-  artisant = '../../assets/artisant.jpg';
+  reccete = 'assets/recette.jpg';
+  artisant = 'assets/artisant.jpg';
   constructor() { }
 
   ngOnInit() {}
