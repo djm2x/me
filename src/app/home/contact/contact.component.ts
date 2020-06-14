@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { animations } from '../animations';
+import { animations } from '../../animations';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-contact',

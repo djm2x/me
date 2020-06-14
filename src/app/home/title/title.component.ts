@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { animations } from '../animations';
-import { SharedService } from '../service.service';
+import { animations } from '../../animations';
+import { SharedService } from '../../service.service';
 const ASSETS = 'assets/';
 @Component({
   selector: 'app-title',

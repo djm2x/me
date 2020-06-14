@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { animations } from '../animations';
+import { animations } from '../../animations';
 
 @Component({
   selector: 'app-education',
