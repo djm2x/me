@@ -1,0 +1,33 @@
+.h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.075em;
+  text-align: center;
+  padding: 10rem 0;
+  color: aliceblue;
+}
+
+
+.img1{
+  /* background-image: url("../assets/1.jpg"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  background-attachment: fixed;
+}
+
+.between {
+  top: 0;
+  z-index: 1;
+  position: absolute;
+  border-style: solid;
+  border-width: 400px 0 0 100px;
+  border-color: rgba(223, 50, 50, 0) transparent transparent #06A763;
+}
+
+.text {
+    font-size: 15px;
+    line-height: 20px;
+}
