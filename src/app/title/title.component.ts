@@ -6,7 +6,7 @@ const ASSETS = '/assets/';
   selector: 'app-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss'],
-  animations: animations
+  animations: animations,
 })
 export class TitleComponent implements OnInit {
   static i = 0;
