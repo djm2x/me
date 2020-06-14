@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "f": "ng serve --port 4206",
-    "p": "ng build --prod --base-href=/me/",
+    "copy": "node --require ts-node/register ./copy.script.ts",
+    "p": "ng build --prod --base-href=/me/ && npm run copy",
     "git": "---------------------------------------------------------------------",
     "create-branch": "git branch new-one",
     "move-to-branch": "git checkout new-one",
