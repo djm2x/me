@@ -3,40 +3,47 @@
 @import "../node_modules/bootstrap-css-only/css/bootstrap.min.css";
 // @import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
 // @import "../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  --backGround-gray: rgb(246, 246, 248);
+}
 
-.img1{
-    /* background-image: url("../assets/1.jpg"); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
-    background-attachment: fixed;
-  }
+.img1 {
+  /* background-image: url("../assets/1.jpg"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  background-attachment: fixed;
+}
 
-  .h1 {
-    text-transform: uppercase;
-    font-weight: 900;
-    line-height: 1.5;
-    letter-spacing: 0.075em;
-    text-align: center;
-    padding: 4rem 0;
-    color: aliceblue;
-  }
+.h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.075em;
+  text-align: center;
+  padding: 4rem 0;
+  color: aliceblue;
+}
 
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // @import 'themes/black-theme.scss';
 @include mat-core();
 
 $candy-app-primary: mat-palette($mat-blue, 700);
-$candy-app-accent:  mat-palette($mat-yellow, 600);
-$candy-app-warn:    mat-palette($mat-red, 700);
+$candy-app-accent: mat-palette($mat-yellow, 600);
+$candy-app-warn: mat-palette($mat-red, 700);
 
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 
 $alt-primary: mat-palette($mat-purple, 700, 800, 900);
-$alt-accent:  mat-palette($mat-light-green, 700);
+$alt-accent: mat-palette($mat-light-green, 700);
 $alt-warn: mat-palette($mat-red, 700);
 
 $alt-theme: mat-dark-theme($alt-primary, $alt-accent, $alt-warn);
@@ -50,6 +57,3 @@ $alt-theme: mat-dark-theme($alt-primary, $alt-accent, $alt-warn);
   @include angular-material-theme($candy-app-theme);
   // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 }
-
-
-

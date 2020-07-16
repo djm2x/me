@@ -21,106 +21,28 @@
 </head>
 <body>
   <style>
-    #vex-splash-screen {
-      /* display: block;
+    body{
+      --background: #f5f5f8;
+      --spinner-circle: #e45c0d;
+      --spinner-background: var(--background);
+    }
+
+    #splash-screen {
+      display: block;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%; */
-      /* background: #13293d; */
-      z-index: 99999;
-      pointer-events: none;
-
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100vw;
-      height: 100vh;
+      background: var(--background);
+      z-index: 99999;
+      pointer-events: none;
     }
 
-    #vex-splash-screen .header {
-      /* z-index: 10;
-      color: white; */
-      margin-bottom: 7vh;
-    }
-
-    #vex-splash-screen>.wrapper {
-      /* position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%); */
-    }
-
-    @-webkit-keyframes ball-scale-multiple {
-      0% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-        opacity: 0;
-      }
-
-      5% {
-        opacity: 1;
-      }
-
-      100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        opacity: 0;
-      }
-    }
-
-    @keyframes ball-scale-multiple {
-      0% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-        opacity: 0;
-      }
-
-      5% {
-        opacity: 1;
-      }
-
-      100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        opacity: 0;
-      }
-    }
-
-    .ball-scale-multiple {
-      position: relative;
-      /* -webkit-transform: translateY(-30px);
-      transform: translateY(-30px); */
-    }
-
-    .ball-scale-multiple>div:nth-child(2) {
-      -webkit-animation-delay: -0.4s;
-      animation-delay: -0.4s;
-    }
-
-    .ball-scale-multiple>div:nth-child(3) {
-      -webkit-animation-delay: -0.2s;
-      animation-delay: -0.2s;
-    }
-
-    .ball-scale-multiple>div {
-      background-color: #2304bfb9;
-      border-radius: 100%;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-      position: absolute;
-      left: -45px;
-      top: 0;
-      opacity: 0;
-      margin: 0;
-      width: 90px;
-      height: 90px;
-      -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
-      animation: ball-scale-multiple 1s 0s linear infinite;
-    }
     .footer {
       position: absolute;
       bottom: 20px;
@@ -132,22 +54,68 @@
     .footer p {
       margin: 0;
       font-weight: bold;
+      color: rgb(17, 17, 17);
     }
 
+    .circle {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 370px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background: #ddd;
+      border-radius: 50%;
+    }
 
+    .inner-circle {
+      width: 92%;
+      height: 92%;
+      background: var(--spinner-background);
+      border-radius: 50%;
+      margin: auto;
+      vertical-align: middle;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+    }
+
+    .spinner {
+      height: 0;
+      width: 0;
+      border-radius: 50%;
+      border-right: 50px solid var(--spinner-circle);
+      border-top: 50px solid transparent;
+      border-left: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+
+      animation: rotate 1.5s infinite linear;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 
-  <div id="vex-splash-screen">
+  <div id="splash-screen">
     <div class="header">
       <!-- <img src="assets/logo.png" width="200" > -->
       <h1 style="font-weight: bold; color: #2304bfb9;">My Portfolio</h1>
     </div>
-    <div class="wrapper">
-      <div class="ball-scale-multiple">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+    <div class="circle">
+      <div class="spinner"></div>
+      <div class="inner-circle"></div>
     </div>
     <div class="footer">
       <!-- <img src="assets/favicon.png" width="50" height="50"> -->
