@@ -11,6 +11,16 @@ export class ExperienceComponent implements OnInit {
   state = 'hide';
   reccete = 'assets/recette.jpg';
   artisant = 'assets/artisant.jpg';
+  o = [
+    {
+      title: ``,
+      description: ``,
+      tech: ``,
+      image: ``,
+      url: ``,
+      git: ``,
+    },
+  ];
   constructor() { }
 
   ngOnInit() {}

@@ -1,78 +1,90 @@
 <header>
-  <!-- <app-loader class="topbar"></app-loader> -->
+    <!-- <app-loader class="topbar"></app-loader> -->
 
-  <mat-toolbar color="primary" class="fixed-top" style="min-height: 50px">
-      <mat-toolbar-row style="height: 50px;">
-          <button mat-button (click)="toggleSideNave()" routerLinkActive="active">
-              <mat-icon>menu</mat-icon>
-          </button>
-          <button mat-button (click)="scrollTo('section1')">
-              <mat-icon>home</mat-icon>
-          </button>
-          <span class="example-spacer"></span>
-          <mat-slide-toggle color="warn" checked="false" [disabled]="disabled" (click)="changeTheme()">
-          </mat-slide-toggle>
+    <mat-toolbar color="primary" class="fixed-top" style="min-height: 50px">
+        <mat-toolbar-row style="height: 50px;">
+            <button mat-button (click)="toggleSideNave()" routerLinkActive="active">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-button (click)="scrollTo('section1')">
+                <mat-icon>home</mat-icon>
+            </button>
+            <span class="example-spacer"></span>
+            <mat-slide-toggle color="warn" checked="false" [disabled]="disabled" (click)="changeTheme()">
+            </mat-slide-toggle>
 
-      </mat-toolbar-row>
-  </mat-toolbar>
+        </mat-toolbar-row>
+    </mat-toolbar>
 </header>
 <!-- <app-admin *ngIf="session.userRole()"></app-admin> -->
 <mat-sidenav-container class="example-sidenav-container">
-  <div #div (click)="snav.toggle()"></div>
-  <mat-sidenav #snav [mode]="(!mobileQuery.matches) ? 'side' : 'over'" [opened]="opened && (!mobileQuery.matches) ? true : false"
-      [fixedInViewport]="true" fixedTopGap="50" style="box-shadow: 2px 2px 10px 1px rgba(0,0,0,.2);">
+    <div #div (click)="snav.toggle()"></div>
+    <mat-sidenav #snav [mode]="(!mobileQuery.matches) ? 'side' : 'over'"
+        [opened]="opened && (!mobileQuery.matches) ? true : false" [fixedInViewport]="true" fixedTopGap="50"
+        style="box-shadow: 2px 2px 10px 1px rgba(0,0,0,.2);">
 
-      <mat-nav-list style="width: 180px; padding: 0;">
-          <div style="height:180px; padding: 0;">
-              <img matLine [src]="userImg" alt="mourabit" width="180px" height="180px">
+        <mat-nav-list style="width: 180px; padding: 0;">
+            <div style="height:180px; padding: 0;">
+                <img matLine [src]="userImg" alt="mourabit" width="180px" height="180px">
 
-              <!-- <h3 matLine>Mourabit</h3>
+                <!-- <h3 matLine>Mourabit</h3>
                   <p matLine>
                       <span> Web delelopper full-stack </span>
                       <span class="demo-2"> -- need for power </span>
                   </p> -->
-          </div>
-          <mat-list-item (click)="scrollTo('section1')" [ngStyle]="{'background-color': (currentSection === 'section1') ? 'rgba(73, 255, 185, 0.534)' : ''}">
-              <mat-icon style="margin-right: 5px;">info</mat-icon>
-              <span>About</span>
-              <span style="border-bottom: 5px solid rgba(73, 255, 185, 0.534);"></span>
-          </mat-list-item>
-          <mat-list-item (click)="scrollTo('section2')" [ngStyle]="{'background-color': (currentSection === 'section2') ? 'rgba(73, 255, 185, 0.534)' : ''}">
-              <i class="fas fa-university" style="font-size: 20px;margin-right: 5px;"></i>
-              <span>Education</span>
-          </mat-list-item>
-          <mat-list-item (click)="scrollTo('section3')" [ngStyle]="{'background-color': (currentSection === 'section3') ? 'rgba(73, 255, 185, 0.534)' : ''}">
-                  <i class="fas fa-tasks" style="font-size: 20px;margin-right: 5px;"></i>
-              <span>Skills</span>
-          </mat-list-item>
-          <mat-list-item (click)="scrollTo('section4')" [ngStyle]="{'background-color': (currentSection === 'section4') ? 'rgba(73, 255, 185, 0.534)' : ''}">
-              <mat-icon style="margin-right: 5px;">library_books</mat-icon>
-              <span>Experience</span>
-          </mat-list-item>
-          <mat-list-item (click)="scrollTo('section5')" [ngStyle]="{'background-color': (currentSection === 'section5') ? 'rgba(73, 255, 185, 0.534)' : ''}">
-                  <i class="fas fa-file-signature" style="font-size: 20px;margin-right: 5px;"></i>
-              <span>Contact</span>
-          </mat-list-item>
-      </mat-nav-list>
-  </mat-sidenav>
+            </div>
+            <mat-list-item (click)="scrollTo('section1')"
+                [ngStyle]="{'background-color': (currentSection === 'section1') ? 'rgba(73, 255, 185, 0.534)' : ''}">
+                <mat-icon>info</mat-icon>
+                <span>About</span>
+                <span style="border-bottom: 5px solid rgba(73, 255, 185, 0.534);"></span>
+            </mat-list-item>
+            <mat-list-item (click)="scrollTo('section2')"
+                [ngStyle]="{'background-color': (currentSection === 'section2') ? 'rgba(73, 255, 185, 0.534)' : ''}">
+                <i class="fas fa-university" style="font-size: 20px;margin-right: 5px;"></i>
+                <mat-icon>school</mat-icon>
+                <span>Education</span>
+            </mat-list-item>
+            <mat-list-item (click)="scrollTo('section3')"
+                [ngStyle]="{'background-color': (currentSection === 'section3') ? 'rgba(73, 255, 185, 0.534)' : ''}">
+                <i class="fas fa-tasks" style="font-size: 20px;margin-right: 5px;"></i>
+                <mat-icon>done_all</mat-icon>
 
-  <mat-sidenav-content style="overflow: hidden;">
-      <main>
-          <!-- <router-outlet>
+                <span>Skills</span>
+            </mat-list-item>
+            <mat-list-item (click)="scrollTo('section4')"
+                [ngStyle]="{'background-color': (currentSection === 'section4') ? 'rgba(73, 255, 185, 0.534)' : ''}">
+                <mat-icon>library_books</mat-icon>
+                <span>Experience</span>
+            </mat-list-item>
+            <mat-list-item (click)="scrollTo('section5')"
+                [ngStyle]="{'background-color': (currentSection === 'section5') ? 'rgba(73, 255, 185, 0.534)' : ''}">
+                <i class="fas fa-file-signature" style="font-size: 20px;margin-right: 5px;"></i>
+                <mat-icon>contact_mail</mat-icon>
+
+                <span>Contact</span>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="overflow: hidden;">
+        <main>
+            <!-- <router-outlet>
           </router-outlet> -->
-          <app-about id="section1"></app-about>
-          <app-education id="section2"></app-education>
-          <app-skills id="section3"></app-skills>
-          <app-experience id="section4"></app-experience>
-          <app-contact id="section5"></app-contact>
-      </main>
+            <app-about id="section1"></app-about>
+            <app-education id="section2"></app-education>
+            <app-skills id="section3"></app-skills>
+            <app-experience id="section4"></app-experience>
+            <app-contact id="section5"></app-contact>
+        </main>
 
-      <footer>
-          <mat-toolbar class="mt-2 text" color="primary">
-              <mat-toolbar-row style="height: 70px">
-                  <span style="margin-left: auto; margin-right: auto;"> © {{ d | date:"dd/MMMM/yyyy" }} - Mohamed MOURABIT</span>
-              </mat-toolbar-row>
-          </mat-toolbar>
-      </footer>
-  </mat-sidenav-content>
+        <footer>
+            <mat-toolbar class="mt-2 text" color="primary">
+                <mat-toolbar-row style="height: 70px">
+                    <span style="margin-left: auto; margin-right: auto;"> © {{ d | date:"dd/MMMM/yyyy" }} - Mohamed
+                        MOURABIT</span>
+                </mat-toolbar-row>
+            </mat-toolbar>
+        </footer>
+    </mat-sidenav-content>
 </mat-sidenav-container>
