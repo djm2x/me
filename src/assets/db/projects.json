@@ -1,74 +1,110 @@
 [
-    {
-        "title": "Recette de cuisine",
-        "date": "2018/09/01",
-        "description": "Site web pour ajouter des recette de cuisine",
-        "tech": "Angular, Angular material, Express js, MongoDB",
-        "image": "assets/recipe.png",
-        "url": "https://recette-cuisine.herokuapp.com",
-        "git": "https://github.com/djm2x/recipe"
-    },
-    {
-        "title": "Ouvrier/Professionnelle",
-        "date": "2018/11/01",
-        "description": "Site web pour trouver l'ouvrier/professionnelle le plus adequat/proche",
-        "tech": "Angular, Angular material, Asp .net core, Mysql",
-        "image": "assets/ouvrier.png",
-        "url": "https://ouvrier.herokuapp.com",
-        "git": "https://github.com/djm2x/ouvrier"
-    },
-    {
-        "title": "Produit cosmétique",
-        "date": "2019/02/01",
-        "description": "Site web pour gere les produit cosmétique avec un dashboard inspirer de cms wordpress",
-        "tech": "Angular, Angular material, Express js, MongoDB",
-        "image": "assets/produit_cosmetique.png",
-        "url": "https://forever-living.herokuapp.com",
-        "git": "https://github.com/djm2x/produit_cosmetique"
-    },
-    {
-        "title": "Système de Suivi des recommandations",
-        "date": "2019/11/01",
-        "description": "Intranet pour la suivi des recommandations pour la Délégation Interministérielle aux Droits de l'Homme",
-        "tech": "Angular, Angular material, Angular Internationalization, Asp .net core, Sql Server",
-        "image": "assets/didh.png",
-        "url": "https://didh.herokuapp.com",
-        "git": "https://github.com/djm2x/didh"
-    },
-    {
-        "title": "Système pour suivre le plan de mise en œuvre du plan d'action national dans le domaine de la démocratie et des droits de l'homme",
-        "date": "2020/02/01",
-        "description": "Intranet pour suivre le plan de mise en œuvre du plan d'action national dans le domaine de la démocratie et des droits de l'homme",
-        "tech": "Angular, Angular material, Asp .net core, Sql Server",
-        "image": "assets/panddh.png",
-        "url": "https://panddh.herokuapp.com",
-        "git": "https://github.com/djm2x/panddh"
-    },
-    {
-        "title": "Tourisme autoguidé ",
-        "date": "2020/02/01",
-        "description": "Site web qui vise les personnes ayant entre 18-25 ans désirant visiter un lieu sans avoir besoin d’un guide",
-        "tech": "Angular, Angular material, Express Ts, Sqlite",
-        "image": "assets/tourisme-autoguide.png",
-        "url": "https://tourisme-autoguide.herokuapp.com",
-        "git": "https://github.com/djm2x/tourisme"
-    },
-    {
-        "title": "Brik-afric",
-        "date": "2020/03/01",
-        "description": "Application web de gestion d'un magasin de quincaillerie et matériel de construction et bricolage",
-        "tech": "Angular, Angular material, Asp .net core, Sql Server",
-        "image": "assets/brik-afric.png",
-        "url": "https://aspme.herokuapp.com",
-        "git": "https://github.com/djm2x/brik-afric"
-    },
-    {
-        "title": "Centre National de Transfusion Sanguine et d'Hématologie",
-        "date": "2020/04/01",
-        "description": "Site web pour le Centre National de Transfusion Sanguine et d'Hématologie",
-        "tech": "Angular, Angular material, Laravel, Mysql",
-        "image": "assets/cntsh.png",
-        "url": "http://aucnom.com/",
-        "git": "https://github.com/djm2x/blood-donation"
-    },
+  {
+    "title": "Recette de cuisine",
+    "date": "2018/09/01",
+    "description": "Site web pour ajouter des recette de cuisine",
+    "tech": "Angular, Angular material, Express js, MongoDB",
+    "image": "assets/recipe.png",
+    "url": "https://recette-cuisine.herokuapp.com",
+    "git": "https://github.com/djm2x/recipe"
+  },
+  {
+    "title": "Ouvrier/Professionnelle",
+    "date": "2018/11/01",
+    "description": "Site web pour trouver l'ouvrier/professionnelle le plus adequat/proche",
+    "tech": "Angular, Angular material, Asp .net core, Mysql",
+    "image": "assets/ouvrier.png",
+    "url": "https://ouvrier.herokuapp.com",
+    "git": "https://github.com/djm2x/ouvrier"
+  },
+  {
+    "title": "Produit cosmétique",
+    "date": "2019/02/01",
+    "description": "Site web pour gere les produit cosmétique avec un dashboard inspirer de cms wordpress",
+    "tech": "Angular, Angular material, Express js, MongoDB",
+    "image": "assets/produit_cosmetique.png",
+    "url": "https://forever-living.herokuapp.com",
+    "git": "https://github.com/djm2x/produit_cosmetique"
+  },
+  {
+    "title": "Système de Suivi des recommandations",
+    "date": "2019/11/01",
+    "description": "Intranet pour la suivi des recommandations pour la Délégation Interministérielle aux Droits de l'Homme",
+    "tech": "Angular, Angular material, Angular Internationalization, Asp .net core, Sql Server",
+    "image": "assets/didh.png",
+    "url": "https://didh.herokuapp.com",
+    "git": "https://github.com/djm2x/didh"
+  },
+  {
+    "title": "Système pour suivre le plan de mise en œuvre du plan d'action national dans le domaine de la démocratie et des droits de l'homme",
+    "date": "2020/02/01",
+    "description": "Intranet pour suivre le plan de mise en œuvre du plan d'action national dans le domaine de la démocratie et des droits de l'homme",
+    "tech": "Angular, Angular material, Asp .net core, Sql Server",
+    "image": "assets/panddh.png",
+    "url": "https://panddh.herokuapp.com",
+    "git": "https://github.com/djm2x/panddh"
+  },
+  {
+    "title": "Tourisme autoguidé ",
+    "date": "2020/02/01",
+    "description": "Site web qui vise les personnes ayant entre 18-25 ans désirant visiter un lieu sans avoir besoin d’un guide",
+    "tech": "Angular, Angular material, Express Ts, Sqlite",
+    "image": "assets/tourisme-autoguide.png",
+    "url": "https://tourisme-autoguide.herokuapp.com",
+    "git": "https://github.com/djm2x/tourisme"
+  },
+  {
+    "title": "Brik-afric",
+    "date": "2020/03/01",
+    "description": "Application web de gestion d'un magasin de quincaillerie et matériel de construction et bricolage",
+    "tech": "Angular, Angular material, Asp .net core, Sql Server",
+    "image": "assets/brik-afric.png",
+    "url": "https://aspme.herokuapp.com",
+    "git": "https://github.com/djm2x/brik-afric"
+  },
+  {
+    "title": "Centre National de Transfusion Sanguine et d'Hématologie",
+    "date": "2020/04/01",
+    "description": "Site web pour le Centre National de Transfusion Sanguine et d'Hématologie",
+    "tech": "Angular, Angular material, Laravel, Mysql",
+    "image": "assets/cntsh.png",
+    "url": "http://aucnom.com/",
+    "git": "https://github.com/djm2x/blood-donation"
+  },
+  {
+    "title": "Connecting Group International",
+    "date": "2020/04/01",
+    "description": "Site web pour Connecting Group International avec un back-office pour ajouter les nouveau activites",
+    "tech": "Angular, Angular material, Laravel, Mysql",
+    "image": "assets/cgi.png",
+    "url": "http://connectingroup.org/",
+    "git": "https://github.com/djm2x/connectionggroup"
+  },
+  {
+    "title": "Système pour la gestion des biens informatique",
+    "date": "2020/06/19",
+    "description": "Application web pour la gestion des biens informatique",
+    "tech": "Angular, Angular material, Asp .net core, Sqlite",
+    "image": "assets/gestion-materiels.png",
+    "url": "https://gestion-materiels.herokuapp.com/",
+    "git": "https://github.com/djm2x/gestion-material"
+  },
+  {
+    "title": "System-info",
+    "date": "2020/06/19",
+    "description": "Application Bureau qui collecte les informations système (cpu, gpu, network, bios, model, ram ...), et une liste des applications installé sur l'appareil.",
+    "tech": "Angular, Angular material, Electron JS",
+    "image": "assets/system-info.png",
+    "url": "https://gestion-materiels.herokuapp.com/a/desktop",
+    "git": "https://github.com/djm2x/systeminformation-electron"
+  },
+  {
+    "title": "Suivi des activités des services déconcentrés - Ministère de l'Energie, des Mines et de l'Environnement",
+    "date": "2020/07/01",
+    "description": "Application web pour la Suivi des activités des services déconcentrés, systeme genere aussi les statiqtique de chaque activites",
+    "tech": "Angular, Angular material, Electron JS",
+    "image": "assets/system-info.png",
+    "url": "https://mem-ssa.herokuapp.com",
+    "git": "https://github.com/djm2x/mem"
+  },
 ]
