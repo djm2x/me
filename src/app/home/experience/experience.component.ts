@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { animations } from '../../animations';
+import { DbService } from 'src/app/db.service';
 
 @Component({
   selector: 'app-experience',
@@ -11,17 +12,8 @@ export class ExperienceComponent implements OnInit {
   state = 'hide';
   reccete = 'assets/recette.jpg';
   artisant = 'assets/artisant.jpg';
-  o = [
-    {
-      title: ``,
-      description: ``,
-      tech: ``,
-      image: ``,
-      url: ``,
-      git: ``,
-    },
-  ];
-  constructor() { }
+  list = this.service.projects();
+  constructor(private service: DbService) { }
 
   ngOnInit() {}
 
@@ -29,6 +21,10 @@ export class ExperienceComponent implements OnInit {
     if (pos === 4) {
       this.state = 'show';
     }
+  }
+
+  goto(url) {
+    return window.open(url, '_blank');
   }
 
   get gotoRecette() {

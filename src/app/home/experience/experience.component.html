@@ -2,35 +2,22 @@
 
 <div class="container" appScroll (sectionChange)="onSectionChange($event)">
   <div class="row justify-content-center">
-    <div class="col-md-6 text-center" [@scrollAnimation]="state">
-      <mat-card style="box-shadow: 2px 2px 10px 1px rgba(0,0,0,.2);margin: 20px 0 20px;">
+    <div *ngFor="let e of list | async; let i=index" class="col-md-3 text-center" [@scrollAnimation]="state">
+      <mat-card>
 
-        <img mat-card-image [src]="reccete" alt="Photo of a Shiba Inu">
+        <img mat-card-image [src]="e.image">
         <mat-card-content>
           <p>
-            Website to view recipes from the kitchen and share his knowledge.
-            Also we interact with the recipe author to contribute in the latter
-            to improve the quality of recipes and skills.
+            {{e.title}}
           </p>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-button (click)="gotoRecette">LINK</button>
+        <mat-card-actions class="d-flex justify-content-between">
+          <button mat-button (click)="goto(e.git)">Github</button>
+          <button mat-button (click)="goto(e.url)">LINK</button>
         </mat-card-actions>
       </mat-card>
     </div>
-    <div class="col-md-6 text-center" [@scrollAnimation]="state">
-      <mat-card style="box-shadow: 2px 2px 10px 1px rgba(0,0,0,.2);margin: 20px 0 20px;">
-        <img mat-card-image [src]="artisant" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            Web application created to find wanted craftsman. The App uses location,
-            comment and rating to find the closest and most suitable worker
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button (click)="gotoOuvrier">LINK</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+
+
   </div>
 </div>

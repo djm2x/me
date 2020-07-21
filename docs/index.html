@@ -2,126 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Front</title>
+  <title>Mohamed Mourabit</title>
   <base href="/me/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="icon" type="image/png" href="assets/fav.png">
   <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="styles.41d1b3cfc491cead69b1.css">
-<script>
-  (function(){
-    var redirect = sessionStorage.redirect;
-    delete sessionStorage.redirect;
-    if (redirect && redirect != location.href) {
-      history.replaceState(null, null, redirect);
-    }
-  })();
-</script>
-</head>
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <script>
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+<link rel="stylesheet" href="styles.bd13bfa2ca357a13e035.css"></head>
 <body>
   <style>
-    #vex-splash-screen {
-      /* display: block;
+    body{
+      --background: #f5f5f8;
+      --spinner-circle: #e45c0d;
+      --spinner-background: var(--background);
+    }
+
+    #splash-screen {
+      display: block;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%; */
-      /* background: #13293d; */
-      z-index: 99999;
-      pointer-events: none;
-
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100vw;
-      height: 100vh;
+      background: var(--background);
+      z-index: 99999;
+      pointer-events: none;
     }
 
-    #vex-splash-screen .header {
-      /* z-index: 10;
-      color: white; */
-      margin-bottom: 7vh;
-    }
-
-    #vex-splash-screen>.wrapper {
-      /* position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%); */
-    }
-
-    @-webkit-keyframes ball-scale-multiple {
-      0% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-        opacity: 0;
-      }
-
-      5% {
-        opacity: 1;
-      }
-
-      100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        opacity: 0;
-      }
-    }
-
-    @keyframes ball-scale-multiple {
-      0% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-        opacity: 0;
-      }
-
-      5% {
-        opacity: 1;
-      }
-
-      100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        opacity: 0;
-      }
-    }
-
-    .ball-scale-multiple {
-      position: relative;
-      /* -webkit-transform: translateY(-30px);
-      transform: translateY(-30px); */
-    }
-
-    .ball-scale-multiple>div:nth-child(2) {
-      -webkit-animation-delay: -0.4s;
-      animation-delay: -0.4s;
-    }
-
-    .ball-scale-multiple>div:nth-child(3) {
-      -webkit-animation-delay: -0.2s;
-      animation-delay: -0.2s;
-    }
-
-    .ball-scale-multiple>div {
-      background-color: #2304bfb9;
-      border-radius: 100%;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-      position: absolute;
-      left: -45px;
-      top: 0;
-      opacity: 0;
-      margin: 0;
-      width: 90px;
-      height: 90px;
-      -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
-      animation: ball-scale-multiple 1s 0s linear infinite;
-    }
     .footer {
       position: absolute;
       bottom: 20px;
@@ -133,22 +54,68 @@
     .footer p {
       margin: 0;
       font-weight: bold;
+      color: rgb(17, 17, 17);
     }
 
+    .circle {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 370px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background: #ddd;
+      border-radius: 50%;
+    }
 
+    .inner-circle {
+      width: 92%;
+      height: 92%;
+      background: var(--spinner-background);
+      border-radius: 50%;
+      margin: auto;
+      vertical-align: middle;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+    }
+
+    .spinner {
+      height: 0;
+      width: 0;
+      border-radius: 50%;
+      border-right: 50px solid var(--spinner-circle);
+      border-top: 50px solid transparent;
+      border-left: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+
+      animation: rotate 1.5s infinite linear;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 
-  <div id="vex-splash-screen">
+  <div id="splash-screen">
     <div class="header">
       <!-- <img src="assets/logo.png" width="200" > -->
       <h1 style="font-weight: bold; color: #2304bfb9;">My Portfolio</h1>
     </div>
-    <div class="wrapper">
-      <div class="ball-scale-multiple">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+    <div class="circle">
+      <div class="spinner"></div>
+      <div class="inner-circle"></div>
     </div>
     <div class="footer">
       <!-- <img src="assets/favicon.png" width="50" height="50"> -->
@@ -156,5 +123,5 @@
     </div>
   </div>
   <app-root></app-root>
-<script src="runtime.c02833c36663b1b8a4c3.js" defer></script><script src="polyfills-es5.015d8dc9f674c6ee1a1c.js" nomodule defer></script><script src="polyfills.ea6af735e399b9217896.js" defer></script><script src="main.a9977214de369eb813db.js" defer></script></body>
+<script src="runtime.d9864ed4e019e9ab3efa.js" defer></script><script src="polyfills-es5.0e4632e7a14bc24be236.js" nomodule defer></script><script src="polyfills.6d9e0c0027f786bd1755.js" defer></script><script src="main.4e5199424bfd5f889d4f.js" defer></script></body>
 </html>

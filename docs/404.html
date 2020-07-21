@@ -1,23 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-
-  <title>me & you</title>
-
+  <meta charset="utf-8">
+  <title>Mohamed Mourabit</title>
+  <base href="/me/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
+  <link rel="icon" type="image/png" href="assets/fav.png">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
   <script>
-    sessionStorage.redirect = location.href;
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
   </script>
-
-  <meta http-equiv="refresh" content="0;URL='/me'"></meta>
-</head>
-
+<link rel="stylesheet" href="styles.bd13bfa2ca357a13e035.css"></head>
 <body>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</body>
+  <style>
+    body{
+      --background: #f5f5f8;
+      --spinner-circle: #e45c0d;
+      --spinner-background: var(--background);
+    }
 
+    #splash-screen {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--background);
+      z-index: 99999;
+      pointer-events: none;
+    }
 
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer p {
+      margin: 0;
+      font-weight: bold;
+      color: rgb(17, 17, 17);
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 370px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background: #ddd;
+      border-radius: 50%;
+    }
+
+    .inner-circle {
+      width: 92%;
+      height: 92%;
+      background: var(--spinner-background);
+      border-radius: 50%;
+      margin: auto;
+      vertical-align: middle;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+
+    }
+
+    .spinner {
+      height: 0;
+      width: 0;
+      border-radius: 50%;
+      border-right: 50px solid var(--spinner-circle);
+      border-top: 50px solid transparent;
+      border-left: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+
+      animation: rotate 1.5s infinite linear;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <div id="splash-screen">
+    <div class="header">
+      <!-- <img src="assets/logo.png" width="200" > -->
+      <h1 style="font-weight: bold; color: #2304bfb9;">My Portfolio</h1>
+    </div>
+    <div class="circle">
+      <div class="spinner"></div>
+      <div class="inner-circle"></div>
+    </div>
+    <div class="footer">
+      <!-- <img src="assets/favicon.png" width="50" height="50"> -->
+      <p> - Mohamed-Mourabit</p>
+    </div>
+  </div>
+  <app-root></app-root>
+<script src="runtime.d9864ed4e019e9ab3efa.js" defer></script><script src="polyfills-es5.0e4632e7a14bc24be236.js" nomodule defer></script><script src="polyfills.6d9e0c0027f786bd1755.js" defer></script><script src="main.4e5199424bfd5f889d4f.js" defer></script></body>
 </html>
