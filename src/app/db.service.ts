@@ -10,21 +10,23 @@ export class DbService {
   constructor(private http: HttpClient) { }
 
   projects() {
-    return this.http.get<IDataBase>('assets/db/database.json').pipe(map(e => e.projects.sort((a, b) => b.id - a.id)));
+    return this.http.get<DataBase>('assets/db/database.json').pipe(map(e => e.projects.sort((a, b) => b.id - a.id)));
   }
 }
 
-export interface IDataBase {
-  projects: {
-    id: number,
-    title: string,
-    date: Date,
-    description: string,
-    tech: string,
-    image: string,
-    url: string,
-    git: string,
-  }[];
+export class DataBase {
+  projects: Project[] = [];
 
   skills: any[];
+}
+
+export class Project {
+  id = 0;
+  title = '';
+  date = new Date();
+  description = '';
+  tech = '';
+  image = '';
+  url = '';
+  git = '';
 }

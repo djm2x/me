@@ -13,6 +13,7 @@ import { TitleComponent } from './title/title.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatModule } from '../mat.module';
+import { DetailComponent } from './experience/detail/detail.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MatModule } from '../mat.module';
     ContactComponent,
     ScrollDirective,
     TitleComponent,
+    DetailComponent,
   ],
   imports: [
     CommonModule,

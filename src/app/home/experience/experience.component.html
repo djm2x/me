@@ -6,14 +6,17 @@
       <mat-card>
 
         <img mat-card-image [src]="e.image">
-        <mat-card-content>
+        <!-- <mat-divider></mat-divider> -->
+        <mat-card-content class="mt-2">
           <p>
             {{e.title}}
           </p>
         </mat-card-content>
-        <mat-card-actions class="d-flex justify-content-between">
-          <button mat-button (click)="goto(e.git)">Github</button>
-          <button mat-button (click)="goto(e.url)">LINK</button>
+
+        <mat-card-actions class="d-flex flex-row-reverse justify-content-between">
+          <button mat-stroked-button (click)="detail(e)">Detail</button>
+          <!-- <button mat-button (click)="goto(e.git)">Github</button>
+          <button mat-button (click)="goto(e.url)">LINK</button> -->
         </mat-card-actions>
       </mat-card>
     </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { animations } from '../../animations';
-import { DbService } from 'src/app/db.service';
+import { DbService, Project } from 'src/app/db.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailComponent } from './detail/detail.component';
 
 @Component({
   selector: 'app-experience',
@@ -13,7 +15,7 @@ export class ExperienceComponent implements OnInit {
   reccete = 'assets/recette.jpg';
   artisant = 'assets/artisant.jpg';
   list = this.service.projects();
-  constructor(private service: DbService) { }
+  constructor(private service: DbService, public dialog: MatDialog) { }
 
   ngOnInit() {}
 
@@ -27,12 +29,12 @@ export class ExperienceComponent implements OnInit {
     return window.open(url, '_blank');
   }
 
-  get gotoRecette() {
-    return window.open('https://recette-cuisine.herokuapp.com', '_blank');
-  }
-
-  get gotoOuvrier() {
-    return window.open('https://ouvrier.herokuapp.com', '_blank');
+  detail(o: Project) {
+    this.dialog.open(DetailComponent, {
+      width: '750px',
+      disableClose: true,
+      data: { model: o, title: o.title }
+    });
   }
 
 }
