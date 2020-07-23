@@ -1,31 +1,16 @@
 <app-title title="Skills" section="3"></app-title>
+
 <div class="container" appScroll (sectionChange)="onSectionChange($event)">
-    <mat-card style="box-shadow: 2px 2px 10px 1px rgba(0,0,0,.2);margin: 20px 0 20px;">
-    <div class="row justify-content-center">
-      <div [@scrollAnimation]="state" class="col-md-4 text-center">
-        <h3>Web development</h3>
-        <div *ngFor="let item of devWeb; let i=index" style="margin: 10px;">
-            <span>{{item.name}}</span>
-            <span style="float: right;">{{item.accuracy}}%</span>
-          <mat-progress-bar mode="determinate" [value]="item.accuracy"></mat-progress-bar>
+  <div class="row justify-content-center">
+    <div class="col-md-4" *ngFor="let e of list | async; let i=index">
+      <mat-card  [@scrollAnimation]="state">
+        <h3 style="text-transform: capitalize;">{{e.domaine}}</h3>
+        <div *ngFor="let o of e.items; let i=index" class="mb-2">
+          <span>{{o.name}}</span>
+          <span style="float: right;">{{o.value}}%</span>
+          <mat-progress-bar mode="determinate" [value]="o.value"></mat-progress-bar>
         </div>
-      </div>
-      <div [@scrollAnimation]="state" class="col-md-4 text-center">
-          <h3>Software</h3>
-          <div *ngFor="let item of software; let i=index" style="margin: 10px;">
-              <span>{{item.name}}</span>
-              <span style="float: right;">{{item.accuracy}}%</span>
-            <mat-progress-bar mode="determinate" [value]="item.accuracy"></mat-progress-bar>
-          </div>
-      </div>
-      <div [@scrollAnimation]="state" class="col-md-4 text-center">
-          <h3>Personal</h3>
-          <div *ngFor="let item of personal; let i=index" style="margin: 10px;">
-              <span>{{item.name}}</span>
-              <span style="float: right;">{{item.accuracy}}%</span>
-            <mat-progress-bar mode="determinate" [value]="item.accuracy"></mat-progress-bar>
-          </div>
-      </div>
+      </mat-card>
     </div>
-  </mat-card>
+  </div>
 </div>

@@ -10,14 +10,26 @@ export class DbService {
   constructor(private http: HttpClient) { }
 
   projects() {
-    return this.http.get<DataBase>('assets/db/database.json').pipe(map(e => e.projects.sort((a, b) => b.id - a.id)));
+    return this.all().pipe(map(e => e.projects.sort((a, b) => b.id - a.id)));
+  }
+
+  skills() {
+    return this.all().pipe(map(e => e.skills.sort((a, b) => a.id - b.id)));
+  }
+
+  educations() {
+    return this.all().pipe(map(e => e.educations.sort((a, b) => b.id - a.id)));
+  }
+
+  all() {
+    return this.http.get<DataBase>('assets/db/database.json');
   }
 }
 
 export class DataBase {
   projects: Project[] = [];
-
-  skills: any[];
+  skills: Skill[];
+  educations: Education[];
 }
 
 export class Project {
@@ -29,4 +41,17 @@ export class Project {
   image = '';
   url = '';
   git = '';
+}
+
+export class Skill {
+  id = 0;
+  domaine = '';
+  items: {name: string, value: number}[] = [];
+}
+
+export class Education {
+  id = 0;
+  period = '';
+  dipolma = '';
+  universite = '';
 }
