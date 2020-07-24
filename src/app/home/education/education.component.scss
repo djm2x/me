@@ -11,14 +11,20 @@
 }
 
 p {
-  margin: 30px 0 10px;
+  // margin: 30px 0 10px;
 }
+.mycard {
+  box-shadow: 1px 1px 4px rgb(189, 189, 189);
+  padding: 5px;
+  margin-bottom: 10px;
 
-// p:hover {
-//   background: #f5f5f5;
-//   // height: 20px;
-// }
+  p{
+    margin: 0;
+  }
 
-// p:active {
-//   background: #efefef;
-// }
+  .title{
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+  }
+}

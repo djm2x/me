@@ -179,7 +179,7 @@
       ]
     }
   ],
-  "Education": [
+  "educations": [
     {
       "id": 1,
       "period": "2007-2008",
@@ -215,6 +215,22 @@
       "period": "2019-2020",
       "dipolma": "LP Conduite de projets parcours Tech Dev Web",
       "universite": "FST LIMOGES FRANCE"
+    }
+  ],
+  "about": [
+    { "firstName": "Mohamed" },
+    { "lastName": "Mourabit" },
+    { "profession": "Developpeur web full stack" },
+    { "image": "me.png" },
+    {
+      "info": [
+        { "icon": "mail", "name": "mohamed.mourabit@outlook.com" },
+        { "icon": "web", "name": "https://mourabit-mohamed.firebaseapp.com" },
+        { "icon": "linkedin", "name": "https://www.linkedin.com/in/mohamed-mourabit" },
+        { "icon": "github", "name": "https://github.com/djm2x" },
+        { "icon": "tel", "name": "(+212) 6 71 26 54 78" },
+        { "icon": "address", "name": "Hay maamoura-TEMARA" }
+      ]
     }
   ]
 }

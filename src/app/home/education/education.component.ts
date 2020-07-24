@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { animations } from '../../animations';
+import { DbService } from 'src/app/db.service';
 
 @Component({
   selector: 'app-education',
@@ -8,7 +9,7 @@ import { animations } from '../../animations';
   animations: animations
 })
 export class EducationComponent implements OnInit {
-  list = [
+  list2 = [
     { icon: 'school', name: '2018: Degree in IT development' },
     { icon: 'book', name: '2018: Microsoft certified Querying Microsoft SQL Server 2012/2014' },
     { icon: 'book', name: '2017: Microsoft certified Developing ASP.NET MVC Web Applications' },
@@ -20,7 +21,8 @@ export class EducationComponent implements OnInit {
     { icon: 'school', name: `2008: bachelor's degree in experimental science` },
   ];
   state = 'hide';
-  constructor() { }
+  list = this.service.educations();
+  constructor(private service: DbService) { }
 
   ngOnInit() {
   }
