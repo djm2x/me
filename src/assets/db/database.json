@@ -217,20 +217,19 @@
       "universite": "FST LIMOGES FRANCE"
     }
   ],
-  "about": [
-    { "firstName": "Mohamed" },
-    { "lastName": "Mourabit" },
-    { "profession": "Developpeur web full stack" },
-    { "image": "me.png" },
-    {
-      "info": [
-        { "icon": "mail", "name": "mohamed.mourabit@outlook.com" },
-        { "icon": "web", "name": "https://mourabit-mohamed.firebaseapp.com" },
-        { "icon": "linkedin", "name": "https://www.linkedin.com/in/mohamed-mourabit" },
-        { "icon": "github", "name": "https://github.com/djm2x" },
-        { "icon": "tel", "name": "(+212) 6 71 26 54 78" },
-        { "icon": "address", "name": "Hay maamoura-TEMARA" }
-      ]
-    }
-  ]
+  "about": {
+    "intro": "My passion is to create from zero line to full application thats may hepls others for their lifes. so i teel my self always : \"I need more power\".",
+    "firstName": "Mohamed",
+    "lastName": "Mourabit",
+    "profession": "Developpeur web full stack",
+    "image": "assets/me.jpg",
+    "info": [
+      { "icon": "mail", "name": "mohamed.mourabit@outlook.com" },
+      { "icon": "web", "name": "https://mourabit-mohamed.firebaseapp.com" },
+      { "icon": "linkedin", "name": "https://www.linkedin.com/in/mohamed-mourabit" },
+      { "icon": "github", "name": "https://github.com/djm2x" },
+      { "icon": "tel", "name": "(+212) 6 71 26 54 78" },
+      { "icon": "address", "name": "Hay maamoura-TEMARA" }
+    ]
+  }
 }

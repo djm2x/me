@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { animations } from '../../animations';
 import { SharedService } from '../../service.service';
+import { DbService, About } from 'src/app/db.service';
 
 
 @Component({
@@ -24,10 +25,13 @@ export class AboutComponent implements OnInit {
     // { icon: 'fas fa-phone', name: '(+212) 6 71 26 54 78' },
     { icon: 'fas fa-map-marker-alt', name: 'Hay maamoura-TEMARA' },
   ];
-
-  constructor(public service: SharedService) {}
+  o = new About();
+  constructor(private service: DbService, public service2: SharedService) {}
 
   ngOnInit(): void {
+    this.service.about().subscribe(r => {
+      this.o = r;
+    })
     setTimeout(() => this.state = 'show', 500);
   }
 

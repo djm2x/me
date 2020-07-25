@@ -21,6 +21,10 @@ export class DbService {
     return this.all().pipe(map(e => e.educations.sort((a, b) => b.id - a.id)));
   }
 
+  about() {
+    return this.all().pipe(map(e => e.about));
+  }
+
   all() {
     return this.http.get<DataBase>('assets/db/database.json');
   }
@@ -28,8 +32,9 @@ export class DbService {
 
 export class DataBase {
   projects: Project[] = [];
-  skills: Skill[];
-  educations: Education[];
+  skills: Skill[] = [];
+  educations: Education[] = [];
+  about = new About();
 }
 
 export class Project {
@@ -46,7 +51,7 @@ export class Project {
 export class Skill {
   id = 0;
   domaine = '';
-  items: {name: string, value: number}[] = [];
+  items: { name: string, value: number }[] = [];
 }
 
 export class Education {
@@ -54,4 +59,13 @@ export class Education {
   period = '';
   dipolma = '';
   universite = '';
+}
+
+export class About {
+  intro = '';
+  firstName = '';
+  lastName = '';
+  profession = '';
+  image = '';
+  info: { icon: string, name: string }[] = [];
 }

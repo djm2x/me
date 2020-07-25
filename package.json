@@ -13,7 +13,7 @@
     "merge-branch-to-master-branch": "git merge new-one",
     "init": "git init && git remote add origin https://github.com/djm2x/me.git",
     "push": "git add . && git commit -m \"me & you\" && git push -u origin master",
-    "ci": "npm run p && npm run push"
+    "ci": "npm run f-p && npm run push"
   },
   "private": true,
   "dependencies": {

@@ -1,33 +1,17 @@
-.h1 {
-  text-transform: uppercase;
-  font-weight: 900;
-  line-height: 1.5;
-  letter-spacing: 0.075em;
-  text-align: center;
-  padding: 10rem 0;
-  color: aliceblue;
+mat-card {
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+  margin: -140px 0 20px 0;
+  // height: 500px;
 }
 
-
-.img1{
-  /* background-image: url("../assets/1.jpg"); */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 500px;
-  background-attachment: fixed;
+img {
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border: 1px solid #f7f7f7;
 }
 
-.between {
-  top: 0;
-  z-index: 1;
-  position: absolute;
-  border-style: solid;
-  border-width: 400px 0 0 100px;
-  border-color: rgba(223, 50, 50, 0) transparent transparent #06A763;
-}
-
-.text {
-    font-size: 15px;
-    line-height: 20px;
+button {
+  width: 200px;
+  height: 55px;
 }

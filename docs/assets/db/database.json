@@ -122,6 +122,114 @@
     }
   ],
   "skills": [
-
-  ]
+    {
+      "id": 1,
+      "domaine": "front-end",
+      "items": [
+        { "name": "Angular", "value": 95 },
+        { "name": "Angular Material", "value": 95 },
+        { "name": "Bootstrap", "value": 70 }
+      ]
+    },
+    {
+      "id": 2,
+      "domaine": "back-end",
+      "items": [
+        { "name": "ASP.NET  core", "value": 95 },
+        { "name": "Node js (Express Js & Ts)", "value": 90 },
+        { "name": "Laravel", "value": 90 }
+      ]
+    },
+    {
+      "id": 3,
+      "domaine": "Mobile / Desktop",
+      "items": [
+        { "name": "Ionic (Angular)", "value": 70 },
+        { "name": "Electron Js (Angular)", "value": 85 }
+      ]
+    },
+    {
+      "id": 4,
+      "domaine": "Database",
+      "items": [
+        { "name": "Sqlite", "value": 90 },
+        { "name": "MySQL", "value": 80 },
+        { "name": "SQL Server", "value": 80 },
+        { "name": "MongoDB", "value": 90 }
+      ]
+    },
+    {
+      "id": 5,
+      "domaine": "Dev-ops",
+      "items": [
+        { "name": "Github", "value": 80 },
+        { "name": "Npm", "value": 90 },
+        { "name": "heroku deployment", "value": 90 }
+      ]
+    },
+    {
+      "id": 6,
+      "domaine": "Outils",
+      "items": [
+        { "name": "Visual Studio code", "value": 90 },
+        { "name": "Adobe XD", "value": 70 },
+        { "name": "Adobe Photoshop", "value": 90 },
+        { "name": "FileZilla", "value": 80 },
+        { "name": "FL Studio", "value": 90 }
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "id": 1,
+      "period": "2007-2008",
+      "dipolma": "Baccalauréat Science Physique",
+      "universite": "Lycée Moulay Ali Charif TEMARA"
+    },
+    {
+      "id": 2,
+      "period": "2008-2010",
+      "dipolma": "DUT Lieutenant de Maritime",
+      "universite": "ISPM AGADIR"
+    },
+    {
+      "id": 3,
+      "period": "2014-2015",
+      "dipolma": "Licence professionnel en Pêche",
+      "universite": "ISPM AGADIR"
+    },
+    {
+      "id": 4,
+      "period": "2017",
+      "dipolma": "Certification Microsoft (en ASP.NET MVC 5, SQL SERVER 2014, C#, « HTML – CSS – JAVASCRIPT », WINDOWS 7)",
+      "universite": "ISTA TEMARA"
+    },
+    {
+      "id": 5,
+      "period": "2016-2018",
+      "dipolma": "DTS Développement Informatique",
+      "universite": "ISTA TEMARA"
+    },
+    {
+      "id": 6,
+      "period": "2019-2020",
+      "dipolma": "LP Conduite de projets parcours Tech Dev Web",
+      "universite": "FST LIMOGES FRANCE"
+    }
+  ],
+  "about": {
+    "intro": "My passion is to create from zero line to full application thats may hepls others for their lifes. so i teel my self always : \"I need more power\".",
+    "firstName": "Mohamed",
+    "lastName": "Mourabit",
+    "profession": "Developpeur web full stack",
+    "image": "assets/me.jpg",
+    "info": [
+      { "icon": "mail", "name": "mohamed.mourabit@outlook.com" },
+      { "icon": "web", "name": "https://mourabit-mohamed.firebaseapp.com" },
+      { "icon": "linkedin", "name": "https://www.linkedin.com/in/mohamed-mourabit" },
+      { "icon": "github", "name": "https://github.com/djm2x" },
+      { "icon": "tel", "name": "(+212) 6 71 26 54 78" },
+      { "icon": "address", "name": "Hay maamoura-TEMARA" }
+    ]
+  }
 }
