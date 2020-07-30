@@ -7,25 +7,18 @@ export enum IntersectionStatus {
   NotVisible = 'NotVisible'
 }
 
-export const fromIntersectionObserver = (
-  element: HTMLElement,
-  config: IntersectionObserverInit,
-  debounce = 0
-) =>
+export const fromIntersectionObserver = (element: HTMLElement, config: IntersectionObserverInit, debounce = 0) =>
   new Observable<IntersectionStatus>(subscriber => {
-    const subject$ = new Subject<{
-      entry: IntersectionObserverEntry;
-      observer: IntersectionObserver;
-    }>();
 
-    const intersectionObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (isIntersecting(entry)) {
-            subject$.next({ entry, observer });
-          }
-        });
-      },
+    const subject$ = new Subject<{ entry: IntersectionObserverEntry; observer: IntersectionObserver; }>();
+
+    const intersectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (isIntersecting(entry)) {
+          subject$.next({ entry, observer });
+        }
+      });
+    },
       config
     );
 
@@ -33,21 +26,17 @@ export const fromIntersectionObserver = (
       subscriber.next(IntersectionStatus.Pending);
     });
 
-    subject$
-      .pipe(
-        debounceTime(debounce),
-        filter(Boolean)
-      )
-      .subscribe(async ({ entry, observer }) => {
-        const isEntryVisible = await isVisible(entry.target as HTMLElement);
+    subject$.pipe(debounceTime(debounce), filter(Boolean)).subscribe(async ({ entry, observer }) => {
+      const isEntryVisible = await isVisible(entry.target as HTMLElement);
 
-        if (isEntryVisible) {
-          subscriber.next(IntersectionStatus.Visible);
-          observer.unobserve(entry.target);
-        } else {
-          subscriber.next(IntersectionStatus.NotVisible);
-        }
-      });
+      if (isEntryVisible) {
+        subscriber.next(IntersectionStatus.Visible);
+        observer.unobserve(entry.target);
+      } else {
+        subscriber.next(IntersectionStatus.NotVisible);
+      }
+
+    });
 
     intersectionObserver.observe(element);
 

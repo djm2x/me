@@ -12,18 +12,10 @@ import { DetailComponent } from './detail/detail.component';
 })
 export class ExperienceComponent implements OnInit {
   state = 'hide';
-  reccete = 'assets/recette.jpg';
-  artisant = 'assets/artisant.jpg';
   list = this.service.projects();
   constructor(private service: DbService, public dialog: MatDialog) { }
 
   ngOnInit() {}
-
-  onSectionChange(pos) {
-    if (pos === 4) {
-      this.state = 'show';
-    }
-  }
 
   goto(url) {
     return window.open(url, '_blank');

@@ -15,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatModule } from '../mat.module';
 import { DetailComponent } from './experience/detail/detail.component';
 
-
 @NgModule({
   declarations: [
     HomeComponent,

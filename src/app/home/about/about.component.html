@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" appScroll (visibilityChange)="$event === true ? state = 'show' : state = 'hide'">
   <mat-card [@scrollAnimation]="state">
     <div class="row  justify-content-center">
       <div class="col-md-7 text">
@@ -20,7 +20,7 @@
         <div class="d-flex mt-4">
           <button mat-raised-button color="primary">Mon CV</button>
           &nbsp;&nbsp;
-          <button mat-raised-button color="accent">Projects</button>
+          <button mat-raised-button color="accent" (click)="scrollTo('section4')">Projects</button>
         </div>
       </div>
       <!-- <div class="between">

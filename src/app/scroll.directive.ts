@@ -1,89 +1,37 @@
-import { Directive, HostListener, Output, EventEmitter } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Directive, Output, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Subject, Observable, Subscription } from 'rxjs';
 
 @Directive({
   selector: '[appScroll]'
 })
-export class ScrollDirective {
-  navIsFixed = false;
-  state = 'hide';
-  @Output() public sectionChange = new EventEmitter<number>();
-  list: Section[] = [
-    // { section: 1, position: 11 },
-    { name: 'education', section: 2, position: 15 },
-    { name: 'skills', section: 3, position: 38 },
-    { name: 'experience', section: 4, position: 57 },
-    { name: 'contact', section: 5, position: 83 },
-  ];
-  constructor() { }
+export class ScrollDirective implements OnInit, OnDestroy {
 
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll(event: any) {
-    // console.log(this.scrollPosition);
-    this.list.forEach(e => {
-      if (this.scrollPosition > e.position) {
-        this.sectionChange.next(e.section);
-      }
+  @Output() visibilityChange = new Subject<boolean>();
+  sub: Subscription = null;
+
+  constructor(private el: ElementRef) { }
+
+  ngOnInit(): void {
+    this.sub = this.intersection().subscribe(isVisible => this.visibilityChange.next(isVisible));
+  }
+
+  intersection() {
+    const cfg: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '0px 0px -400px 0px',
+      threshold: [0]
+    };
+
+    return new Observable<boolean>(obs => {
+
+      const inter = new IntersectionObserver((entries, o) =>
+        entries.forEach((e) => (e.isIntersecting || e.intersectionRatio > 0) ? obs.next(true) : obs.next(false)), cfg);
+
+      inter.observe(this.el.nativeElement);
     });
-    // if (this.scrollPosition > 11) {
-    //   this.eventsSubject.next();
-    //   this.state = 'show';
-    //   this.navIsFixed = true;
-    // } else {
-    //   // console.log('less  than 60');
-    //   this.navIsFixed = false;
-    //   this.state = 'hide';
-    // }
   }
 
-  get scrollPosition(): number {
-    const currentScroll = window.pageYOffset || 0;
-    const maxScroll = this.getMaxScroll(document);
-
-    // Ensure that the percentage falls strictly within (0,1).
-    let percent = (currentScroll / Math.max(maxScroll, 1));
-    percent = Math.max(percent, 0);
-    percent = Math.min(percent, 1);
-    // Return the percentage in a more human-consumable format.
-    // console.log(Math.round(percent * 100));
-    return Math.round(percent * 100);
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
-
-  private getMaxScroll(node: any): number {
-
-    // When we want to get the available scroll height of the DOCUMENT, things get
-    // a little peculiar from a cross-browser consistency standpoint. As such, when
-    // dealing with the Document node, we have to look in a few different places.
-    // --
-    // READ MORE: https://javascript.info/size-and-scroll-window
-    if (node instanceof Document) {
-
-      const scrollHeight = Math.max(
-        node.body.scrollHeight,
-        node.body.offsetHeight,
-        node.body.clientHeight,
-        node.documentElement.scrollHeight,
-        node.documentElement.offsetHeight,
-        node.documentElement.clientHeight
-      );
-
-      const clientHeight = node.documentElement.clientHeight;
-
-      return (scrollHeight - clientHeight);
-
-    } else {
-      return (node.scrollHeight - node.clientHeight);
-    }
-  }
-
-  // @HostListener('scroll', ['$event'])
-  // private onScroll($event: Event): void {
-  //   console.log($event.srcElement.scrollLeft, $event.srcElement.scrollTop);
-  // }
-}
-
-interface Section {
-  name: string;
-  section: number;
-  position: number;
 }
