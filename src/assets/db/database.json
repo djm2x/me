@@ -1,4 +1,69 @@
 {
+  "experiences": [
+    {
+      "id": 1,
+      "period": "2018-05",
+      "societe": "Pixie Web",
+      "job": "Developpeur web Full Stack",
+      "task": "Conception et développement d'une application web",
+      "tech":"Angular, Asp core, SignalR et Sql server, Bootstrap 4",
+      "links":""
+    },
+    {
+      "id": 2,
+      "period": "2018-08",
+      "societe": "Localhost",
+      "job": "Developpeur web Full Stack",
+      "task": "Application web de recette de cuisine",
+      "tech":"Angular, Angular Universal, Node expresse js (API), Mongo db, JWT, Socket io",
+      "links":"recipe;"
+    },
+    {
+      "id": 3,
+      "period": "2018-11",
+      "societe": "Localhost",
+      "job": "Developpeur web Full Stack",
+      "task": "Site web pour trouver l'ouvrier/professionnelle le plus adequat/proche",
+      "tech":"Angular, Angular material, Asp .net core, Mysql",
+      "links":"ouvrier;"
+    },
+    {
+      "id": 4,
+      "period": "2019-01 à 2019-07",
+      "societe": "Harmony Technology",
+      "job": "Developpeur web Full Stack",
+      "task": "Projet de développement de système RFID pour la traçabilité des bandes de sauvegarde",
+      "tech":"RFID API, Asp.net, Sql server, Angular, SignalR",
+      "links":""
+    },
+    {
+      "id": 3,
+      "period": "2019-11 à 2020-09",
+      "societe": "MARIT",
+      "job": "Developpeur web Full Stack",
+      "task": "Site web et application web Intanet",
+      "tech":"Angular, Angular material, Asp .net core, Laravel 7, Sql Server, Mysql",
+      "links":"didh;panddh;brik-afric;blood-donation;connectionggroup;mem;"
+    },
+    {
+      "id": 5,
+      "period": "2020-02 à 2020-03",
+      "societe": "Licence Professionnelle Tech Dev We (Projet tuteuré)",
+      "job": "Developpeur web Full Stack",
+      "task": "Site web qui vise les personnes ayant entre 18-25 ans désirant visiter un lieu sans avoir besoin d’un guide",
+      "tech":"Angular, Angular material, Express JS/Ts, Sqlite",
+      "links":""
+    },
+    {
+      "id": 6,
+      "period": "2020-03 à 2020-06",
+      "societe": "Licence Professionnelle Tech Dev We (Stage d'application professionnelle)",
+      "job": "Developpeur Full Stack",
+      "task": "Système pour la gestion des biens informatique et Application Bureau qui collecte les informations système (cpu, gpu, network, bios, model, ram ...), et une liste des applications installé sur l'appareil.",
+      "tech":"Angular, Angular material, Asp .net core, Sqlite, Electron JS/TS",
+      "links":"gestion-material;systeminformation-electron;"
+    }
+  ],
   "projects": [
     {
       "id": 1,
@@ -55,7 +120,7 @@
       "title": "Tourisme autoguidé",
       "date": "2020/02/01",
       "description": "Site web qui vise les personnes ayant entre 18-25 ans désirant visiter un lieu sans avoir besoin d’un guide",
-      "tech": "Angular, Angular material, Express Ts, Sqlite",
+      "tech": "Angular, Angular material, Express JS/Ts, Sqlite",
       "image": "assets/tourisme-autoguide.jpg",
       "url": "https://tourisme-autoguide.herokuapp.com",
       "git": "https://github.com/djm2x/tourisme"
@@ -105,7 +170,7 @@
       "title": "System-info",
       "date": "2020/06/19",
       "description": "Application Bureau qui collecte les informations système (cpu, gpu, network, bios, model, ram ...), et une liste des applications installé sur l'appareil.",
-      "tech": "Angular, Angular material, Electron JS",
+      "tech": "Angular, Angular material, Electron JS/Ts",
       "image": "assets/system-info.jpg",
       "url": "https://gestion-materiels.herokuapp.com/a/desktop",
       "git": "https://github.com/djm2x/systeminformation-electron"

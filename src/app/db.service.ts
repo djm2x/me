@@ -9,6 +9,10 @@ export class DbService {
 
   constructor(private http: HttpClient) { }
 
+  experience() {
+    return this.all().pipe(map(e => e.experiences.sort((a, b) => b.id - a.id)));
+  }
+
   projects() {
     return this.all().pipe(map(e => e.projects.sort((a, b) => b.id - a.id)));
   }
@@ -31,10 +35,21 @@ export class DbService {
 }
 
 export class DataBase {
+  experiences: Experience[] = [];
   projects: Project[] = [];
   skills: Skill[] = [];
   educations: Education[] = [];
   about = new About();
+}
+
+export class Experience {
+  id = 0;
+  period = '';
+  societe = '';
+  job = '';
+  task = '';
+  tech = '';
+  links = '';
 }
 
 export class Project {
