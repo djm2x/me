@@ -224,12 +224,12 @@
     "profession": "Developpeur web full stack",
     "image": "assets/me.jpg",
     "info": [
-      { "icon": "mail", "name": "mohamed.mourabit@outlook.com" },
-      { "icon": "web", "name": "https://mourabit-mohamed.firebaseapp.com" },
-      { "icon": "linkedin", "name": "https://www.linkedin.com/in/mohamed-mourabit" },
-      { "icon": "github", "name": "https://github.com/djm2x" },
-      { "icon": "tel", "name": "(+212) 6 71 26 54 78" },
-      { "icon": "address", "name": "Hay maamoura-TEMARA" }
+      { "icon": "fas fa-envelope-square", "name": "mohamed.mourabit@outlook.com" },
+      { "icon": "language", "name": "https://mourabit-mohamed.firebaseapp.com" },
+      { "icon": "fab fa-linkedin", "name": "https://www.linkedin.com/in/mohamed-mourabit" },
+      { "icon": "fab fa-github-square", "name": "https://github.com/djm2x" },
+      { "icon": "fas fa-phone-square", "name": "(+212) 6 71 26 54 78" },
+      { "icon": "fas fa-address-card", "name": "Hay maamoura-TEMARA" }
     ]
   }
 }

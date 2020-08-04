@@ -1,1 +1,26 @@
+<header>
+  <!-- <app-loader class="topbar"></app-loader> -->
+
+  <mat-toolbar color="primary" class="mat-elevation-z6" style="min-height: 50px">
+      <mat-toolbar-row style="height: 50px;">
+          <button mat-button routerLinkActive="active">
+            <!-- (click)="toggleSideNave()" -->
+              <mat-icon>menu</mat-icon>
+          </button>
+          <button mat-button  [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <!-- (click)="scrollTo('section1')" -->
+              <mat-icon>home</mat-icon>
+          </button>
+
+          <button mat-button [routerLink]="['/cv']" routerLinkActive="router-link-active" >
+            <!-- (click)="scrollTo('section1')" -->
+              <mat-icon>import_contacts</mat-icon>
+          </button>
+          <span style="flex: 1 1 auto;"></span>
+          <mat-slide-toggle color="warn" checked="false" [disabled]="disabled" (click)="changeTheme()">
+          </mat-slide-toggle>
+
+      </mat-toolbar-row>
+  </mat-toolbar>
+</header>
 <router-outlet></router-outlet>

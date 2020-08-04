@@ -1,21 +1,4 @@
-<header>
-    <!-- <app-loader class="topbar"></app-loader> -->
 
-    <mat-toolbar color="primary" class="fixed-top" style="min-height: 50px">
-        <mat-toolbar-row style="height: 50px;">
-            <button mat-button (click)="toggleSideNave()" routerLinkActive="active">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <button mat-button (click)="scrollTo('section1')">
-                <mat-icon>home</mat-icon>
-            </button>
-            <span class="example-spacer"></span>
-            <mat-slide-toggle color="warn" checked="false" [disabled]="disabled" (click)="changeTheme()">
-            </mat-slide-toggle>
-
-        </mat-toolbar-row>
-    </mat-toolbar>
-</header>
 <!-- <app-admin *ngIf="session.userRole()"></app-admin> -->
 <mat-sidenav-container class="example-sidenav-container">
     <div #div (click)="snav.toggle()"></div>
