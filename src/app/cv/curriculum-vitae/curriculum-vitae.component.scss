@@ -1,5 +1,5 @@
 .host {
-  background-color: rgb(40, 40, 41);;
+  background-color: rgb(40, 40, 41);
   display: flex;
   flex-direction: column;
 }
@@ -7,34 +7,107 @@
 .page {
   width: 208mm;
   min-height: 295mm;
-  padding: 5mm 10mm;
+  padding: 2mm 2mm;
   margin: 0mm auto;
   background-color: white;
   // border: 1px #d3d3d3 solid;
   // border-radius: 5px;
   // background: rgb(239, 239, 241);
   // box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  span {
+    font-size: 0.8em;
+  }
 
-  header {
+  p {
+    margin: 0;
+    font-size: 0.75em;
+  }
+
+
+  aside {
     // background-color: rgb(241, 241, 241);
-    box-shadow: 1px 1px rgba(255, 166, 0, 0.384);
-    border-left: solid orange 4px;
+    // box-shadow: 1px 1px rgba(255, 166, 0, 0.384);
+    // border-left: solid orange 4px;
+    // background-color: white;
+    // margin-right: 5px;
     padding: 2mm;
-    me {
-      display: flex;
+    img {
+      width: 180px;
     }
 
-    img {
-      border-radius: 50%;
-      height: 250px;
-      width: 250px;
-      border: 1px solid #f7f7f7;
+
+
+
+    .skills {
+      .title {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .domaine {
+        font-weight: bold;
+        font-style: italic;
+      }
+    }
+
+    .langs {
+      .title {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .lang {
+        font-weight: bold;
+        font-style: italic;
+      }
     }
   }
 
-  .projects {
-    box-shadow: 1px 1px rgba(0, 0, 255, 0.384);
-    border-left: solid blue 4px;
+  summary {
+    // box-shadow: 1px 1px rgba(0, 0, 255, 0.384);
+    // border-left: solid blue 4px;
+    // background-color: white;
     padding: 2mm;
+    // margin-left: 5px;
+    .title {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .about {
+      display: flex;
+      flex-direction: column;
+      .name {
+        margin: 0;
+        span:nth-child(1) {
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+
+        span:nth-child(2) {
+          font-size: 1.5em;
+          // font-weight: bold;
+        }
+      }
+
+      span {
+        font-size: 0.8em;
+      }
+    }
+
+    .experiences {
+
+      .date {
+        font-weight: bold;
+      }
+
+      .desc {
+        font-style: italic;
+      }
+
+      .societe {
+        // font-style: italic;
+      }
+    }
   }
 }

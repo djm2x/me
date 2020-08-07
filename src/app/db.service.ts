@@ -10,7 +10,7 @@ export class DbService {
   constructor(private http: HttpClient) { }
 
   experience() {
-    return this.all().pipe(map(e => e.experiences.sort((a, b) => b.id - a.id)));
+    return this.all().pipe(map(e => e.experiences));
   }
 
   projects() {
@@ -29,6 +29,10 @@ export class DbService {
     return this.all().pipe(map(e => e.about));
   }
 
+  langs() {
+    return this.all().pipe(map(e => e.langs));
+  }
+
   all() {
     return this.http.get<DataBase>('assets/db/database.json');
   }
@@ -40,6 +44,7 @@ export class DataBase {
   skills: Skill[] = [];
   educations: Education[] = [];
   about = new About();
+  langs = new Lang();
 }
 
 export class Experience {
@@ -83,4 +88,10 @@ export class About {
   profession = '';
   image = '';
   info: { icon: string, name: string }[] = [];
+}
+
+export class Lang {
+  id = 0;
+  lang = '';
+  level = '';
 }

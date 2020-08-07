@@ -1,0 +1,44 @@
+<div class="host">
+
+  <div class="d-flex justify-content-center my-3">
+    <button mat-raised-button color="warn" (click)="openPDF()">Open PDF</button>
+  </div>
+  <!-- <button mat-raised-button color="accent" (click)="downloadPDF()">Download PDF</button> -->
+
+  <section class="page" #cv>
+
+    <header class="row">
+      <section class="col-md-7 me">
+        <h1>{{o.about.firstName}} {{o.about.lastName}}</h1>
+        <h2>{{o.about.profession}}</h2>
+
+        <div *ngFor="let e of o.about.info; let i=index">
+          <i *ngIf="e.icon.includes('fa-')" [class]="e.icon"></i>
+          <mat-icon *ngIf="!e.icon.includes('fa-')">{{e.icon}}</mat-icon>
+          <span>{{e.name}}</span>
+        </div>
+      </section>
+
+      <section class="col-md-5">
+        <img [src]="o.about.image" [alt]="o.about.firstName">
+      </section>
+    </header>
+
+    <summary class="row projects mt-2">
+      <div *ngFor="let e of o.experiences; let i=index">
+        <span class="date">{{e.period}}</span>
+        <span class="desc">{{e.job}}</span>
+        <span>&nbsp;<b>({{e.societe}})</b></span>
+        <p class="tech">{{e.tech}}</p>
+        <p class="links">{{e.links}}</p>
+      </div>
+    </summary>
+
+
+    <aside class="card">
+      <!-- <summary>Details</summary> -->
+  </aside>
+
+</section>
+
+</div>

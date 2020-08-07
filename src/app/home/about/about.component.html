@@ -18,7 +18,7 @@
         <p>{{o.intro}}</p>
 
         <div class="d-flex mt-4">
-          <button mat-raised-button color="primary">Mon CV</button>
+          <button mat-raised-button [routerLink]="['/cv']"  color="primary">Mon CV</button>
           &nbsp;&nbsp;
           <button mat-raised-button color="accent" (click)="scrollTo('section4')">Projects</button>
         </div>
