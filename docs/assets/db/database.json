@@ -52,7 +52,7 @@
       "job": "Developpeur web Full Stack",
       "task": "Site web qui vise les personnes ayant entre 18-25 ans désirant visiter un lieu sans avoir besoin d’un guide",
       "tech":"Angular, Angular material, Express JS/Ts, Sqlite",
-      "links":""
+      "links":"tourisme-autoguide"
     },
     {
       "id": 6,
@@ -73,6 +73,7 @@
       "tech": "Angular, Angular material, Express js, MongoDB",
       "image": "assets/recipe.jpg",
       "url": "https://recette-cuisine.herokuapp.com",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/recipe"
     },
     {
@@ -83,6 +84,7 @@
       "tech": "Angular, Angular material, Asp .net core, Mysql",
       "image": "assets/ouvrier.jpg",
       "url": "https://ouvrier.herokuapp.com",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/ouvrier"
     },
     {
@@ -93,6 +95,7 @@
       "tech": "Angular, Angular material, Express js, MongoDB",
       "image": "assets/produit_cosmetique.jpg",
       "url": "https://forever-living.herokuapp.com",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/produit_cosmetique"
     },
     {
@@ -103,6 +106,7 @@
       "tech": "Angular, Angular material, Angular Internationalization, Asp .net core, Sql Server",
       "image": "assets/didh.png",
       "url": "https://didh.herokuapp.com",
+      "isPrivate": true,
       "git": "https://github.com/djm2x/didh"
     },
     {
@@ -113,6 +117,7 @@
       "tech": "Angular, Angular material, Asp .net core, Sql Server",
       "image": "assets/panddh.png",
       "url": "https://panddh.herokuapp.com",
+      "isPrivate": true,
       "git": "https://github.com/djm2x/panddh"
     },
     {
@@ -123,6 +128,7 @@
       "tech": "Angular, Angular material, Express JS/Ts, Sqlite",
       "image": "assets/tourisme-autoguide.jpg",
       "url": "https://tourisme-autoguide.herokuapp.com",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/tourisme"
     },
     {
@@ -133,6 +139,7 @@
       "tech": "Angular, Angular material, Asp .net core, Sql Server",
       "image": "assets/brik-afric.jpg",
       "url": "https://aspme.herokuapp.com",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/brik-afric"
     },
     {
@@ -143,6 +150,7 @@
       "tech": "Angular, Angular material, Laravel, Mysql",
       "image": "assets/cntsh.jpg",
       "url": "http://aucnom.com/",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/blood-donation"
     },
     {
@@ -153,6 +161,7 @@
       "tech": "Angular, Angular material, Laravel, Mysql",
       "image": "assets/cgi.jpg",
       "url": "http://connectingroup.org/",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/connectionggroup"
     },
     {
@@ -163,6 +172,7 @@
       "tech": "Angular, Angular material, Asp .net core, Sqlite",
       "image": "assets/gestion-materiels.png",
       "url": "https://gestion-materiels.herokuapp.com/",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/gestion-material"
     },
     {
@@ -173,6 +183,7 @@
       "tech": "Angular, Angular material, Electron JS/Ts",
       "image": "assets/system-info.jpg",
       "url": "https://gestion-materiels.herokuapp.com/a/desktop",
+      "isPrivate": false,
       "git": "https://github.com/djm2x/systeminformation-electron"
     },
     {
@@ -183,6 +194,7 @@
       "tech": "Angular, Angular material, Electron JS",
       "image": "assets/suivi-activites.png",
       "url": "https://mem-ssa.herokuapp.com",
+      "isPrivate": true,
       "git": "https://github.com/djm2x/mem"
     }
   ],
@@ -289,12 +301,12 @@
     "profession": "Developpeur web full stack",
     "image": "assets/me.jpg",
     "info": [
-      { "icon": "fas fa-envelope-square", "name": "mohamed.mourabit@outlook.com" },
+      { "icon": "email", "name": "mohamed.mourabit@outlook.com" },
       { "icon": "language", "name": "https://djm2x.github.io/me" },
-      { "icon": "fab fa-linkedin", "name": "in/mohamed-mourabit" },
-      { "icon": "fab fa-github-square", "name": "https://github.com/djm2x" },
-      { "icon": "fas fa-phone-square", "name": "(+212) 6 71 26 54 78" },
-      { "icon": "fas fa-address-card", "name": "Hay maamoura-TEMARA" }
+      { "icon": "", "text": "in", "name": "in/mohamed-mourabit" },
+      { "icon": "", "text": "git", "name": "https://github.com/djm2x" },
+      { "icon": "call", "name": "(+212) 6 71 26 54 78" },
+      { "icon": "place", "name": "Hay maamoura-TEMARA" }
     ]
   },
   "langs": [

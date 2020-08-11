@@ -46,9 +46,10 @@
             <span>{{o.about.firstName}}</span>&nbsp;<span>{{o.about.lastName}}</span>
           </p>
           <h3>{{o.about.profession}}</h3>
-          <div *ngFor="let e of o.about.info; let i=index">
-            <i *ngIf="e.icon.includes('fa-')" [class]="e.icon"></i>
-            <mat-icon *ngIf="!e.icon.includes('fa-')">{{e.icon}}</mat-icon>
+          <div class="d-flex align-items-center" *ngFor="let e of o.about.info; let i=index">
+            <!-- <i *ngIf="e.icon.includes('fa-')" [class]="e.icon"></i> -->
+            <mat-icon *ngIf="e.icon !== ''" class="mr-2">{{e.icon}}</mat-icon>
+            <span class="icon-text mr-2" *ngIf="e.icon === ''">{{e.text}}</span>
             <span>{{e.name}}</span>
           </div>
         </section>

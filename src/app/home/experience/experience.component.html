@@ -2,7 +2,7 @@
 
 <div class="container" appScroll (visibilityChange)="$event === true ? state = 'show' : state = 'hide'">
   <div class="row justify-content-center">
-    <div *ngFor="let e of list | async; let i=index" class="col-md-3 text-center" [@scrollAnimation]="state">
+    <div *ngFor="let e of list; let i=index" class="col-md-3 text-center" [@scrollAnimation]="state">
       <mat-card>
 
         <img mat-card-image [src]="e.image">

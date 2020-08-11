@@ -3,6 +3,7 @@ import { animations } from '../../animations';
 import { DbService, Project } from 'src/app/db.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailComponent } from './detail/detail.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-experience',
@@ -12,10 +13,17 @@ import { DetailComponent } from './detail/detail.component';
 })
 export class ExperienceComponent implements OnInit {
   state = 'hide';
-  list = this.service.projects();
-  constructor(private service: DbService, public dialog: MatDialog) { }
+  list = [];
+  constructor(private service: DbService, public dialog: MatDialog
+    , private route: ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const isPrivate = this.route.snapshot.paramMap.get('isPrivate') === 'with-private';
+
+    this.service.projects().subscribe(r => {
+      this.list = r.filter(e => isPrivate ? true : e.isPrivate === false );
+    });
+  }
 
   goto(url) {
     return window.open(url, '_blank');

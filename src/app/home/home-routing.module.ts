@@ -4,9 +4,9 @@ import { HomeComponent } from './home.component';
 
 
 const routes: Routes = [
-  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   {
-    path: '', component: HomeComponent,
+    path: 'welcome', component: HomeComponent,
     // children: [
     //   { path: '', redirectTo: 'dash', pathMatch: 'full'},
     //   { path: 'dash', component: DashComponent },
@@ -14,7 +14,8 @@ const routes: Routes = [
     //   { path: 'wifi', component: WifiComponent },
 
     // ]
-  }
+  },
+  { path: 'welcome/:isPrivate', component: HomeComponent, },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

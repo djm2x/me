@@ -44,7 +44,7 @@ export class DataBase {
   skills: Skill[] = [];
   educations: Education[] = [];
   about = new About();
-  langs = new Lang();
+  langs: Lang[] = [];
 }
 
 export class Experience {
@@ -65,6 +65,7 @@ export class Project {
   tech = '';
   image = '';
   url = '';
+  isPrivate = false;
   git = '';
 }
 
@@ -87,7 +88,7 @@ export class About {
   lastName = '';
   profession = '';
   image = '';
-  info: { icon: string, name: string }[] = [];
+  info: { icon: string, text: string, name: string }[] = [];
 }
 
 export class Lang {
