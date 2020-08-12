@@ -23,6 +23,19 @@
     font-size: 0.75em;
   }
 
+  .title {
+    margin: 10px 0 7px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+    color: #1976d2;
+    display: flex;
+    align-items: center;
+    mat-icon {
+      margin-right: 5px;
+      font-size: 1.4em;
+    }
+  }
 
   aside {
     // background-color: rgb(241, 241, 241);
@@ -30,15 +43,13 @@
     // border-left: solid orange 4px;
     // background-color: white;
     // margin-right: 5px;
-    padding: 2mm;
+    padding: 0 3mm;
     img {
       width: 180px;
     }
 
-
-
-
     .skills {
+      margin-bottom: 10px;
       .title {
         text-transform: uppercase;
         font-weight: bold;
@@ -46,19 +57,37 @@
 
       .domaine {
         font-weight: bold;
-        font-style: italic;
+        // font-style: italic;
+        // text-decoration: underline;
+        // color: gray;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        mat-icon {
+          font-size: 1.4em;
+          padding-top: 3px;
+        }
       }
     }
 
     .langs {
-      .title {
-        text-transform: uppercase;
-        font-weight: bold;
-      }
-
       .lang {
         font-weight: bold;
-        font-style: italic;
+        // font-style: italic;
+        // text-decoration: underline;
+        // color: gray;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        mat-icon {
+          font-size: 1.4em;
+          padding-top: 3px;
+        }
+      }
+
+      .lang2 {
+        // font-weight: bold;
+        // font-style: italic;
       }
     }
   }
@@ -67,33 +96,89 @@
     // box-shadow: 1px 1px rgba(0, 0, 255, 0.384);
     // border-left: solid blue 4px;
     // background-color: white;
-    padding: 2mm;
+    padding: 0 3mm;
     // margin-left: 5px;
     .title {
       text-transform: uppercase;
       font-weight: bold;
     }
 
+    .date {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      mat-icon {
+        font-size: 1.4em;
+        padding-top: 3px;
+        color: gray;
+      }
+    }
+
+    .place {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      mat-icon {
+        font-size: 1.4em;
+        padding-top: 3px;
+        color: gray;
+      }
+    }
+
     .about {
       display: flex;
       flex-direction: column;
+      margin: 15px 0;
 
       .name {
         margin: 0;
         span:nth-child(1) {
-          font-size: 1.5em;
+          font-size: 2em;
           font-weight: bold;
         }
 
         span:nth-child(2) {
-          font-size: 1.5em;
+          font-size: 2em;
           // font-weight: bold;
         }
       }
 
-      .icon-text {
-        font-size: 1.2em;
-        font-weight: bold;
+      h3 {
+        display: flex;
+        align-items: center;
+        color: gray;
+        margin-bottom: 20px;
+        mat-icon {
+          // font-size: 1.5em;
+          margin-right: 5px;
+          // padding-top: -2px;
+        }
+      }
+
+      .info {
+        display: flex;
+        align-items: center;
+        // height: 15px;
+        mat-icon {
+          font-size: 1.1em;
+          padding-top: 3px;
+          // color: gray;
+          margin-right: 4px;
+        }
+
+        .text {
+          font-size: 1em;
+          font-weight: bold;
+          width: 25px;
+          margin-top: -2px;
+          // color: gray;
+          margin-right: 4px;
+        }
+
+        .link {
+          font-weight: 700;
+          font-size: .7em;
+        }
       }
 
       span {
@@ -102,17 +187,23 @@
     }
 
     .experiences {
-
-      .date {
-        font-weight: bold;
-      }
-
       .desc {
         font-style: italic;
       }
 
-      .societe {
-        // font-style: italic;
+      .tech {
+        display: flex;
+        align-items: center;
+        mat-icon {
+          font-size: 1.5em;
+          padding-top: 2px;
+        }
+      }
+    }
+
+    .educations {
+      .desc {
+        font-style: italic;
       }
     }
   }

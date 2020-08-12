@@ -48,7 +48,7 @@
     {
       "id": 5,
       "period": "2020-02 à 2020-03",
-      "societe": "LP Tech Dev We (Projet tuteuré)",
+      "societe": "Licence pro (Projet tuteuré)",
       "job": "Developpeur web Full Stack",
       "task": "Site web qui vise les personnes ayant entre 18-25 ans désirant visiter un lieu sans avoir besoin d’un guide",
       "tech":"Angular, Angular material, Express JS/Ts, Sqlite",
@@ -57,7 +57,7 @@
     {
       "id": 6,
       "period": "2020-03 à 2020-06",
-      "societe": "LP Tech Dev We (Stage d'application professionnelle)",
+      "societe": "Licence pro (Stage d'application professionnelle)",
       "job": "Developpeur Full Stack",
       "task": "Système pour la gestion des biens informatique et Application Bureau qui collecte les informations système (cpu, gpu, network, bios, model, ram ...), et une liste des applications installé sur l'appareil.",
       "tech":"Angular, Angular material, Asp .net core, Sqlite, Electron JS/TS",
@@ -267,31 +267,31 @@
       "id": 2,
       "period": "2008-2010",
       "dipolma": "DUT Lieutenant de Maritime",
-      "universite": "ISPM AGADIR"
+      "universite": "Institut Supérieur des Pêches Maritimes - AGADIR"
     },
     {
       "id": 3,
       "period": "2014-2015",
       "dipolma": "Licence professionnel en Pêche",
-      "universite": "ISPM AGADIR"
+      "universite": "Institut Supérieur des Pêches Maritimes - AGADIR"
     },
     {
       "id": 4,
       "period": "2017",
-      "dipolma": "Certification Microsoft (en ASP.NET MVC 5, SQL SERVER 2014, C#, « HTML – CSS – JAVASCRIPT », WINDOWS 7)",
-      "universite": "ISTA TEMARA"
+      "dipolma": "Certification Microsoft (ASP.NET MVC 5, SQL SERVER 2014, C#, « HTML,CSS et JAVASCRIPT », WINDOWS 7)",
+      "universite": "Institut Spécialisé de Technologie Appliquée - TEMARA"
     },
     {
       "id": 5,
       "period": "2016-2018",
       "dipolma": "DTS Développement Informatique",
-      "universite": "ISTA TEMARA"
+      "universite": "Institut Spécialisé de Technologie Appliquée - TEMARA"
     },
     {
       "id": 6,
       "period": "2019-2020",
-      "dipolma": "LP Conduite de projets parcours Tech Dev Web",
-      "universite": "FST LIMOGES FRANCE"
+      "dipolma": "Licence pro - Métiers de l’informatique : conduite de projet – Technologie du développement web ",
+      "universite": "Faculté des Sciences & Techniques - Université de Limoges FRANCE"
     }
   ],
   "about": {
@@ -301,8 +301,8 @@
     "profession": "Developpeur web full stack",
     "image": "assets/me.jpg",
     "info": [
-      { "icon": "email", "name": "mohamed.mourabit@outlook.com" },
       { "icon": "language", "name": "https://djm2x.github.io/me" },
+      { "icon": "email", "name": "mohamed.mourabit@outlook.com" },
       { "icon": "", "text": "in", "name": "in/mohamed-mourabit" },
       { "icon": "", "text": "git", "name": "https://github.com/djm2x" },
       { "icon": "call", "name": "(+212) 6 71 26 54 78" },

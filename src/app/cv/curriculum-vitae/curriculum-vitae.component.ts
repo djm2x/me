@@ -15,7 +15,8 @@ export class CurriculumVitaeComponent implements OnInit {
   ngOnInit(): void {
     this.service.all().subscribe(r => {
       this.o = r;
-      this.o.experiences = this.o.experiences.reverse()
+      this.o.experiences = this.o.experiences.reverse();
+      this.o.educations = this.o.educations.reverse();
       // console.log(this.o.experiences.reverse())
     });
 

@@ -18,12 +18,16 @@
         <mat-divider></mat-divider>
 
         <section class="skills">
-          <p class="title">skills</p>
-          <div *ngFor="let e of o.skills; let i=index">
-            <p class="domaine">{{e.domaine}}</p>
+          <p class="title">
+            <mat-icon>done_all</mat-icon> skills
+          </p>
+          <div *ngFor="let e of o.skills; let i=index" class="mb-2">
+            <p class="domaine">
+              <mat-icon>dns</mat-icon> {{e.domaine}}
+            </p>
 
             <div *ngFor="let s of e.items; let i=index">
-              <p class="name">{{s.name}}</p>
+              <p class="name">- {{s.name}}</p>
             </div>
           </div>
         </section>
@@ -31,9 +35,16 @@
         <mat-divider></mat-divider>
 
         <section class="langs">
-          <p class="title">langue</p>
+          <p class="title">
+            <mat-icon>g_translate</mat-icon> langue
+          </p>
           <div *ngFor="let e of o.langs; let i=index">
-            <p><span class="lang">{{e.lang}}</span>&nbsp;:&nbsp;<span>{{e.level}}</span></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="lang">
+                <mat-icon>translate</mat-icon> {{e.lang}} :
+              </p>
+              <span>{{e.level}}</span>
+            </div>
           </div>
         </section>
       </aside>
@@ -42,40 +53,76 @@
 
       <summary>
         <section class="about">
-          <p class="name">
-            <span>{{o.about.firstName}}</span>&nbsp;<span>{{o.about.lastName}}</span>
-          </p>
-          <h3>{{o.about.profession}}</h3>
-          <div class="d-flex align-items-center" *ngFor="let e of o.about.info; let i=index">
-            <!-- <i *ngIf="e.icon.includes('fa-')" [class]="e.icon"></i> -->
-            <mat-icon *ngIf="e.icon !== ''" class="mr-2">{{e.icon}}</mat-icon>
-            <span class="icon-text mr-2" *ngIf="e.icon === ''">{{e.text}}</span>
-            <span>{{e.name}}</span>
+
+
+          <div class="row">
+            <div class="col-md-7">
+              <div>
+                <p class="name">
+                  <span>{{o.about.firstName}}</span>&nbsp;<span>{{o.about.lastName}}</span>
+                </p>
+                <h3>
+                  <!-- <mat-icon>work</mat-icon>  -->
+                  {{o.about.profession}}
+                </h3>
+              </div>
+              <p>Passionner par le métier. Constamment à l’écoute et en veille technique dans mon domaine, je me forme
+                depuis toujours à ce qui existe le mieux.</p>
+            </div>
+            <div class="col-md-5 px-0">
+              <div class="d-flex align-items-center info" *ngFor="let e of o.about.info; let i=index">
+                <!-- <i *ngIf="e.icon.includes('fa-')" [class]="e.icon"></i> -->
+                <mat-icon *ngIf="e.icon !== ''">{{e.icon}}</mat-icon>
+                <span class="text" *ngIf="e.icon === ''">{{e.text}}</span>
+                <span class="link">{{e.name}}</span>
+              </div>
+            </div>
           </div>
+
         </section>
         <mat-divider></mat-divider>
         <section class="experiences">
-          <p class="title">experiences</p>
-          <div *ngFor="let e of o.experiences; let i=index">
-            <span class="date">{{e.period}}</span>
-            <span class="desc">{{e.job}}</span>
-            <span class="societe">&nbsp;({{e.societe}})</span>
-            <p class="tech">{{e.tech}}</p>
+          <p class="title">
+            <mat-icon>library_books</mat-icon> experiences
+          </p>
+          <div *ngFor="let e of o.experiences; let i=index" class="mb-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="date">
+                <mat-icon>event</mat-icon> {{e.period}}
+              </span>
+              <span class="place">
+                <mat-icon>place</mat-icon> {{e.societe}}
+              </span>
+            </div>
+            <!-- <p class="desc">{{e.job}}</p> -->
+            <p class="tech">
+              <mat-icon>code</mat-icon> {{e.tech}}
+            </p>
             <p class="links">{{e.links}}</p>
+            <mat-divider *ngIf="i < o.experiences.length - 1" style="margin: 0 150px;"></mat-divider>
           </div>
         </section>
 
         <mat-divider></mat-divider>
 
         <section class="educations">
-          <p class="title">educations</p>
-          <div *ngFor="let e of o.educations; let i=index">
-            <span class="date">{{e.period}}</span>
-            <span class="desc">{{e.dipolma}}</span>
-            <p class="tech">{{e.universite}}</p>
+          <p class="title">
+            <mat-icon>school</mat-icon> educations
+          </p>
+          <div *ngFor="let e of o.educations; let i=index" class="mb-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="date">
+                <mat-icon>event</mat-icon> {{e.period}}
+              </span>
+              <span class="place">
+                <mat-icon>place</mat-icon> {{e.universite}}
+              </span>
+            </div>
+            <p class="tech">{{e.dipolma}}</p>
+            <!-- <mat-divider *ngIf="i < o.educations.length - 1" style="margin: 0 150px;"></mat-divider> -->
           </div>
         </section>
-        <mat-divider></mat-divider>
+        <!-- <mat-divider></mat-divider> -->
 
       </summary>
     </div>
