@@ -301,7 +301,7 @@
     "profession": "Developpeur web full stack",
     "image": "assets/me.jpg",
     "info": [
-      { "icon": "language", "name": "https://djm2x.github.io/me" },
+      { "icon": "language", "name2": "https://djm2x.github.io/me", "name": "https://mohamed-mourabit.com" },
       { "icon": "email", "name": "mohamed.mourabit@outlook.com" },
       { "icon": "", "text": "in", "name": "in/mohamed-mourabit" },
       { "icon": "", "text": "git", "name": "https://github.com/djm2x" },
