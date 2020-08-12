@@ -3,6 +3,9 @@
   import { OverlayContainer } from '@angular/cdk/overlay';
   import { MediaMatcher } from '@angular/cdk/layout';
 import { SharedService } from '../service.service';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
+import { TitleComponent } from './title/title.component';
 
   @Component({
     selector: 'app-home',
@@ -19,8 +22,8 @@ import { SharedService } from '../service.service';
     color = 'accent';
     opened = false;
     d = new Date();
-    constructor(changeDetectorRef: ChangeDetectorRef
-      , media: MediaMatcher) {
+    constructor(changeDetectorRef: ChangeDetectorRef, private router: Router,
+      private activatedRoute: ActivatedRoute, media: MediaMatcher) {
       // define the limite size
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       // mobileQuery.matches is listen for the size
@@ -28,7 +31,8 @@ import { SharedService } from '../service.service';
       this.mobileQuery.addListener((e: MediaQueryListEvent) => changeDetectorRef.detectChanges());
     }
     ngOnInit(): void {
-
+      // should be removed soon
+      TitleComponent.i = 0;
       setTimeout(() => this.opened = true, 800);
     }
 
@@ -39,6 +43,24 @@ import { SharedService } from '../service.service';
 
     toggleSideNave() {
       this.divHTML.nativeElement.click();
+    }
+
+    private setupRouting() {
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => this.activatedRoute),
+        map(route => {
+          while (route.firstChild) {
+            route = route.firstChild;
+          }
+          return route;
+        }),
+        filter(route => route.outlet === 'primary')
+      ).subscribe((route: ActivatedRoute) => {
+        const seo = route.snapshot.data['seo'];
+        // set your meta tags & title here
+        console.log(seo)
+      });
     }
 
 

@@ -6,7 +6,7 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   {
-    path: 'welcome', component: HomeComponent,
+    path: 'welcome', component: HomeComponent, data: { seo: { title: `its me & you` } }
     // children: [
     //   { path: '', redirectTo: 'dash', pathMatch: 'full'},
     //   { path: 'dash', component: DashComponent },

@@ -26,5 +26,9 @@ export class CurriculumVitaeComponent implements OnInit {
     this.pdf.captureScreen(this.cv.nativeElement);
   }
 
+  downloadPDF() {
+    this.pdf.downloadPDF(this.cv.nativeElement);
+  }
+
 
 }
