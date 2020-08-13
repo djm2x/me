@@ -3,13 +3,16 @@ import { DbService, DataBase } from 'src/app/db.service';
 import { PdfService } from '../pdf.service';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/service.service';
+import { animations } from 'src/app/animations';
 
 @Component({
   selector: 'app-curriculum-vitae',
   templateUrl: './curriculum-vitae.component.html',
-  styleUrls: ['./curriculum-vitae.component.scss']
+  styleUrls: ['./curriculum-vitae.component.scss'],
+  animations: animations,
 })
 export class CurriculumVitaeComponent implements OnInit {
+  state = 'hide';
   @ViewChild('cv') cv: ElementRef;
   o = new DataBase();
   isPrivate = false;
@@ -25,6 +28,8 @@ export class CurriculumVitaeComponent implements OnInit {
       this.o.educations = this.o.educations.reverse();
       // console.log(this.o.experiences.reverse())
     });
+
+    setTimeout(() => this.state = 'show', 300);
   }
 
   openPDF() {

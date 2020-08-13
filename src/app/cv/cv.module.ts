@@ -9,7 +9,7 @@ import { CurriculumVitaeComponent } from './curriculum-vitae/curriculum-vitae.co
 
 
 @NgModule({
-  declarations: [CvComponent, CurriculumVitaeComponent],
+  declarations: [CvComponent, CurriculumVitaeComponent,],
   imports: [
     CommonModule,
     CvRoutingModule,

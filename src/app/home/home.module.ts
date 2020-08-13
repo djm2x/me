@@ -23,7 +23,7 @@ import { DetailComponent } from './experience/detail/detail.component';
     SkillsComponent,
     ExperienceComponent,
     ContactComponent,
-    ScrollDirective,
+    
     TitleComponent,
     DetailComponent,
   ],
