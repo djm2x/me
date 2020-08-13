@@ -92,7 +92,7 @@
     }
   }
 
-  summary {
+  .summary {
     // box-shadow: 1px 1px rgba(0, 0, 255, 0.384);
     // border-left: solid blue 4px;
     // background-color: white;
@@ -147,7 +147,7 @@
         display: flex;
         align-items: center;
         color: gray;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         mat-icon {
           // font-size: 1.5em;
           margin-right: 5px;
@@ -197,6 +197,26 @@
         mat-icon {
           font-size: 1.5em;
           padding-top: 2px;
+        }
+      }
+
+      .links {
+        font-style: italic;
+        color: blue;
+        display: flex;
+        // align-items: center;
+        span {
+          display: flex;
+          // align-items: center;
+          margin-right: 10px;
+          font-size: .65em;
+          cursor: pointer;
+          mat-icon {
+            font-size: 1.2em;
+            width: 15px;
+            color: black;
+            padding-top: 1px;
+          }
         }
       }
     }

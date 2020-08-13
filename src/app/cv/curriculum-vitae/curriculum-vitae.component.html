@@ -14,8 +14,6 @@
           <img [src]="o.about.image" [alt]="o.about.firstName">
         </section>
 
-
-
         <mat-divider></mat-divider>
 
         <section class="skills">
@@ -52,7 +50,7 @@
 
       <mat-divider [vertical]="true"></mat-divider>
 
-      <summary>
+      <div class="summary">
         <section class="about">
 
 
@@ -100,7 +98,11 @@
             <p class="tech">
               <mat-icon>code</mat-icon> {{e.tech}}
             </p>
-            <p class="links">{{e.links}}</p>
+            <div class="links" >
+              <span *ngFor="let link of displayUrl(e.links)" (click)="openLink(link)">
+                <mat-icon>language</mat-icon> {{link}}
+              </span>
+            </div>
             <mat-divider *ngIf="i < o.experiences.length - 1" style="margin: 0 150px;"></mat-divider>
           </div>
         </section>
@@ -126,7 +128,7 @@
         </section>
         <!-- <mat-divider></mat-divider> -->
 
-      </summary>
+      </div>
     </div>
   </section>
 

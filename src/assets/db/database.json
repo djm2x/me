@@ -16,7 +16,7 @@
       "job": "Developpeur web Full Stack",
       "task": "Application web de recette de cuisine",
       "tech":"Angular, Angular Universal, Node expresse js (API), Mongo db, JWT, Socket io",
-      "links":"recipe;"
+      "links":"recipe0;"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "job": "Developpeur web Full Stack",
       "task": "Site web pour trouver l'ouvrier/professionnelle le plus adequat/proche",
       "tech":"Angular, Angular material, Asp .net core, Mysql",
-      "links":"ouvrier;"
+      "links":"ouvrier0;"
     },
     {
       "id": 4,
@@ -43,7 +43,7 @@
       "job": "Developpeur web Full Stack",
       "task": "Site web et application web Intanet",
       "tech":"Angular, Angular material, Asp .net core, Laravel 7, Sql Server, Mysql",
-      "links":"didh;panddh;brik-afric;blood-donation;connectionggroup;mem;"
+      "links":"didh1;panddh1;brik-afric0;http://aucnom.com0;http://connectingroup.org/0;mem1;"
     },
     {
       "id": 5,
@@ -52,7 +52,7 @@
       "job": "Developpeur web Full Stack",
       "task": "Site web qui vise les personnes ayant entre 18-25 ans désirant visiter un lieu sans avoir besoin d’un guide",
       "tech":"Angular, Angular material, Express JS/Ts, Sqlite",
-      "links":"tourisme-autoguide"
+      "links":"tourisme-autoguide0;"
     },
     {
       "id": 6,
@@ -61,7 +61,7 @@
       "job": "Developpeur Full Stack",
       "task": "Système pour la gestion des biens informatique et Application Bureau qui collecte les informations système (cpu, gpu, network, bios, model, ram ...), et une liste des applications installé sur l'appareil.",
       "tech":"Angular, Angular material, Asp .net core, Sqlite, Electron JS/TS",
-      "links":"gestion-material;systeminformation-electron;"
+      "links":"gestion-material0;https://gestion-material.herokuapp.com/a/desktop0;"
     }
   ],
   "projects": [

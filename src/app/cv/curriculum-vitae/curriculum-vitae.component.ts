@@ -19,7 +19,6 @@ export class CurriculumVitaeComponent implements OnInit {
       this.o.educations = this.o.educations.reverse();
       // console.log(this.o.experiences.reverse())
     });
-
   }
 
   openPDF() {
@@ -28,6 +27,18 @@ export class CurriculumVitaeComponent implements OnInit {
 
   downloadPDF() {
     this.pdf.downloadPDF(this.cv.nativeElement);
+  }
+
+  displayUrl(links: string): string[] {
+    const r = links.split(';');
+
+    r.pop();
+
+    return r.filter(e => e.endsWith('0')).map(e => e.startsWith('http') ? e.slice(0, -1) : `https://${e.slice(0, -1)}.herokuapp.com` );
+  }
+
+  openLink(url: string) {
+    window.open(url, '_blank');
   }
 
 
