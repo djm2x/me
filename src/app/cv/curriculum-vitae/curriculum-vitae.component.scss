@@ -204,7 +204,8 @@
         font-style: italic;
         color: blue;
         display: flex;
-        // align-items: center;
+        flex-wrap: wrap;
+        align-items: center;
         span {
           display: flex;
           // align-items: center;
@@ -214,6 +215,7 @@
           mat-icon {
             font-size: 1.2em;
             width: 15px;
+            height: 15px;
             color: black;
             padding-top: 1px;
           }

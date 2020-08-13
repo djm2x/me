@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   @HostBinding('class.dark-theme') darkTheme = false;
   checked = false;
   disabled = false;
-  constructor(private sp: SplashScreenService, private service: SharedService
+  constructor(private sp: SplashScreenService, public service: SharedService
     , private overlayContainer: OverlayContainer,) { }
 
   ngOnInit(): void {
