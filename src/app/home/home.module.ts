@@ -12,7 +12,6 @@ import { ScrollDirective } from '../scroll.directive';
 import { TitleComponent } from './title/title.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatModule } from '../mat.module';
 import { DetailComponent } from './experience/detail/detail.component';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -52,6 +52,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     MatProgressBarModule,
     MatFormFieldModule,
+    MatInputModule,
     MatDialogModule,
     MatSnackBarModule,
   ]
