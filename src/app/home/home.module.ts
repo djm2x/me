@@ -14,6 +14,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatModule } from '../mat.module';
 import { DetailComponent } from './experience/detail/detail.component';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -33,7 +42,16 @@ import { DetailComponent } from './experience/detail/detail.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatModule,
+    // MatModule,
+    MatListModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatSnackBarModule,
   ]
 })
 export class HomeModule { }

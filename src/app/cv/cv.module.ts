@@ -6,6 +6,11 @@ import { CvComponent } from './cv.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatModule } from '../mat.module';
 import { CurriculumVitaeComponent } from './curriculum-vitae/curriculum-vitae.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -14,7 +19,12 @@ import { CurriculumVitaeComponent } from './curriculum-vitae/curriculum-vitae.co
     CommonModule,
     CvRoutingModule,
     HttpClientModule,
-    MatModule,
+    // MatModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatDividerModule,
+    MatIconModule,
   ]
 })
 export class CvModule { }
