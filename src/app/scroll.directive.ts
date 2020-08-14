@@ -12,7 +12,10 @@ export class ScrollDirective implements OnInit, OnDestroy {
   constructor(private el: ElementRef) { }
 
   ngOnInit(): void {
-    this.sub = this.intersection().subscribe(isVisible => this.visibilityChange.next(isVisible));
+    this.sub = this.intersection().subscribe(isVisible => {
+      // console.log(isVisible);
+      this.visibilityChange.next(isVisible);
+    });
   }
 
   intersection() {
@@ -25,7 +28,7 @@ export class ScrollDirective implements OnInit, OnDestroy {
     return new Observable<boolean>(obs => {
 
       const inter = new IntersectionObserver((entries, o) =>
-        entries.forEach((e) => (e.isIntersecting || e.intersectionRatio > 0) ? obs.next(true) : obs.next(false)), cfg);
+        entries.forEach((e) => (e.isIntersecting || e.intersectionRatio > 0) ? obs.next(true) : obs.next(false))/*, cfg*/);
 
       inter.observe(this.el.nativeElement);
     });
