@@ -36,4 +36,8 @@ export class TitleComponent implements OnInit {
     }
   }
 
+  onDisplay(isVisible: boolean) {
+    isVisible === true ? this.state = 'show' : this.state = 'hide';
+  }
+
 }

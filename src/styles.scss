@@ -44,7 +44,7 @@ $candy-app-warn: mat-palette($mat-red, 700);
 
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 
-$alt-primary: mat-palette($mat-purple, 700, 800, 900);
+$alt-primary: mat-palette($mat-deep-orange, 700, 800, 900);
 $alt-accent: mat-palette($mat-light-green, 700);
 $alt-warn: mat-palette($mat-red, 700);
 

@@ -5,21 +5,21 @@
     &nbsp;
     <button mat-raised-button color="accent" (click)="downloadPDF()">Download PDF</button>
   </div>
-  <mat-card class="page mb-2" #cv [@scrollTitle]="state">
+  <section class="page mb-2" #cv [@scrollTitle]="state">
 
 
-    <!-- <section class="page mb-2" #cv [@scrollTitle]="state"> --> 
-      <div class="d-flex" style="height: 295mm;">
+    <!-- <section class="page mb-2" #cv [@scrollTitle]="state"> -->
+      <mat-card class="d-flex" style="height: 295mm;">
 
         <aside class="">
-          <section class="">
-            <!-- <img [src]="o.about.image" [alt]="o.about.firstName"> -->
+          <section class="mb-2">
+            <img [src]="o.about.image" [alt]="o.about.firstName">
           </section>
           <mat-divider [inset]="true"></mat-divider>
           <!-- <mat-divider [inset]="true"></mat-divider> -->
 
           <section class="skills">
-            <p class="title">
+            <p class="title mat-button mat-primary">
               <mat-icon>done_all</mat-icon> skills
             </p>
             <div *ngFor="let e of o.skills; let i=index" class="mb-2">
@@ -131,7 +131,7 @@
           <!-- <mat-divider [inset]="true"></mat-divider> -->
 
         </div>
-      </div>
+      </mat-card>
     <!-- </section> -->
-  </mat-card>
+    </section>
 </div>

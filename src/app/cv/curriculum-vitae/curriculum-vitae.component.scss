@@ -1,20 +1,25 @@
 .host {
-  background-color: rgb(40, 40, 41);
+  // background-color: rgb(40, 40, 41);
   display: flex;
   flex-direction: column;
 }
 
 .page {
   border-radius: 0;
-  width: 208mm;
+  width: 210mm;
   min-height: 295mm;
-  padding: 2mm 2mm;
+  // padding: 2mm 2mm;
   margin: 0mm auto;
   // background-color: white;
   // border: 1px #d3d3d3 solid;
   // border-radius: 5px;
   // background: rgb(239, 239, 241);
   // box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  mat-card {
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
   span {
     font-size: 0.8em;
   }
@@ -29,9 +34,11 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1em;
-    color: #1976d2;
+    // color: #1976d2;
     display: flex;
     align-items: center;
+    line-height: 0px;
+    padding: 0;
     mat-icon {
       margin-right: 5px;
       font-size: 1.4em;
@@ -44,7 +51,8 @@
     // border-left: solid orange 4px;
     // background-color: white;
     // margin-right: 5px;
-    padding: 0 3mm;
+    padding: 2mm 3mm 2mm 3mm;
+
     img {
       width: 180px;
     }
@@ -97,7 +105,7 @@
     // box-shadow: 1px 1px rgba(0, 0, 255, 0.384);
     // border-left: solid blue 4px;
     // background-color: white;
-    padding: 0 3mm;
+    padding: 2mm 3mm;
     // margin-left: 5px;
     .title {
       text-transform: uppercase;
@@ -129,7 +137,7 @@
     .about {
       display: flex;
       flex-direction: column;
-      margin: 15px 0;
+      margin-bottom: 15px;
 
       .name {
         margin: 0;

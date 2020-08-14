@@ -8,7 +8,7 @@ import { EducationComponent } from './education/education.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ContactComponent } from './contact/contact.component';
-import { ScrollDirective } from '../scroll.directive';
+// import { ScrollDirective } from '../scroll.directive';
 import { TitleComponent } from './title/title.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +23,7 @@ import { DetailComponent } from './experience/detail/detail.component';
     SkillsComponent,
     ExperienceComponent,
     ContactComponent,
-    
+    // ScrollDirective,
     TitleComponent,
     DetailComponent,
   ],
