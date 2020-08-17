@@ -34,6 +34,7 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1em;
+    color: var(--selected-primary);
     // color: #1976d2;
     display: flex;
     align-items: center;
@@ -62,6 +63,7 @@
       .title {
         text-transform: uppercase;
         font-weight: bold;
+
       }
 
       .domaine {

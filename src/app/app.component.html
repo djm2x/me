@@ -17,7 +17,7 @@
               <mat-icon>import_contacts</mat-icon>
           </button>
           <span style="flex: 1 1 auto;"></span>
-          <mat-slide-toggle color="warn" checked="false" [disabled]="disabled" (click)="changeTheme()">
+          <mat-slide-toggle color="warn" [formControl]="isChecked">
           </mat-slide-toggle>
 
       </mat-toolbar-row>

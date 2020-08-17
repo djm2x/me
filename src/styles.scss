@@ -52,10 +52,22 @@ $alt-theme: mat-dark-theme($alt-primary, $alt-accent, $alt-warn);
 
 .dark-theme {
   @include angular-material-theme($alt-theme);
+  // --background-primary: mat-color($alt-primary) !important;
+  --selected-primary: #{mat-color($alt-primary)};
+  --selected-accent: #{mat-color($alt-accent)};
+  --selected-warn: #{mat-color($alt-warn)};
+
+
 }
 
 .default-theme {
-  // @import 'themes/default-theme.scss';
   @include angular-material-theme($candy-app-theme);
-  // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+  // --background-primary: mat-color($candy-app-primary) !important;
+  //map-get($candy-app-theme, primary);
+  --selected-primary: #{mat-color($candy-app-primary)};
+  --selected-accent: #{mat-color($candy-app-accent)};
+  --selected-warn: #{mat-color($candy-app-warn)};
+  // $primary: map-get($theme, primary);
 }
+
+

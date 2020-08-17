@@ -16,35 +16,25 @@
                       <span class="demo-2"> -- need for power </span>
                   </p> -->
             </div>
-            <mat-list-item (click)="scrollTo('section1')"
-                [ngStyle]="{'background-color': (currentSection === 'section1') ? 'rgba(73, 255, 185, 0.534)' : ''}">
+            <mat-list-item (click)="scrollTo('section1')" [ngStyle]="activatedLink('section1')">
                 <mat-icon>info</mat-icon>
                 <span>About</span>
                 <span style="border-bottom: 5px solid rgba(73, 255, 185, 0.534);"></span>
             </mat-list-item>
-            <mat-list-item (click)="scrollTo('section2')"
-                [ngStyle]="{'background-color': (currentSection === 'section2') ? 'rgba(73, 255, 185, 0.534)' : ''}">
-                <!-- <i class="fas fa-university" style="font-size: 20px;margin-right: 5px;"></i> -->
+            <mat-list-item (click)="scrollTo('section2')" [ngStyle]="activatedLink('section2')">
                 <mat-icon>school</mat-icon>
                 <span>Education</span>
             </mat-list-item>
-            <mat-list-item (click)="scrollTo('section3')"
-                [ngStyle]="{'background-color': (currentSection === 'section3') ? 'rgba(73, 255, 185, 0.534)' : ''}">
-                <!-- <i class="fas fa-tasks" style="font-size: 20px;margin-right: 5px;"></i> -->
+            <mat-list-item (click)="scrollTo('section3')" [ngStyle]="activatedLink('section3')">
                 <mat-icon>done_all</mat-icon>
-
                 <span>Skills</span>
             </mat-list-item>
-            <mat-list-item (click)="scrollTo('section4')"
-                [ngStyle]="{'background-color': (currentSection === 'section4') ? 'rgba(73, 255, 185, 0.534)' : ''}">
+            <mat-list-item (click)="scrollTo('section4')" [ngStyle]="activatedLink('section4')">
                 <mat-icon>library_books</mat-icon>
                 <span>Experience</span>
             </mat-list-item>
-            <mat-list-item (click)="scrollTo('section5')"
-                [ngStyle]="{'background-color': (currentSection === 'section5') ? 'rgba(73, 255, 185, 0.534)' : ''}">
-                <!-- <i class="fas fa-file-signature" style="font-size: 20px;margin-right: 5px;"></i> -->
+            <mat-list-item (click)="scrollTo('section5')" [ngStyle]="activatedLink('section5')">
                 <mat-icon>contact_mail</mat-icon>
-
                 <span>Contact</span>
             </mat-list-item>
         </mat-nav-list>
