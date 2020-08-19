@@ -3,6 +3,7 @@ import { SplashScreenService } from './splash-screen.service';
 import { SharedService } from './service.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { FormControl } from '@angular/forms';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -16,25 +17,28 @@ export class AppComponent implements OnInit {
   isChecked = new FormControl(false);
   disabled = false;
   constructor(private sp: SplashScreenService, public service: SharedService
-    , private overlayContainer: OverlayContainer,) { }
+    , private overlayContainer: OverlayContainer /*, public theme: ThemeService*/) { }
 
   ngOnInit(): void {
-    this.themeForBtnNav('default-theme');
 
-    this.changeTheme();
+    const isChecked: boolean = JSON.parse(localStorage.getItem('checked') ?? 'false');
+
+    this.isChecked.setValue(isChecked);
+
+    this.changeTheme(isChecked);
+
+    this.isChecked.valueChanges.subscribe((checked: boolean) => this.changeTheme(checked));
+
   }
 
-  changeTheme() {
-    this.isChecked.valueChanges.subscribe((checked: boolean) => {
-      console.log(checked)
+  changeTheme(checked: boolean) {
+    // console.log(checked)
+    localStorage.setItem('checked', JSON.stringify(checked));
+    this.defaultTheme = !checked;
+    this.darkTheme = checked;
+    this.service.filter = checked ? 'brightness(85%)' : '';
 
-      this.defaultTheme = !checked;
-      this.darkTheme = checked;
-      this.service.filter = checked ? 'brightness(85%)' : '';
-
-      this.themeForBtnNav(checked ? 'dark-theme' : 'default-theme');
-
-    })
+    this.themeForBtnNav(checked ? 'dark-theme' : 'default-theme');
   }
 
   themeForBtnNav(theme) {

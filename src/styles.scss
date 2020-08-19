@@ -56,6 +56,8 @@ $alt-theme: mat-dark-theme($alt-primary, $alt-accent, $alt-warn);
   --selected-primary: #{mat-color($alt-primary)};
   --selected-accent: #{mat-color($alt-accent)};
   --selected-warn: #{mat-color($alt-warn)};
+  --selected-neutral: rgb(172, 172, 172);
+  --selected-link: rgb(255, 166, 0);
 
 
 }
@@ -67,7 +69,17 @@ $alt-theme: mat-dark-theme($alt-primary, $alt-accent, $alt-warn);
   --selected-primary: #{mat-color($candy-app-primary)};
   --selected-accent: #{mat-color($candy-app-accent)};
   --selected-warn: #{mat-color($candy-app-warn)};
+  --selected-neutral: gray;
+  --selected-link: blue;
   // $primary: map-get($theme, primary);
 }
 
+// for fonts
+// $custom-typography: mat-typography-config(
+//   $font-family: 'Roboto, monospace',
+//   $headline: mat-typography-level(26px, 40px, 700),
+//   $title: mat-typography-level(24px, 40px, 600),
+//   $body-1: mat-typography-level(16px, 24px, 500),
+// );
 
+// @include angular-material-typography($custom-typography);
