@@ -171,7 +171,7 @@
       "description": "Application web pour la gestion des biens informatique",
       "tech": "Angular, Angular material, Asp .net core, Sqlite",
       "image": "assets/gestion-materiels.png",
-      "url": "https://gestion-materiels.herokuapp.com/",
+      "url": "https://gestion-material.herokuapp.com/",
       "isPrivate": false,
       "git": "https://github.com/djm2x/gestion-material"
     },
@@ -182,7 +182,7 @@
       "description": "Application Bureau qui collecte les informations système (cpu, gpu, network, bios, model, ram ...), et une liste des applications installé sur l'appareil.",
       "tech": "Angular, Angular material, Electron JS/Ts",
       "image": "assets/system-info.jpg",
-      "url": "https://gestion-materiels.herokuapp.com/a/desktop",
+      "url": "https://gestion-material.herokuapp.com/a/desktop",
       "isPrivate": false,
       "git": "https://github.com/djm2x/systeminformation-electron"
     },
