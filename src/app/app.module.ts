@@ -8,14 +8,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SplashScreenService } from './shared/splash-screen.service';
+import { ThemeModule } from './shared/theme.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundComponent,
   ],
   imports: [
-    // BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -23,10 +25,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     MatSlideToggleModule,
-    // FormsModule,
-    ReactiveFormsModule,
+    ThemeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private sp: SplashScreenService) { }
+}

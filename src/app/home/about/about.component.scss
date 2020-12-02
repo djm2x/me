@@ -23,3 +23,29 @@ button {
     background-color: rgba(128, 128, 128, 0.37);
   }
 }
+
+.info {
+  // display: flex;
+  // align-items: center;
+  // height: 15px;
+  mat-icon {
+    font-size: 1.1em;
+    padding-top: 3px;
+    // color: gray;
+    margin-right: 4px;
+  }
+
+  .text {
+    font-size: 1em;
+    font-weight: bold;
+    width: 25px;
+    margin-top: -2px;
+    // color: gray;
+    margin-right: 4px;
+  }
+
+  .link {
+    // font-weight: 700;
+    font-size: .7em;
+  }
+}

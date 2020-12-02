@@ -1,46 +1,54 @@
 import { Injectable } from '@angular/core';
-import * as jspdf from 'jspdf';
+import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-
 @Injectable({
   providedIn: 'root'
 })
 export class PdfService {
-
+  loader = false;
   constructor() { }
 
   async captureScreen(data: HTMLElement) {
+    this.loader = true;
     const pdf = await this.shared(data);
-    window.open(pdf.output('bloburl', { filename: 'cv.pdf' }), '_blank');
+    this.loader = false;
+    window.open(pdf.output('bloburl' as any, { filename: 'cv.pdf' }), '_blank');
   }
 
   async downloadPDF(data: HTMLElement) {
-
+    this.loader = true;
     const pdf = await this.shared(data);
+    this.loader = false;
     pdf.save('cv.pdf'); // Generated PDF
   }
 
   async shared(data: HTMLElement) {
-    const canvas = await html2canvas(data);
+    const canvas = await html2canvas(data, { scale: 1.8, scrollX: -8.5});
     // Few necessary setting options
-    const imgWidth = 208;
-    const pageHeight = 295;
-    const imgHeight = canvas.height * imgWidth / canvas.width;
-    const heightLeft = imgHeight;
+    const imgWidth =  210;
+    const pageHeight =  297 + 2.5;
+    // const imgHeight = canvas.height * imgWidth / canvas.width;
 
-    const contentDataURL = canvas.toDataURL('image/png', 1.0);
-    const pdf = new jspdf('p', 'mm', 'a4', 1); // A4 size page of PDF
-    const position = 0;
-    const format = 'JPEG';
-    const compression = 'SLOW' || 'FAST' || 'MEDIUM' || 'NONE';
+    const contentDataURL: string = canvas.toDataURL('image/JPEG', 0.95);
 
-    pdf.addImage(contentDataURL, format, 0, position, imgWidth, imgHeight, undefined, compression);
-    // window.open(pdf.output('bloburl', { filename: 'fileName.pdf' }), '_blank');
+    const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'A4',
+      compress: true
+    });
 
-    // pdf.save('pdfobjectnewwindow'); // Generated PDF
-    // pdf.output('pdfobjectnewwindow'); // Generated PDF
-    // pdf.save('cv.pdf'); // Generated PDF
+    pdf.setProperties({
+      title: 'CV Mourabit mohamed',
+      subject: 'CV',
+      author: 'Mourabit mohamed',
+      keywords: 'developpeur, full stack, angular, asp, asp core, laravel, html, js , css',
+      creator: 'Mourabit mohamed'
+    });
+
+    pdf.addImage(contentDataURL, 'JPEG', 0, 0, imgWidth, pageHeight, '', 'SLOW' as any, 0);
 
     return pdf;
   }
+
 }

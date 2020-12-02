@@ -2,7 +2,6 @@
 import { Component, OnInit, HostBinding, ChangeDetectorRef, OnDestroy, ViewChild, ElementRef, HostListener, Inject } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { SharedService } from '../service.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { TitleComponent } from './title/title.component';
@@ -18,7 +17,8 @@ export class HomeComponent implements OnInit {
   @ViewChild('div') divHTML: ElementRef;
   mobileQuery: MediaQueryList;
   currentSection = 'section1';
-  userImg = 'assets/2.png';
+  userImg2 = 'assets/2.png';
+  userImg = 'assets/me.png';
   color = 'accent';
   opened = false;
   d = new Date();

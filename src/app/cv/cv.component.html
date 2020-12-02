@@ -1,24 +1,12 @@
+<div style="padding-top: 50px;">
+  <app-curriculum-vitae></app-curriculum-vitae>
+</div>
 
-<!-- <app-admin *ngIf="session.userRole()"></app-admin> -->
-<mat-sidenav-container class="example-sidenav-container">
-  <div #div (click)="snav.toggle()"></div>
-  <mat-sidenav #snav [mode]="'side'" [opened]="false" [fixedInViewport]="true" fixedTopGap="50">
-
-
-  </mat-sidenav>
-
-  <mat-sidenav-content style="overflow: hidden;margin-top: 50px;">
-      <main>
-          <app-curriculum-vitae></app-curriculum-vitae>
-      </main>
-
-      <footer class="">
-          <mat-toolbar class="text" color="primary">
-              <mat-toolbar-row style="height: 70px">
-                  <span style="margin-left: auto; margin-right: auto;"> © {{ d | date:"dd/MMMM/yyyy" }} - Mohamed
-                      MOURABIT</span>
-              </mat-toolbar-row>
-          </mat-toolbar>
-      </footer>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<footer class="">
+  <mat-toolbar class="text" color="primary">
+      <mat-toolbar-row style="height: 70px">
+          <span style="margin-left: auto; margin-right: auto;"> © {{ d | date:"yyyy" }} - Mohamed
+              MOURABIT</span>
+      </mat-toolbar-row>
+  </mat-toolbar>
+</footer>

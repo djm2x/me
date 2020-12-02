@@ -7,7 +7,7 @@
       <img [src]="o.image" [alt]="o.image" style="width: 100%;">
 
       <div class="d-flex justify-content-between mt-2">
-        <button mat-stroked-button (click)="goto(o.git)">Github</button>
+        <button mat-stroked-button (click)="goto(o.git)" *ngIf="service2.configs.showGitRepo">Github</button>
         <button cdkFocusInitial mat-stroked-button (click)="goto(o.url)">Lien</button>
       </div>
     </div>

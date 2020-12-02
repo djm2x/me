@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { animations } from '../../animations';
-import { DbService } from 'src/app/db.service';
+import { animations } from '../../shared/animations';
+import { DbService } from 'src/app/shared/db.service';
 
 @Component({
   selector: 'app-education',

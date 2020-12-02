@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { DbService, DataBase } from 'src/app/db.service';
+import { DbService, DataBase } from 'src/app/shared/db.service';
 import { PdfService } from '../pdf.service';
 import { ActivatedRoute } from '@angular/router';
-import { SharedService } from 'src/app/service.service';
-import { animations } from 'src/app/animations';
+import { SharedService } from 'src/app/shared/service.service';
+import { animations } from 'src/app/shared/animations';
 
 @Component({
   selector: 'app-curriculum-vitae',
@@ -12,15 +12,20 @@ import { animations } from 'src/app/animations';
   animations: animations,
 })
 export class CurriculumVitaeComponent implements OnInit {
+  zoom = 1;
   state = 'hide';
   @ViewChild('cv') cv: ElementRef;
   o = new DataBase();
   isPrivate = false;
-  constructor(private service: DbService, private pdf: PdfService
-    , private route: ActivatedRoute, private service2: SharedService) { }
+  timeoutHandler = null;
+
+  constructor(private service: DbService, public pdf: PdfService
+    , private route: ActivatedRoute, public service2: SharedService) { }
 
   ngOnInit(): void {
-    this.isPrivate = this.route.snapshot.paramMap.get('isPrivate') === 'with-private';
+    // setTimeout(() => this.zoom = 1.36, 300);
+
+    this.isPrivate = +this.route.snapshot.paramMap.get('isPrivate') === 1;
     this.service2.private = this.isPrivate ? '/with-private' : '';
     this.service.all().subscribe(r => {
       this.o = r;
@@ -32,11 +37,26 @@ export class CurriculumVitaeComponent implements OnInit {
     setTimeout(() => this.state = 'show', 300);
   }
 
+  public mouseup() {
+    if (this.timeoutHandler) {
+      clearInterval(this.timeoutHandler);
+      this.timeoutHandler = null;
+    }
+  }
+
+  public mousedown(i: number) {
+    this.timeoutHandler = setInterval(() => {
+      this.zoom += i;
+    }, 100);
+  }
+
   openPDF() {
+    this.zoom = 1;
     this.pdf.captureScreen(this.cv.nativeElement);
   }
 
   downloadPDF() {
+    this.zoom = 1;
     this.pdf.downloadPDF(this.cv.nativeElement);
   }
 

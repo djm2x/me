@@ -8,7 +8,7 @@
         <div *ngFor="let o of e.items; let i=index" class="mb-2">
           <span>{{o.name}}</span>
           <span style="float: right;">{{o.value}}%</span>
-          <mat-progress-bar mode="determinate" [value]="o.value"></mat-progress-bar>
+          <mat-progress-bar mode="determinate" color="accent" [value]="o.value"></mat-progress-bar>
         </div>
       </mat-card>
     </div>

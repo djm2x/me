@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -88,7 +89,7 @@ export class About {
   lastName = '';
   profession = '';
   image = '';
-  info: { icon: string, text: string, name: string }[] = [];
+  info: { icon: string, text: string, name: string, href: string }[] = [];
 }
 
 export class Lang {

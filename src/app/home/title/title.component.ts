@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { animations } from '../../animations';
-import { SharedService } from '../../service.service';
+import { SharedService } from 'src/app/shared/service.service';
+import { animations } from '../../shared/animations';
 const ASSETS = 'assets/';
 @Component({
   selector: 'app-title',

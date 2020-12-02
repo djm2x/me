@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { animations } from '../../animations';
-import { SharedService } from '../../service.service';
-import { DbService, About } from 'src/app/db.service';
+import { animations } from '../../shared/animations';
+import { DbService, About } from 'src/app/shared/db.service';
+import { SharedService } from 'src/app/shared/service.service';
 
 
 @Component({

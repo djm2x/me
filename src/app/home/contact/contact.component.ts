@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { animations } from '../../animations';
+import { animations } from '../../shared/animations';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { About, DbService } from 'src/app/shared/db.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -9,16 +10,27 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   animations: animations
 })
 export class ContactComponent implements OnInit {
-  lat = 33.927251;
-  lng = -6.887098;
-  zoom = 15;
+  // lat = 33.927251;
+  // lng = -6.887098;
+  // zoom = 15;
   o = new User();
   myForm: FormGroup;
   state = 'hide';
-  constructor(private fb: FormBuilder, public snackBar: MatSnackBar) { }
+
+  about = new About();
+  constructor(private fb: FormBuilder, public snackBar: MatSnackBar, private service: DbService) { }
 
   ngOnInit() {
     this.createForm();
+
+    this.service.about().subscribe(r => {
+      this.about = r;
+    });
+  }
+
+  openLink(info: { icon: string, text: string, name: string, href: string }) {
+    // const url = `${this.url}/${this.folder}/${fileName}`;
+    window.open(info.href, info.href.startsWith('http') ? null : '_blank');
   }
 
   createForm() {

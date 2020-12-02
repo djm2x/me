@@ -1,29 +1,51 @@
-# Angular
+# App web 
+[lien]:(https://mohamed-mourabit.com)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+## Le projet à éte developpé par les technologies suivantes : 
+[Node js et NPM] :(https://nodejs.org/en/download/) & [Angular 11](https://cli.angular.io/) : 
 
-## Development server
+## Les étapes d'instalation : 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### la commande pour récuperer le repository du git est : 
+```
+get clone  https://github.com/djm2x/me.git
+```
 
-## Code scaffolding
+### Pour installer les dependences éxécuter la commande suivante : 
+```
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### pour lancer le projet front-end angular éxécuter la commande suivante :  
+```
+ng serve --port 4206 --hmr
+```
 
-## Build
+### configuration deheroku pour le deploiment de l'application
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Crée un compte sur [Heroku](https://www.heroku.com/)
+- Dans le Dashboard cliquer sur new => `create a new app`
+- Attribuer un nom à l'application et choisissez  la région la plus proche de vous => `create app`
+- Dans l'ongle Settings -> `add Buildpacks` : https://github.com/anuraj/dotnetcore-buildpack (pour qui Heroku support ASP.NET Core)
+- Dans l'ongle `Deploy`, choisir comme `Deployment method` GitHub, connectez-vous après avoir choisie votre repo est cliqué sur `connect` -> `Enable Automatic Deploy`
+- Pour genere la base de donne install ce package de entity framwork core
+```
+dotnet tool install --global dotnet-ef
+```
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### pour deployer le projet sur GITHUB page : 
+```
+npm run ci 
+```
 
-## Running end-to-end tests
+### AJouter source-map-explorer
+```
+ng add @ngx-builders/analyze
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+apres
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-ng g m cv --route cv --module app
+```
+npm run analyze
+```
