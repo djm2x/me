@@ -23,7 +23,7 @@ export class PdfService {
   }
 
   async shared(data: HTMLElement) {
-    const canvas = await html2canvas(data, { scale: 1.8, scrollX: -8.5});
+    const canvas = await html2canvas(data, { scale: 1.7, scrollX: -8.5});
     // Few necessary setting options
     const imgWidth =  210;
     const pageHeight =  297 + 2.5;

@@ -115,7 +115,7 @@
       "tech": "Angular, Angular material, Angular Internationalization, Asp .net core, Sql Server",
       "image": "assets/didh.png",
       "url": "https://didh.herokuapp.com",
-      "isPrivate": false,
+      "isPrivate": true,
       "git": "https://github.com/djm2x/didh"
     },
     {
@@ -126,7 +126,7 @@
       "tech": "Angular, Angular material, Asp .net core, Sql Server",
       "image": "assets/panddh.png",
       "url": "https://panddh.herokuapp.com",
-      "isPrivate": false,
+      "isPrivate": true,
       "git": "https://github.com/djm2x/panddh"
     },
     {
@@ -203,7 +203,7 @@
       "tech": "Angular, Angular material, Electron JS",
       "image": "assets/suivi-activites.png",
       "url": "https://mem-ssa.herokuapp.com",
-      "isPrivate": false,
+      "isPrivate": true,
       "git": "https://github.com/djm2x/mem"
     },
     {
