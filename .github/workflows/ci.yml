@@ -8,7 +8,7 @@ on:
 
 env:
   APP_NAME: portfolio
-  APP_PORT: 4200
+  APP_PORT: 3000
   NODE_VERSION: 14
   DOCKER_HUB_REPO: djm2x
   DOCKER_HUB_USER: djm2x
