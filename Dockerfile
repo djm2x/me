@@ -5,8 +5,6 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "dist", "node_modules", "./"]
-
 COPY package.json .
 COPY node_modules ./node_modules
 COPY dist ./dist
