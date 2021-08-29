@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "install-angular-dep": "cd angular && npm i",
+    "install-angular-dep": "cd angular && npm i --production --silent",
     "build-angular": "cd angular && npm run f-p --output-path docs --base-href=/ && npm run copy",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

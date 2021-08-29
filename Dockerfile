@@ -7,4 +7,8 @@ WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "dist", "node_modules", "./"]
 
+COPY package.json .
+COPY node_modules .
+COPY dist .
+
 CMD ["npm", "run", "start:prod"]
