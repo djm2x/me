@@ -1,31 +1,11 @@
-import { enableProdMode, StaticProvider } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-const port = '5000';
-const host = 'http://localhost';
-
-const apiUrl = `${host}:${port}/api`;
-const url = `${host}:${port}`;
-
-const providers: StaticProvider[] = [
-  // { provide: 'BASE_URL', useFactory: getBaseUrl, deps: [] },
-  {
-    provide: 'BASE_URL',
-    useValue: environment.production ? 'https://gestion-material.herokuapp.com' : url,
-  },
-  {
-    provide: 'API_URL',
-    useValue: environment.production ? `https://gestion-material.herokuapp.com/api` : apiUrl,
-  }
-];
-
-
-if (environment.production) {
-  enableProdMode();
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix('api');
+  app.enableCors();
+  await app.listen(3000);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
-
-platformBrowserDynamic(providers).bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrap();
