@@ -67,7 +67,7 @@ jobs:
           key: node-modules-${{ hashFiles('package.json') }}
 
       - name: install dep for nest js
-        run: npm ci --production --silent
+        run: npm ci
 
       - name: build nest js
         run: npm run prod --if-present
