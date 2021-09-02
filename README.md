@@ -74,3 +74,9 @@ Nest is [MIT licensed](LICENSE).
 
 ## run Stopped container
 docker run -it --rm --entrypoint sh 5d
+
+## add support for jwt
+npm i bcrypt @nestjs/passport @nestjs/jwt  passport passport-jwt 
+npm i @types/bcrypt @types/passport @types/passport-jwt -D
+
+

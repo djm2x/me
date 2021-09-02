@@ -5,33 +5,32 @@ export abstract class SuperController<T> {
   constructor(protected  readonly service: Repository<T>) {}
 
   @Post('/post')
-  post(@Body() model: T) {
-    return this.service.save(model);
+  async post(@Body() model: T) {
+    return await this.service.save(model);
   }
 
   @Get('/get')
-  get() {
-    console.log((this.service as any).me);
-    return this.service.find();
+  async get() {
+    return await this.service.find();
   }
 
   @Get('get/:id')
-  findOne(@Param('id') id: number) {
-    return this.service.findOne(+id);
+  async findOne(@Param('id') id: number) {
+    return await this.service.findOne(+id);
   }
 
   @Patch('patch/:id')
-  patch(@Param('id') id: number, @Body() model: T) {
-    return this.service.update(+id, model);
+  async patch(@Param('id') id: number, @Body() model: T) {
+    return await this.service.update(+id, model);
   }
 
   @Put('put/:id')
-  put(@Param('id') id: number, @Body() model: T) {
-    return this.service.update(+id, model);
+  async put(@Param('id') id: number, @Body() model: T) {
+    return await this.service.update(+id, model);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: number) {
-    return this.service.delete(+id);
+  async delete(@Param('id') id: number) {
+    return await this.service.delete(+id);
   }
 }
