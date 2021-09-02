@@ -7,7 +7,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 
 import { OverlayModule } from '@angular/cdk/overlay';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
+// import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -90,7 +90,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTooltipModule,
     MatTreeModule,
     OverlayModule,
-    MatMomentDateModule,
+    // MatMomentDateModule,
   ],
   imports: [
     CommonModule,
@@ -99,4 +99,4 @@ import {MatTreeModule} from '@angular/material/tree';
   ],
   declarations: []
 })
-export class MatModule2 { }
+export class MatModule { }

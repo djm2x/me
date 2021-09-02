@@ -1,0 +1,64 @@
+<div class="dialog">
+  <h1 mat-dialog-title>
+    <mat-toolbar role="toolbar" class="task-header">
+      <span>{{title}}</span>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+  </h1>
+  <div class="content">
+    <mat-dialog-content>
+
+      <form [formGroup]="myForm">
+        <mat-form-field appearance="fill" class="col-md-6">
+        <mat-label>title</mat-label>
+        <input matInput formControlName="title" required>
+    </mat-form-field>
+
+<mat-form-field appearance="fill" class="col-md-6">
+        <mat-label>date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+<mat-form-field appearance="fill" class="col-md-12">
+        <mat-label>description</mat-label>
+        <textarea matInput rows="6" formControlName="description" required></textarea>
+    </mat-form-field>
+
+<mat-form-field appearance="fill" class="col-md-6">
+        <mat-label>tech</mat-label>
+        <input matInput formControlName="tech" required>
+    </mat-form-field>
+
+<mat-form-field appearance="fill" class="col-md-6">
+        <mat-label>url</mat-label>
+        <input matInput formControlName="url" required>
+    </mat-form-field>
+
+<mat-checkbox class="col-md-6" formControlName="isPrivate"  labelPosition="before" >
+        Activer
+    </mat-checkbox>
+
+<mat-form-field appearance="fill" class="col-md-6">
+        <mat-label>git</mat-label>
+        <input matInput formControlName="git" required>
+    </mat-form-field>
+
+<div class="col-md-12">
+        <app-upload-image nameBtn="Image" [folderToSaveInServer]="folderToSaveInServer" [propertyOfParent]="imageTo"
+            [eventSubmitToParent]="imageFrom" [eventSubmitFromParent]="eventSubmitFromParent">
+        </app-upload-image>
+    </div>
+
+
+      </form>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="onNoClick()" type="button">Annuler</button>
+      <button mat-raised-button color="primary" (click)="onOkClick(myForm.value)" [disabled]="myForm.invalid" cdkFocusInitial>Enregistre</button>
+    </mat-dialog-actions>
+  </div>
+</div>

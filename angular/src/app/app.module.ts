@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SplashScreenService } from './shared/splash-screen.service';
 import { ThemeModule } from './shared/theme.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { InjectService } from './shared/inject.service';
 
 @NgModule({
   declarations: [
@@ -31,5 +32,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private sp: SplashScreenService) { }
+  constructor(private sp: SplashScreenService, private injector: Injector) {
+    InjectService.injector = this.injector;
+  }
 }

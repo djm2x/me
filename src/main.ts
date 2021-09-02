@@ -9,7 +9,7 @@ async function bootstrap() {
     AppModule,
     {
       // logger: Boolean(process.env.ENABLELOGGING),
-      logger: console,
+      // logger: console,
     },
   );
 
