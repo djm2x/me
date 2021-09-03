@@ -16,20 +16,20 @@ export class AuthController {
       ;
 
     if (!user) {
-      return { code: -1, msg: 'wrong email' };
+      return { code: -1, message: 'wrong email' };
     }
 
     if (user.email !== model.email) {
-      return { code: -1, msg: 'wrong password' };
+      return { code: -1, message: 'wrong password' };
     }
 
     if (!user.isActive) {
-      return { code: 0, msg: 'user not activated' };
+      return { code: 0, message: 'user not activated' };
     }
 
     const payload = { username: user.username, sub: user.id, role: user.role };
 
-    return { code: 1, user, token: this.jwtService.sign(payload), }
+    return { code: 1, user, token: this.jwtService.sign(payload), messsage: 'ok' }
   }
 
   @Get('/register')
@@ -40,15 +40,15 @@ export class AuthController {
       ;
 
     if (user) {
-      return { code: -1, msg: 'email taken' };
+      return { code: -1, message: 'email taken' };
     }
 
     try {
       await this.service.save(model)
     } catch (e) {
-      return { code: 0, msg: (e as Error).message };
+      return { code: 0, message: (e as Error).message };
     }
 
-    return { code: 1, msg: 'ok' };
+    return { code: 1, message: 'ok' };
   }
 }

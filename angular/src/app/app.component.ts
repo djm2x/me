@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(public service: SharedService) { }
+  constructor() { }
 
   ngOnInit() { }
 }

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, RouteConfigLoadStart, Router, RouterEvent } from '@angular/router';
-import { SnackbarService } from './snakebar.service';
+import { SnackBarService } from './snakebar.service';
 
 @Injectable()
 export class LoadModuleIndicatorService {
 
-  constructor(private router: Router, public snackBar: SnackbarService) {
+  constructor(private router: Router, public snackBar: SnackBarService) {
     this.onInit();
   }
 

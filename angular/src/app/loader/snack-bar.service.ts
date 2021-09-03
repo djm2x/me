@@ -4,7 +4,7 @@ import { MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBar
 @Injectable({
   providedIn: 'root'
 })
-export class SnackBarService {
+export class SnackBarInterceptorService {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(private snackBar: MatSnackBar) { }

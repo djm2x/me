@@ -24,6 +24,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ScrollDirective } from '../shared/scroll.directive';
+import { ThemeModule } from '../shared/theme.module';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,8 @@ import { ScrollDirective } from '../shared/scroll.directive';
     MatInputModule,
     MatDialogModule,
     MatSnackBarModule,
+    ThemeModule,
+
   ]
 })
 export class HomeModule { }

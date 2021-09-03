@@ -3,9 +3,9 @@ import { Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/models';
 import { UowService } from 'src/app/services/uow.service';
-import { SnackBarService } from 'src/app/loader/snack-bar.service';
 import { environment } from 'src/environments/environment';
 import { SessionService } from 'src/app/shared/session.service';
+import { SnackBarService } from 'src/app/shared/snakebar.service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     // test
-    this.o.email = 'sa@angular.io';
+    this.o.email = 'dj-m2x@hotmail.com';
     this.o.password = '123';
     this.createForm();
 
@@ -66,9 +66,11 @@ export class LoginComponent implements OnInit, OnDestroy {
       } else {
         this.snackBar.notifyOk(200, r.message);
         this.session.doSignIn(r.user, r.token);
+
         const routeSaved = localStorage.getItem('route');
 
-        this.router.navigate([routeSaved && routeSaved !== '/' ? routeSaved : '/admin']);
+        // this.router.navigate([routeSaved && routeSaved !== '/' ? routeSaved : '/admin']);
+        this.router.navigate(['/admin']);
       }
     });
   }

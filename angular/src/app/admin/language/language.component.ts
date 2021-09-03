@@ -5,7 +5,7 @@ import { UowService } from 'src/app/services/uow.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteService } from 'src/app/components/delete/delete.service';
+import { DeleteService } from 'src/app/modules/delete/delete.service';
 import { Language } from 'src/app/models/models';
 import { startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
@@ -35,10 +35,10 @@ export class LanguageComponent implements OnInit, OnDestroy {
 level = new FormControl('');
 
 
-  
+
 
   constructor(public uow: UowService, public dialog: MatDialog
-    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string ) { 
+    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string ) {
     }
 
   ngOnInit() {

@@ -3,8 +3,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { UowService } from 'src/app/services/uow.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/models';
-import { SnackBarService } from 'src/app/loader/snack-bar.service';
 import { SessionService } from 'src/app/shared/session.service';
+import { SnackBarService } from 'src/app/shared/snakebar.service';
 
 @Component({
   selector: 'app-create',

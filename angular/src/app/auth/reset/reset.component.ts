@@ -3,8 +3,8 @@ import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms'
 import { UowService } from 'src/app/services/uow.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/models';
-import { SnackBarService } from 'src/app/loader/snack-bar.service';
 import { SessionService } from 'src/app/shared/session.service';
+import { SnackBarService } from 'src/app/shared/snakebar.service';
 
 @Component({
   selector: 'app-reset',

@@ -3,9 +3,9 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, Htt
 import { Observable } from 'rxjs';
 import { LoaderService } from './loader.service';
 import { Router } from '@angular/router';
-import { SnackBarService } from './snack-bar.service';
-import { SessionService } from '../shared';
+import { SnackBarInterceptorService } from './snack-bar.service';
 import { DialogMessageService } from './dialog-message.component';
+import { SessionService } from '../shared/session.service';
 // import { SessionService } from '../shared';
 
 @Injectable({
@@ -21,8 +21,8 @@ export class LoaderInterceptor implements HttpInterceptor {
   percentage = 0;
 
   constructor(private loaderService: LoaderService, public router: Router
-    , public snackBar: SnackBarService , private session: SessionService
-    , public dialog: DialogMessageService
+             , private session: SessionService
+            // , public dialog: DialogMessageService
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -52,7 +52,7 @@ export class LoaderInterceptor implements HttpInterceptor {
             this.removeRequest(req);
             observer.next(event);
             const code = event.status === 200 && event.url.includes('post') ? 201 : event.status;
-            this.snackBar.manageStatusCode(code);
+            // this.snackBar.manageStatusCode(code);
           }
         },
         err => {
@@ -63,13 +63,13 @@ export class LoaderInterceptor implements HttpInterceptor {
               console.log(err.status, err.statusText);
               // this.session.doSignOut();
               this.router.navigate(['/auth']);
-              this.snackBar.manageStatusCode(err.status);
+              // this.snackBar.manageStatusCode(err.status);
             } else {
               // console.log(err);
               // this.toast.toastError(err.error);
-              const er = err.error ? `${err.status}: ${err.error.Description}` : `${err.status}`
-              this.snackBar.manageStatusCode(err.status);
-              this.dialog.openDialog(err);
+              const er = err.error ? `${err.status}: ${err.error.Description}` : `${err.status}`;
+              // this.snackBar.manageStatusCode(err.status);
+              // this.dialog.openDialog(err);
               // this.snackBar.notifyAlert(er);
               // this.snackBar.openSnackBar(`${err.status} : ${err.error.Description}`);
             }

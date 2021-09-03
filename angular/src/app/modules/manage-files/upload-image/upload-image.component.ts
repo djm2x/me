@@ -253,7 +253,7 @@ export class UploadImageComponent implements OnInit {
     });
 
 
-    if (formData) {
+    if (this.files.length !== 0 && formData) {
       if (value.id && !this.folderToSaveInServer.includes('_')) {
         this.folderToSaveInServer = `${this.folderToSaveInServer}_${value.id}`;
       }

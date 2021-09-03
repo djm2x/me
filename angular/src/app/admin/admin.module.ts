@@ -13,7 +13,8 @@ const routes: Routes = [
   {
     path: '', component: AdminComponent,
     children: [
-      { path: '', redirectTo: 'undefined', pathMatch: 'full' },
+      { path: '', redirectTo: 'users', pathMatch: 'full' },
+      { path: 'users', loadChildren: () => import('./user/user.module').then(m => m.UserModule), },
     ]
   }
 ];

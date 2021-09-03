@@ -5,6 +5,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { TitleComponent } from './title/title.component';
+import { SharedService } from '../shared/service.service';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +23,9 @@ export class HomeComponent implements OnInit {
   color = 'accent';
   opened = false;
   d = new Date();
-  constructor(changeDetectorRef: ChangeDetectorRef, private router: Router,
-    private activatedRoute: ActivatedRoute, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, private router: Router
+            , private activatedRoute: ActivatedRoute, media: MediaMatcher
+            , public service: SharedService) {
     // define the limite size
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     // mobileQuery.matches is listen for the size
@@ -57,9 +59,9 @@ export class HomeComponent implements OnInit {
       }),
       filter(route => route.outlet === 'primary')
     ).subscribe((route: ActivatedRoute) => {
-      const seo = route.snapshot.data['seo'];
+      const seo = route.snapshot.data.seo;
       // set your meta tags & title here
-      console.log(seo)
+      console.log(seo);
     });
   }
 

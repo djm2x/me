@@ -4,25 +4,33 @@ import { MatSnackBarRef, MatSnackBar, MatSnackBarConfig, MAT_SNACK_BAR_DATA } fr
 @Injectable({
   providedIn: 'root'
 })
-export class SnackbarService {
+export class SnackBarService {
   snackBarRef: MatSnackBarRef<any>;
   constructor(private snackBar: MatSnackBar) { }
 
-  openMySnackBar(message: string, action?: string) {
-    const configs: MatSnackBarConfig<any> = {
-      panelClass: ['load-snackbar'],
-      verticalPosition: 'top',
-      politeness: 'assertive',
-      data: message,
-    };
+  // openMySnackBar(message: string, action?: string) {
+  //   const configs: MatSnackBarConfig<any> = {
+  //     panelClass: ['load-snackbar'],
+  //     verticalPosition: 'top',
+  //     politeness: 'assertive',
+  //     data: message,
+  //   };
 
-    this.snackBarRef = this.snackBar.openFromComponent(MessageComponent, configs);
-  }
+  //   this.snackBarRef = this.snackBar.openFromComponent(MessageComponent, configs);
+  // }
 
   openSnackBar(message: string, action = 'close') {
     this.snackBarRef = this.snackBar.open(message, action, {
       // duration: 10000,
     });
+  }
+
+  notifyAlert(code, msg) {
+    this.openSnackBar(msg);
+  }
+
+  notifyOk(code, msg) {
+    this.openSnackBar(msg);
   }
 
   afterDismissed = () => this.snackBarRef.afterDismissed();
@@ -31,22 +39,22 @@ export class SnackbarService {
 }
 
 
-@Component({
-  selector: 'app-snack-bar',
-  template: `
-  <div class="row">
-    <span>{{ data }}</span>
-    <!-- <mat-spinner color="warn" class="custom-spinner" diameter="27"></mat-spinner> -->
-  </div>`,
-  styles: [`
-    .row {
-      padding: 0 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  `]
-})
-export class MessageComponent {
-  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: string) { }
-}
+// @Component({
+//   selector: 'app-snack-bar',
+//   template: `
+//   <div class="row">
+//     <span>{{ data }}</span>
+//     <!-- <mat-spinner color="warn" class="custom-spinner" diameter="27"></mat-spinner> -->
+//   </div>`,
+//   styles: [`
+//     .row {
+//       padding: 0 10px;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//     }
+//   `]
+// })
+// export class MessageComponent {
+//   constructor(@Inject(MAT_SNACK_BAR_DATA) public data: string) { }
+// }

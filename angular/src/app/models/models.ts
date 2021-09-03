@@ -1,9 +1,9 @@
 export class User {
-  id = 0;
-  username = '';
-  password = '';
-  email = '';
-  role = '';
+  id = null;
+  username = 'mourabit mohamed';
+  password = '123';
+  email = 'dj-m2x@hotmail.com';
+  role = 'admin';
   imageUrl = '';
   isActive = true;
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate: [MyGuard] },
   // { path: 'portfolio', loadChildren: () => import('./portfolio/portfolio.module').then(m => m.PortfolioModule)},
-  { path: '**', component: NotFoundComponent, resolve: { path: PathResolveService } }
+  // { path: '**', component: NotFoundComponent, resolve: { path: PathResolveService } }
 ];
 
 @NgModule({

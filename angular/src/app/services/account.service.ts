@@ -9,7 +9,7 @@ import { User } from '../Models/models';
 export class AccountService extends SuperService<User> {
 
   constructor() {
-    super('accounts');
+    super('auth');
   }
 
   login(model) {
