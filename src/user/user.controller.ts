@@ -2,7 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { UserService } from './user.service';
 import { SuperController } from 'src/shared/super.controller';
 import { User } from './user.entity';
+import { Roles } from 'src/shared/roles.decorator';
 
+@Roles('admin')
 @Controller('users')
 export class UserController extends SuperController<User> {
 
@@ -18,10 +20,9 @@ export class UserController extends SuperController<User> {
   ) {
 
     const [list, count] = await this.service.createQueryBuilder('e')
-      .where(username === '*' ? 'TRUE' : 'username LIKE :username', {username: `%${username}%`})
+      .where(username === '*' ? 'TRUE' : 'usernames LIKE :username', {username: `%${username}%`})
       .andWhere(email === '*' ? 'TRUE' : 'email LIKE :email', {email: `%${email}%`})
       .andWhere(role === '*' ? 'TRUE' : 'role LIKE :role', {role: `%${role}%`})
-
       .orderBy(sortBy, sortDir.toUpperCase())
       .skip(startIndex)
       .take(pageSize)

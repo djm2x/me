@@ -2,17 +2,28 @@ import { EducationModule } from './education/education.module';
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { APP_FILTER, APP_GUARD } from '@nestjs/core';
+import { RolesGuard } from './shared/roles.guard';
+import { JwtAuthGuard } from './shared/jwt-auth.guard';
+import { AllExceptionsFilter } from './shared/all-exceptions.filter';
 
 @Module({
   imports: [
     HomeModule,
     EducationModule,
+    /** Load and parse .env files from the environments directory */
+    ConfigModule.forRoot({
+      // envFilePath: '../.env',
+      // load: [mysqlDB],
+      isGlobal: true,
+    }),
     // ServeStaticModule.forRoot({
     //   rootPath: join(__dirname, '..', 'docs'),
     // }),
@@ -28,6 +39,9 @@ import { AuthModule } from './auth/auth.module';
   controllers: [AppController],
   providers: [
     AppService,
+    { provide: APP_GUARD, useClass: JwtAuthGuard },
+    { provide: APP_GUARD, useClass: RolesGuard },
+    { provide: APP_FILTER, useClass: AllExceptionsFilter },
   ],
 })
 export class AppModule { }

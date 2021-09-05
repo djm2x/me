@@ -1,8 +1,11 @@
-import { NestFactory } from '@nestjs/core';
+import { RolesGuard } from './shared/roles.guard';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as helmet from 'helmet';
 import * as rateLimit from 'express-rate-limit';
 import { ValidationPipe } from '@nestjs/common';
+// const { version } = require("../package.json");
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(
@@ -49,11 +52,29 @@ async function bootstrap() {
     }),
   );
 
+  // app.useGlobalGuards(new RolesGuard(new Reflector()));
+
+  app.use('*', (req, res, next) => {
+    // basic middleware
+    console.log(`express:req from ${req.originalUrl}`);
+    console.log(`express:req type ${req.method}`);
+    
+    next();
+  })
+
 
   app.setGlobalPrefix('api');
 
 
   app.enableCors();
+
+  const options = new DocumentBuilder()
+      .setTitle('NestJS Role Based Auth Starter')
+      .setVersion('1.0.0')
+      .build();
+
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('docs', app, document);
 
 
   await app.listen(3000);

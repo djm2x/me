@@ -4,6 +4,7 @@ import { AuthController } from './auth.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   controllers: [AuthController],
@@ -15,11 +16,15 @@ import { JwtModule } from '@nestjs/jwt';
       session: false,
     }),
     JwtModule.register({
-      secret: process.env.SECRETKEY || 'somethingyouwantwhichissecurewillworkk',
+      secret: process.env.SECRETKEY || 'somethingyouwantwhichissecurewillworkk' ,
       signOptions: {
         expiresIn: process.env.EXPIRESIN || '365d',
       },
     }),
   ],
+  providers: [
+    JwtStrategy,
+  ],
+  exports: [PassportModule, JwtModule],
 })
 export class AuthModule {}

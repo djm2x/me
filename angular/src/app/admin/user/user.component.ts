@@ -27,20 +27,20 @@ export class UserComponent implements OnInit, OnDestroy {
   dataSource: User[] = [];
   selectedList: User[] = [];
 
-  displayedColumns = ['select',  'imageUrl', 'username', 'email', 'role', 'isActive', 'option'];
+  displayedColumns = ['select', 'imageUrl', 'username', 'email', 'role', 'isActive', 'option'];
 
   panelOpenState = false;
 
   username = new FormControl('');
-email = new FormControl('');
-role = new FormControl('');
+  email = new FormControl('');
+  role = new FormControl('');
 
 
 
 
   constructor(public uow: UowService, public dialog: MatDialog
-            , private mydialog: DeleteService, @Inject('BASE_URL') private url: string ) {
-    }
+    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string) {
+  }
 
   ngOnInit() {
     const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
@@ -67,8 +67,8 @@ role = new FormControl('');
 
   reset() {
     this.username.setValue('');
-this.email.setValue('');
-this.role.setValue('');
+    this.email.setValue('');
+    this.role.setValue('');
 
     this.update.next(true);
   }
@@ -77,14 +77,13 @@ this.role.setValue('');
     this.update.next(true);
   }
 
-  getPage(startIndex, pageSize, sortBy, sortDir, username, email, role,) {
-    const sub = this.uow.users.getAll(startIndex, pageSize, sortBy, sortDir,  username, email, role,).subscribe(
-      (r: any) => {
+  getPage(startIndex, pageSize, sortBy, sortDir, username, email, role) {
+    const sub = this.uow.users.getAll(startIndex, pageSize, sortBy, sortDir, username, email, role).subscribe((r: any) => {
         console.log(r.list);
         this.dataSource = r.list;
         this.resultsLength = r.count;
         this.isLoadingResults = false;
-      }
+      }, e => this.isLoadingResults = false
     );
 
     this.subs.push(sub);
