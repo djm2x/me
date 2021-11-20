@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { TitleComponent } from './title/title.component';
 import { SharedService } from '../shared/service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ import { SharedService } from '../shared/service.service';
 })
 export class HomeComponent implements OnInit {
 
-
+  isDev = !environment.production;
   @ViewChild('div') divHTML: ElementRef;
   mobileQuery: MediaQueryList;
   currentSection = 'section1';

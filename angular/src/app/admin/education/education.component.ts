@@ -27,20 +27,20 @@ export class EducationComponent implements OnInit, OnDestroy {
   dataSource: Education[] = [];
   selectedList: Education[] = [];
 
-  displayedColumns = ['select',  'period', 'dipolma', 'universite', 'option'];
+  displayedColumns = ['select', 'period', 'dipolma', 'universite', 'option'];
 
   panelOpenState = false;
 
   period = new FormControl('');
-dipolma = new FormControl('');
-universite = new FormControl('');
+  dipolma = new FormControl('');
+  universite = new FormControl('');
 
 
 
 
   constructor(public uow: UowService, public dialog: MatDialog
-    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string ) {
-    }
+    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string) {
+  }
 
   ngOnInit() {
     const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
@@ -55,8 +55,8 @@ universite = new FormControl('');
           this.sort.active ? this.sort.active : 'id',
           this.sort.direction ? this.sort.direction : 'desc',
           this.period.value === '' ? '*' : this.period.value,
-this.dipolma.value === '' ? '*' : this.dipolma.value,
-this.universite.value === '' ? '*' : this.universite.value,
+          this.dipolma.value === '' ? '*' : this.dipolma.value,
+          this.universite.value === '' ? '*' : this.universite.value,
 
         );
       }
@@ -67,8 +67,8 @@ this.universite.value === '' ? '*' : this.universite.value,
 
   reset() {
     this.period.setValue('');
-this.dipolma.setValue('');
-this.universite.setValue('');
+    this.dipolma.setValue('');
+    this.universite.setValue('');
 
     this.update.next(true);
   }
@@ -78,7 +78,8 @@ this.universite.setValue('');
   }
 
   getPage(startIndex, pageSize, sortBy, sortDir, period, dipolma, universite,) {
-    const sub = this.uow.educations.getAll(startIndex, pageSize, sortBy, sortDir,  period, dipolma, universite,).subscribe(
+    // const sub = this.uow.educations.getAll(startIndex, pageSize, sortBy, sortDir, period, dipolma, universite,).subscribe(
+    const sub = this.uow.educations.getList(startIndex, pageSize, sortBy, sortDir).subscribe(
       (r: any) => {
         console.log(r.list);
         this.dataSource = r.list;

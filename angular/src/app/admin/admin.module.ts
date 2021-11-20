@@ -15,6 +15,12 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'users', pathMatch: 'full' },
       { path: 'users', loadChildren: () => import('./user/user.module').then(m => m.UserModule), },
+      { path: 'languages', loadChildren: () => import('./language/language.module').then(m => m.LanguageModule), },
+      { path: 'projects', loadChildren: () => import('./project/project.module').then(m => m.ProjectModule), },
+      { path: 'skills', loadChildren: () => import('./skill/skill.module').then(m => m.SkillModule), },
+      { path: 'experiences', loadChildren: () => import('./experience/experience.module').then(m => m.ExperienceModule), },
+      { path: 'infos', loadChildren: () => import('./info/info.module').then(m => m.InfoModule), },
+      { path: 'educations', loadChildren: () => import('./education/education.module').then(m => m.EducationModule), },
     ]
   }
 ];

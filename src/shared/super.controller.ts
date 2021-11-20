@@ -4,6 +4,19 @@ import { BaseEntity, DeepPartial, Repository } from 'typeorm';
 export abstract class SuperController<T> {
   constructor(protected  readonly service: Repository<T>) {}
 
+  @Get('/getAll/:startIndex/:pageSize/:sortBy/:sortDir')
+  async getList(@Param('startIndex') startIndex, @Param('pageSize') pageSize, @Param('sortBy') sortBy, @Param('sortDir') sortDir) {
+
+    const [list, count] = await this.service.createQueryBuilder('e')
+      .orderBy(sortBy, sortDir.toUpperCase())
+      .skip(startIndex)
+      .take(pageSize)
+      .getManyAndCount()
+      ;
+
+    return {list, count};
+  }
+
   @Post('/post')
   async post(@Body() model: T) {
     return await this.service.save(model);

@@ -27,7 +27,7 @@ export class SkillComponent implements OnInit, OnDestroy {
   dataSource: Skill[] = [];
   selectedList: Skill[] = [];
 
-  displayedColumns = ['select',  'domaine', 'option'];
+  displayedColumns = ['select', 'domaine', 'option'];
 
   panelOpenState = false;
 
@@ -37,8 +37,8 @@ export class SkillComponent implements OnInit, OnDestroy {
 
 
   constructor(public uow: UowService, public dialog: MatDialog
-    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string ) {
-    }
+    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string) {
+  }
 
   ngOnInit() {
     const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
@@ -72,7 +72,8 @@ export class SkillComponent implements OnInit, OnDestroy {
   }
 
   getPage(startIndex, pageSize, sortBy, sortDir, domaine,) {
-    const sub = this.uow.skills.getAll(startIndex, pageSize, sortBy, sortDir,  domaine,).subscribe(
+    // const sub = this.uow.skills.getAll(startIndex, pageSize, sortBy, sortDir,  domaine,).subscribe(
+    const sub = this.uow.skills.getList(startIndex, pageSize, sortBy, sortDir).subscribe(
       (r: any) => {
         console.log(r.list);
         this.dataSource = r.list;

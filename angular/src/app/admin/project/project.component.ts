@@ -27,21 +27,21 @@ export class ProjectComponent implements OnInit, OnDestroy {
   dataSource: Project[] = [];
   selectedList: Project[] = [];
 
-  displayedColumns = ['select',  'image', 'title', 'date', 'tech', 'url', 'isPrivate', 'git', 'option'];
+  displayedColumns = ['select', 'image', 'title', 'date', 'tech', 'url', 'isPrivate', 'git', 'option'];
 
   panelOpenState = false;
 
   title = new FormControl('');
-tech = new FormControl('');
-url = new FormControl('');
-git = new FormControl('');
+  tech = new FormControl('');
+  url = new FormControl('');
+  git = new FormControl('');
 
 
 
 
   constructor(public uow: UowService, public dialog: MatDialog
-    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string ) {
-    }
+    , private mydialog: DeleteService) {
+  }
 
   ngOnInit() {
     const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
@@ -56,9 +56,9 @@ git = new FormControl('');
           this.sort.active ? this.sort.active : 'id',
           this.sort.direction ? this.sort.direction : 'desc',
           this.title.value === '' ? '*' : this.title.value,
-this.tech.value === '' ? '*' : this.tech.value,
-this.url.value === '' ? '*' : this.url.value,
-this.git.value === '' ? '*' : this.git.value,
+          this.tech.value === '' ? '*' : this.tech.value,
+          this.url.value === '' ? '*' : this.url.value,
+          this.git.value === '' ? '*' : this.git.value,
 
         );
       }
@@ -69,9 +69,9 @@ this.git.value === '' ? '*' : this.git.value,
 
   reset() {
     this.title.setValue('');
-this.tech.setValue('');
-this.url.setValue('');
-this.git.setValue('');
+    this.tech.setValue('');
+    this.url.setValue('');
+    this.git.setValue('');
 
     this.update.next(true);
   }
@@ -81,7 +81,8 @@ this.git.setValue('');
   }
 
   getPage(startIndex, pageSize, sortBy, sortDir, title, tech, url, git,) {
-    const sub = this.uow.projects.getAll(startIndex, pageSize, sortBy, sortDir,  title, tech, url, git,).subscribe(
+    // const sub = this.uow.projects.getAll(startIndex, pageSize, sortBy, sortDir, title, tech, url, git,).subscribe(
+      const sub = this.uow.projects.getList(startIndex, pageSize, sortBy, sortDir).subscribe(
       (r: any) => {
         console.log(r.list);
         this.dataSource = r.list;

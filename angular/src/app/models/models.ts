@@ -9,6 +9,7 @@ export class User {
 }
 
 export class Info {
+  id = 0;
   icon = '';
   text = '';
   name = '';

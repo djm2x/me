@@ -27,19 +27,19 @@ export class LanguageComponent implements OnInit, OnDestroy {
   dataSource: Language[] = [];
   selectedList: Language[] = [];
 
-  displayedColumns = ['select',  'lang', 'level', 'option'];
+  displayedColumns = ['select', 'lang', 'level', 'option'];
 
   panelOpenState = false;
 
   lang = new FormControl('');
-level = new FormControl('');
+  level = new FormControl('');
 
 
 
 
   constructor(public uow: UowService, public dialog: MatDialog
-    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string ) {
-    }
+    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string) {
+  }
 
   ngOnInit() {
     const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
@@ -54,7 +54,7 @@ level = new FormControl('');
           this.sort.active ? this.sort.active : 'id',
           this.sort.direction ? this.sort.direction : 'desc',
           this.lang.value === '' ? '*' : this.lang.value,
-this.level.value === '' ? '*' : this.level.value,
+          this.level.value === '' ? '*' : this.level.value,
 
         );
       }
@@ -65,7 +65,7 @@ this.level.value === '' ? '*' : this.level.value,
 
   reset() {
     this.lang.setValue('');
-this.level.setValue('');
+    this.level.setValue('');
 
     this.update.next(true);
   }
@@ -75,7 +75,8 @@ this.level.setValue('');
   }
 
   getPage(startIndex, pageSize, sortBy, sortDir, lang, level,) {
-    const sub = this.uow.languages.getAll(startIndex, pageSize, sortBy, sortDir,  lang, level,).subscribe(
+    // const sub = this.uow.languages.getAll(startIndex, pageSize, sortBy, sortDir, lang, level,).subscribe(
+      const sub = this.uow.languages.getList(startIndex, pageSize, sortBy, sortDir).subscribe(
       (r: any) => {
         console.log(r.list);
         this.dataSource = r.list;

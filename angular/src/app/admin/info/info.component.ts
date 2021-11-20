@@ -27,21 +27,21 @@ export class InfoComponent implements OnInit, OnDestroy {
   dataSource: Info[] = [];
   selectedList: Info[] = [];
 
-  displayedColumns = ['select',  'icon', 'text', 'name', 'href', 'option'];
+  displayedColumns = ['select', 'icon', 'text', 'name', 'href', 'option'];
 
   panelOpenState = false;
 
   icon = new FormControl('');
-text = new FormControl('');
-name = new FormControl('');
-href = new FormControl('');
+  text = new FormControl('');
+  name = new FormControl('');
+  href = new FormControl('');
 
 
 
 
   constructor(public uow: UowService, public dialog: MatDialog
-    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string ) {
-    }
+    , private mydialog: DeleteService, @Inject('BASE_URL') private url: string) {
+  }
 
   ngOnInit() {
     const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
@@ -56,9 +56,9 @@ href = new FormControl('');
           this.sort.active ? this.sort.active : 'id',
           this.sort.direction ? this.sort.direction : 'desc',
           this.icon.value === '' ? '*' : this.icon.value,
-this.text.value === '' ? '*' : this.text.value,
-this.name.value === '' ? '*' : this.name.value,
-this.href.value === '' ? '*' : this.href.value,
+          this.text.value === '' ? '*' : this.text.value,
+          this.name.value === '' ? '*' : this.name.value,
+          this.href.value === '' ? '*' : this.href.value,
 
         );
       }
@@ -69,9 +69,9 @@ this.href.value === '' ? '*' : this.href.value,
 
   reset() {
     this.icon.setValue('');
-this.text.setValue('');
-this.name.setValue('');
-this.href.setValue('');
+    this.text.setValue('');
+    this.name.setValue('');
+    this.href.setValue('');
 
     this.update.next(true);
   }
@@ -81,7 +81,8 @@ this.href.setValue('');
   }
 
   getPage(startIndex, pageSize, sortBy, sortDir, icon, text, name, href,) {
-    const sub = this.uow.infos.getAll(startIndex, pageSize, sortBy, sortDir,  icon, text, name, href,).subscribe(
+    // const sub = this.uow.infos.getAll(startIndex, pageSize, sortBy, sortDir, icon, text, name, href,).subscribe(
+      const sub = this.uow.infos.getList(startIndex, pageSize, sortBy, sortDir).subscribe(
       (r: any) => {
         console.log(r.list);
         this.dataSource = r.list;

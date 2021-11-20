@@ -18,6 +18,16 @@ export class AdminComponent implements OnInit {
   isMobileWidth = false;
   actuelRoute = this.router.url;
 
+  routes = [
+    {name: 'users', path: 'users', icon: 'dash'},
+    {name: 'languages', path: 'languages', icon: 'dash'},
+    {name: 'projects', path: 'projects', icon: 'dash'},
+    {name: 'skills', path: 'skills', icon: 'dash'},
+    {name: 'experiences', path: 'experiences', icon: 'dash'},
+    {name: 'infos', path: 'infos', icon: 'dash'},
+    {name: 'educations', path: 'educations', icon: 'dash'},
+  ];
+
   constructor(public session: SessionService, private router: Router
     ,         public myMedia: MediaService , public dialog: MatDialog
     ,         @Inject('BASE_URL') private url: string, public uow: UowService) { }

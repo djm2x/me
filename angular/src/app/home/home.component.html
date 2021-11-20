@@ -13,7 +13,7 @@
         <mat-icon>import_contacts</mat-icon>
       </button>
 
-      <button mat-button [routerLink]="['/admin']" routerLinkActive="router-link-active">
+      <button mat-button [routerLink]="['/admin']" *ngIf="isDev" routerLinkActive="router-link-active">
         <mat-icon>admin_panel_settings</mat-icon>
       </button>
 

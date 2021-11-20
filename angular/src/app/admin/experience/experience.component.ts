@@ -87,7 +87,8 @@ this.links.setValue('');
   }
 
   getPage(startIndex, pageSize, sortBy, sortDir, period, societe, job, task, tech, links,) {
-    const sub = this.uow.experiences.getAll(startIndex, pageSize, sortBy, sortDir,  period, societe, job, task, tech, links,).subscribe(
+    // const sub = this.uow.experiences.getAll(startIndex, pageSize, sortBy, sortDir,  period, societe, job, task, tech, links,).subscribe(
+      const sub = this.uow.experiences.getList(startIndex, pageSize, sortBy, sortDir).subscribe(
       (r: any) => {
         console.log(r.list);
         this.dataSource = r.list;

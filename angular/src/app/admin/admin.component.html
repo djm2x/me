@@ -6,7 +6,7 @@
 
     <img style="height: 35px; margin-right: 10px;" src="assets/favicon.png" alt="omran">
     <span [routerLink]="['/admin']" routerLinkActive="active">{{(uow.config.items | async)?.appname}}</span>
-    
+
     <app-menu *ngIf="!isMobileWidth"></app-menu>
 
     <span style="flex: 1 1 auto;"></span>
@@ -30,14 +30,14 @@
         <img src="assets/logo-mini.png" #img (error)="imgError(img)" alt="mourabit mohamed" width="100%" class="my-2">
       </div>
       <mat-divider></mat-divider>
-      <!-- <mat-list-item [routerLink]="['/admin/dash']" routerLinkActive="router-active">
-        <span>Dash</span>
+      <mat-list-item *ngFor="let e of routes" [routerLink]="['/admin', e.path]" routerLinkActive="router-active">
+        <span>{{e.name}}</span>
         <mat-divider></mat-divider>
-      </mat-list-item> -->
+      </mat-list-item>
 
       <mat-accordion>
 
-        
+
 
       </mat-accordion>
       <mat-divider></mat-divider>
