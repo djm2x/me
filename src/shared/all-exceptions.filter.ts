@@ -8,13 +8,15 @@ import {ExceptionFilter,Catch,ArgumentsHost,HttpException,HttpStatus,} from '@ne
       const request = ctx.getRequest();
   
       const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
+
+      console.log(exception);
   
       response.status(status).json({
-        statusCode: status,
-        name: exception.message,
         message: exception.message,
-        timestamp: new Date().toISOString(),
+        name: exception.message,
         path: request.url,
+        statusCode: status,
+        timestamp: new Date().toISOString(),
         // exception,
       });
     }

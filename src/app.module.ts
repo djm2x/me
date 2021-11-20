@@ -1,3 +1,8 @@
+import { LanguageModule } from './language/language.module';
+import { ProjectModule } from './project/project.module';
+import { InfoModule } from './info/info.module';
+import { ExperienceModule } from './experience/experience.module';
+import { SkillModule } from './skill/skill.module';
 import { EducationModule } from './education/education.module';
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
@@ -18,6 +23,11 @@ import { AllExceptionsFilter } from './shared/all-exceptions.filter';
   imports: [
     HomeModule,
     EducationModule,
+    SkillModule,
+    ExperienceModule,
+    InfoModule,
+    ProjectModule,
+    LanguageModule,
     /** Load and parse .env files from the environments directory */
     ConfigModule.forRoot({
       // envFilePath: '../.env',
