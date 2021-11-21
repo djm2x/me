@@ -26,6 +26,7 @@ export class AdminComponent implements OnInit {
     {name: 'experiences', path: 'experiences', icon: 'dash'},
     {name: 'infos', path: 'infos', icon: 'dash'},
     {name: 'educations', path: 'educations', icon: 'dash'},
+    {name: 'mytable', path: 'mytable', icon: 'dash'},
   ];
 
   constructor(public session: SessionService, private router: Router
