@@ -1,8 +1,18 @@
+import { Entity, Column } from '../admin/mytable/decorators/column';
+
+@Entity({popup: false, serviceName: 'users'})
 export class User {
   id = null;
+
+  @Column({ order: true, canSort: true, canFilter: true})
   username = 'mourabit mohamed';
+
   password = '123';
+
+  @Column({ order: true, canSort: false, canFilter: true})
   email = 'dj-m2x@hotmail.com';
+
+  @Column({ order: true, canSort: false, canFilter: true})
   role = 'admin';
   imageUrl = '';
   isActive = true;

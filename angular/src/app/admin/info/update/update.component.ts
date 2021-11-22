@@ -15,13 +15,13 @@ export class UpdateComponent implements OnInit, OnDestroy {
   myForm: FormGroup;
   o: Info;
   title = '';
-  
+
 
   folderToSaveInServer = 'infos';
 
   /*{imagesInit}*/
 
-  
+
 
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any
     , private fb: FormBuilder, private uow: UowService) { }
@@ -30,11 +30,11 @@ export class UpdateComponent implements OnInit, OnDestroy {
     this.o = this.data.model;
     this.title = this.data.title;
     this.createForm();
-   
+
     /*{imagesFrom}*/
 
     setTimeout(() => {
-       /*{imagesTo}*/
+      /*{imagesTo}*/
     }, 100);
   }
 
@@ -46,12 +46,12 @@ export class UpdateComponent implements OnInit, OnDestroy {
     let sub = null;
     if (o.id === 0) {
       sub = this.uow.infos.post(o).subscribe(r => {
-        
+
         this.dialogRef.close(o);
       });
     } else {
       sub = this.uow.infos.put(o.id, o).subscribe(r => {
-        
+
         this.dialogRef.close(o);
       });
     }
@@ -61,10 +61,11 @@ export class UpdateComponent implements OnInit, OnDestroy {
 
   createForm() {
     this.myForm = this.fb.group({
-      icon: [this.o.icon, [Validators.required, ]],
-text: [this.o.text, [Validators.required, ]],
-name: [this.o.name, [Validators.required, ]],
-href: [this.o.href, [Validators.required, ]],
+      id: [this.o.id, [Validators.required,]],
+      icon: [this.o.icon, [Validators.required,]],
+      text: [this.o.text, [Validators.required,]],
+      name: [this.o.name, [Validators.required,]],
+      href: [this.o.href, [Validators.required,]],
 
     });
   }

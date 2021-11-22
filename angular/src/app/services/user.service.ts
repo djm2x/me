@@ -11,7 +11,7 @@ export class UserService extends SuperService<User> {
     super('users');
   }
 
-  getAll(startIndex, pageSize, sortBy, sortDir, username, email, role, ) {
+  getAll(startIndex, pageSize, sortBy, sortDir, username, email, role) {
 
     return this.http.get(`${this.urlApi}/${this.controller}/getAll/${startIndex}/${pageSize}/${sortBy}/${sortDir}/${username}/${email}/${role}`);
   }

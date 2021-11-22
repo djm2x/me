@@ -1,4 +1,3 @@
-import { Car } from './../resources/car';
 import { ColumnModel } from './column.model';
 import { TableModel } from './table.model';
 import 'reflect-metadata';
@@ -8,7 +7,7 @@ export const tableSymbol = Symbol('column');
 
 export function Column(options: Partial<ColumnModel> = {}) {
   // tslint:disable-next-line:only-arrow-functions
-  return function(target: Car, propertyKey: string) {
+  return function(target: any, propertyKey: string) {
     // console.log('decorator column for', propertyKey);
     // console.log(target);
     if (!target[tableSymbol]) {
@@ -21,10 +20,26 @@ export function Column(options: Partial<ColumnModel> = {}) {
     const columnOptions = new ColumnModel(options);
     target[tableSymbol].addColumn(columnOptions);
 
-    console.log(target.constructor.name);
-    console.log( '>>>>>>>>>>>>>>>>', tableSymbol);
-    console.log( tableSymbol);
-    console.log( '>>>>>>>>>>>>>>>>', tableSymbol);
-    console.log( target);
+    // console.log(target.constructor.name);
+    // console.log( '>>>>>>>>>>>>>>>>', tableSymbol);
+    // console.log( tableSymbol);
+    // console.log( '>>>>>>>>>>>>>>>>', tableSymbol);
+    // console.log( target);
   };
+}
+
+export function Entity(opt = new IEntity()) {
+  // console.log('-- decorator factory invoked --');
+  // tslint:disable-next-line:ban-types
+  return (target: any) => {
+      // console.log('-- decorator invoked --');
+      target.prototype.opt = opt;
+
+      return target;
+  };
+}
+
+export class IEntity {
+  popup = true;
+  serviceName: string;
 }
