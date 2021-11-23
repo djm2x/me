@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { User } from '../models/models';
 import { InjectService } from '../shared/inject.service';
 
 export class SuperService<T> {
@@ -17,8 +18,7 @@ export class SuperService<T> {
 
   getPage(startIndex, pageSize, sortBy, sortDir, ...arg) {
     return this.http.get<{ list: T[], count: number }>
-      (`${this.urlApi}/${this.controller}/getAll/${startIndex}/${pageSize}/${sortBy}/${sortDir}${arg.map(e => '/' + e)}`)
-      .pipe(map(r => r.list.map(e => Object.assign({} as T, e))));
+      (`${this.urlApi}/${this.controller}/getAll/${startIndex}/${pageSize}/${sortBy}/${sortDir}/${arg}`);
   }
 
   get = () => this.http.get<T[]>(`${this.urlApi}/${this.controller}/get`);
@@ -65,4 +65,3 @@ export class SuperService<T> {
     return this.http.get<T[]>(`${this.urlApi}/${this.controller}/getByForeignkey/${id}`);
   }
 }
-

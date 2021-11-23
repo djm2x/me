@@ -1,8 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import { Car } from './resources';
+import { User } from 'src/app/models/models';
 
 @Component({
   selector: 'app-mytable',
@@ -10,24 +7,8 @@ import { Car } from './resources';
   styleUrls: ['./mytable.component.scss']
 })
 export class MytableComponent implements OnInit {
-  list = new Subject<any[]>();
-  constructor(private http: HttpClient) { }
+  o = new User();
+  constructor() { }
 
-  ngOnInit() {
-    // this.get().subscribe();
-
-  }
-
-  get() {
-    return this.http.get<Car[]>('/assets/json/car.json').pipe(map(r => {
-
-      this.list.next(r.map(e => Object.assign(new Car(), e)));
-
-      return r.map(e => Object.assign(new Car(), e));
-    } ));
-  }
-
-  emit() {
-    this.get().subscribe();
-  }
+  ngOnInit() { }
 }

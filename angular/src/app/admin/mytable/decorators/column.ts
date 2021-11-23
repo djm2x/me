@@ -6,40 +6,41 @@ import 'reflect-metadata';
 export const tableSymbol = Symbol('column');
 
 export function Column(options: Partial<ColumnModel> = {}) {
-  // tslint:disable-next-line:only-arrow-functions
-  return function(target: any, propertyKey: string) {
+  return (target: any, propertyKey: string) => {
     // console.log('decorator column for', propertyKey);
-    // console.log(target);
+
     if (!target[tableSymbol]) {
       target[tableSymbol] = new TableModel();
     }
     options.key = options.key || propertyKey;
     const propType = Reflect.getMetadata('design:type', target, propertyKey);
-    // console.log(propType);
+
     options.propertyType = propType?.name;
+
     const columnOptions = new ColumnModel(options);
     target[tableSymbol].addColumn(columnOptions);
-
-    // console.log(target.constructor.name);
-    // console.log( '>>>>>>>>>>>>>>>>', tableSymbol);
-    // console.log( tableSymbol);
-    // console.log( '>>>>>>>>>>>>>>>>', tableSymbol);
-    // console.log( target);
   };
 }
 
 export function Entity(opt = new IEntity()) {
   // console.log('-- decorator factory invoked --');
   // tslint:disable-next-line:ban-types
-  return (target: any) => {
-      // console.log('-- decorator invoked --');
-      target.prototype.opt = opt;
+  const plural = (name: string) => {
+    return name.endsWith('s') ? `${name}es` : name.endsWith('y') ? `${name.slice(0, -1)}es` : `${name}s`;
+  };
 
-      return target;
+  return (target: any) => {
+    opt.name = opt.name || target.name;
+    opt.serviceName = opt.serviceName || plural(target.name).toLowerCase();
+
+    target.prototype.opt = opt;
+
+    return target;
   };
 }
 
 export class IEntity {
   popup = true;
-  serviceName: string;
+  serviceName?: string;
+  name?: string;
 }

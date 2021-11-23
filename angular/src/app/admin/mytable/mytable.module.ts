@@ -1,3 +1,4 @@
+import { UpdateComponent } from './table/update/update.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,7 +16,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MytableComponent,
-    TableComponent
+    TableComponent,
+    UpdateComponent,
   ],
   imports: [
     CommonModule,
