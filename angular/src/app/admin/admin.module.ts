@@ -21,7 +21,6 @@ const routes: Routes = [
       { path: 'experiences', loadChildren: () => import('./experience/experience.module').then(m => m.ExperienceModule), },
       { path: 'infos', loadChildren: () => import('./info/info.module').then(m => m.InfoModule), },
       { path: 'educations', loadChildren: () => import('./education/education.module').then(m => m.EducationModule), },
-      { path: 'mytable', loadChildren: () => import('./mytable/mytable.module').then(m => m.MytableModule) }
     ]
   },
 ];

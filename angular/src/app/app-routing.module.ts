@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'cv', loadChildren: () => import('./cv/cv.module').then(m => m.CvModule) },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate: [MyGuard] },
+  { path: 'lab', loadChildren: () => import('./lab/lab.module').then(m => m.LabModule) },
   // { path: 'portfolio', loadChildren: () => import('./portfolio/portfolio.module').then(m => m.PortfolioModule)},
   // { path: '**', component: NotFoundComponent, resolve: { path: PathResolveService } }
 ];

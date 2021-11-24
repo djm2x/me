@@ -2,8 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const port = '3000';
+const host = 'http://localhost';
 export const environment = {
-  production: false
+  production: false,
+
+  apiUrl: `${host}:${port}/api`,
+  url: `${host}:${port}`,
+  hub: `localhost`,
 };
 
 export function cloneDeep(e) {

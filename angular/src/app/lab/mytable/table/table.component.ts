@@ -11,6 +11,7 @@ import { merge, Subject, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { startWith } from 'rxjs/operators';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-table',
@@ -42,10 +43,10 @@ export class TableComponent implements OnInit {
 
   filters: { name: string, fc: FormControl }[] = [];
 
-  constructor(private uow: UowService, public dialog: MatDialog) { }
+  constructor(private service: ApiService<any>, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.init([this.instance]);
+    this.init();
 
     const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
       r => {
@@ -71,7 +72,7 @@ export class TableComponent implements OnInit {
 
   getPage(startIndex, pageSize, sortBy, sortDir, ...args) {
     // tslint:disable-next-line:max-line-length
-    const sub = (this.uow[this.opt.serviceName] as SuperService<any>).getPage(startIndex, pageSize, sortBy, sortDir, args).subscribe(
+    const sub = this.service.getPage(startIndex, pageSize, sortBy, sortDir, args).subscribe(
       (r: any) => {
         console.log(r);
         this.dataSource = r.list;
@@ -91,18 +92,13 @@ export class TableComponent implements OnInit {
 
   }
 
-  init(values) {
-    // this._data = values;
+  init(e: { opt: any, tableModel: any } = this.service.getFromDecorator(this.instance)) {
+    // get from decorator ts
+    this.opt = e.opt;
+    this.tableModel = e.tableModel;
 
-    this.opt = values[0].opt;
+    this.service.controller = this.opt.serviceName;
 
-    console.log(this.opt);
-
-    this.tableModel = values[0][tableSymbol];
-    this.buildColumns();
-  }
-
-  private buildColumns() {
     this.columns = this.tableModel.columns;
 
     this.filters = this.columns.filter(e => e.canFilter).map(e => {
@@ -112,7 +108,7 @@ export class TableComponent implements OnInit {
       };
     });
 
-    this.sortColumns();
+    // this.columns = sortBy(this.columns, ['order']);
     this.displayedColumns = this.columns.map(col => col.key);
     this.displayedColumns.push('option');
   }
@@ -133,7 +129,7 @@ export class TableComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdateComponent, {
       width: '1100px',
       disableClose: true,
-      data: { model: o, title: text }
+      data: { model: Object.assign(this.instance, o), title: text }
     });
 
     return dialogRef.afterClosed();
@@ -162,9 +158,5 @@ export class TableComponent implements OnInit {
 
     //   this.subs.push(sub);
     // }
-  }
-
-  private sortColumns() {
-    // this.columns = sortBy(this.columns, ['order']);
   }
 }

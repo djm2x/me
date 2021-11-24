@@ -3,7 +3,13 @@ import { TableModel } from './table.model';
 import 'reflect-metadata';
 // import 'core-js/es7/reflect';
 
+type Target = {
+  new (...args: any[]): any,
+  name: string
+};
+
 export const tableSymbol = Symbol('column');
+
 
 export function Column(options: Partial<ColumnModel> = {}) {
   return (target: any, propertyKey: string) => {
@@ -34,6 +40,8 @@ export function Entity(opt = new IEntity()) {
     opt.serviceName = opt.serviceName || plural(target.name).toLowerCase();
 
     target.prototype.opt = opt;
+
+    console.log(Object.getOwnPropertyNames(target.prototype));
 
     return target;
   };
