@@ -65,7 +65,7 @@
     ],
     "no-empty": false,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-non-null-assertion": true,
@@ -80,11 +80,11 @@
       true,
       "single"
     ],
-    "semicolon": {
-      "options": [
-        "always"
-      ]
-    },
+    // "semicolon": {
+    //   "options": [
+    //     ""
+    //   ]
+    // },
     "space-before-function-paren": {
       "options": {
         "anonymous": "never",

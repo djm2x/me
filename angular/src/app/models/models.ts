@@ -3,25 +3,33 @@ import { Entity, Column } from '../lab/mytable/decorators/column';
 @Entity({popup: false})
 export class User {
   @Column()
-  id = null;
+  id: number = null;
 
   @Column({ name: 'user name', order: true, canSort: true, canFilter: true})
-  username = 'mourabit mohamed';
+  username: string = 'mourabit mohamed';
 
   @Column()
-  password = '123';
+  password: string = '123';
 
   @Column({ order: true, canSort: false, canFilter: true})
-  email = 'dj-m2x@hotmail.com';
+  email: string = 'dj-m2x@hotmail.com';
 
   @Column({ order: true, canSort: false, canFilter: true})
-  role = 'admin';
+  role: string = 'admin';
 
   @Column()
-  imageUrl = '';
+  imageUrl: string = '';
 
   @Column()
-  isActive = true;
+  isActive: boolean = true;
+
+  @Column({formField: 'select', serviceName: 'infos'})
+  idRole: number = null;
+}
+
+export class Role {
+  id = null;
+  name = '';
 }
 
 export class Info {

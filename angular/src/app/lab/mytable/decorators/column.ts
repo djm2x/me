@@ -20,7 +20,7 @@ export function Column(options: Partial<ColumnModel> = {}) {
     }
     options.key = options.key || propertyKey;
     const propType = Reflect.getMetadata('design:type', target, propertyKey);
-
+    // console.log(target.constructor.name, propType.name, Object.getOwnPropertyNames(propType.name))
     options.propertyType = propType?.name;
 
     const columnOptions = new ColumnModel(options);

@@ -8,40 +8,31 @@
   <div class="content">
     <mat-dialog-content>
 
-      <pre>
+      <!-- <pre>
         {{myForm.value | json}}
-      </pre>
+      </pre> -->
 
       <form [formGroup]="myForm">
-        <mat-form-field appearance="fill" class="col-md-6">
-          <mat-label>username</mat-label>
-          <input matInput formControlName="username" required>
-        </mat-form-field>
 
-        <mat-form-field appearance="fill" class="col-md-6">
-          <mat-label>password</mat-label>
-          <input matInput formControlName="password" required>
-        </mat-form-field>
+        <div *ngFor="let e of columns">
 
-        <mat-form-field appearance="fill" class="col-md-6">
-          <mat-label>email</mat-label>
-          <input matInput formControlName="email" required>
-        </mat-form-field>
+          <!-- {{myForm.controls[e.key] | json}} -->
 
-        <mat-form-field appearance="fill" class="col-md-6">
-          <mat-label>role</mat-label>
-          <input matInput formControlName="role" required>
-        </mat-form-field>
+          <ng-container *ngIf="e.formField === 'text'">
+            <mat-form-field appearance="fill" class="col-md-6">
+              <mat-label>{{e.name}}</mat-label>
+              <input matInput [formControl]="myForm.controls[e.key]" [required]="e.required">
+            </mat-form-field>
+          </ng-container>
 
-        <mat-checkbox class="col-md-6" formControlName="isActive" labelPosition="before">
-          Activer
-        </mat-checkbox>
+          <ng-container *ngIf="e.formField === 'checkbox'">
+            <mat-checkbox class="col-md-6" [formControl]="myForm.controls[e.key]" labelPosition="before">
+              {{e.name}}
+            </mat-checkbox>
+          </ng-container>
 
-        <!-- <div class="col-md-12">
-        <app-upload-image nameBtn="Image" [folderToSaveInServer]="folderToSaveInServer" [propertyOfParent]="imageUrlTo"
-            [eventSubmitToParent]="imageUrlFrom" [eventSubmitFromParent]="eventSubmitFromParent">
-        </app-upload-image>
-    </div> -->
+
+        </div>
 
 
       </form>

@@ -19,7 +19,7 @@ export abstract class SuperController<T> {
 
   @Post('/post')
   async post(@Body() model: T) {
-    return await this.service.save(model);
+      await this.service.insert(model);
   }
 
   @Get('/get')

@@ -99,11 +99,11 @@ export class TableComponent implements OnInit {
 
     this.service.controller = this.opt.serviceName;
 
-    this.columns = this.tableModel.columns;
+    this.columns = this.tableModel.columns.filter(f => f.formField !== 'id');
 
-    this.filters = this.columns.filter(e => e.canFilter).map(e => {
+    this.filters = this.columns.filter(f => f.canFilter).map(f => {
       return {
-        name: e.name,
+        name: f.name,
         fc: new FormControl()
       };
     });
@@ -152,11 +152,8 @@ export class TableComponent implements OnInit {
   }
 
   async delete(id: number) {
-    // const r = await this.mydialog.openDialog('User').toPromise();
-    // if (r === 'ok') {
-    //   const sub = this.uow.users.delete(id).subscribe(() => this.update.next(true));
+    const sub = this.service.delete(id).subscribe(() => this.update.next(true));
 
-    //   this.subs.push(sub);
-    // }
+    this.subs.push(sub);
   }
 }
