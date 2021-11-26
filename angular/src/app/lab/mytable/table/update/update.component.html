@@ -16,7 +16,7 @@
 
         <div *ngFor="let e of columns">
 
-          <!-- {{myForm.controls[e.key] | json}} -->
+          <!-- {{e | json}} -->
 
           <ng-container *ngIf="e.formField === 'text'">
             <mat-form-field appearance="fill" class="col-md-6">
@@ -30,6 +30,15 @@
               {{e.name}}
             </mat-checkbox>
           </ng-container>
+
+          <mat-form-field appearance="fill" *ngIf="e.formField === 'select'">
+            <mat-label>{{e.name}}</mat-label>
+            <mat-select class="col-md-6" [formControl]="myForm.controls[e.key]">
+              <mat-option *ngFor="let o of service.set(e.serviceName).get() | async" [value]="o.id">
+                {{o.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
 
         </div>

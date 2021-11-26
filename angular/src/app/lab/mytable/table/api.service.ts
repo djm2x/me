@@ -15,6 +15,15 @@ export class ApiService<T> {
 
   constructor(public http: HttpClient) { }
 
+  /**
+   * set controller name
+   */
+  set(controller: string) {
+    this.controller = controller;
+
+    return this;
+  }
+
   // utils
   getFromDecorator(instance: any): {opt: IEntity, tableModel: TableModel} {
     return {

@@ -16,13 +16,13 @@ export class ColumnModel {
     this.propertyType = options.propertyType;
     //
     this.formField = options.formField ||
-      options.propertyType === 'Date' ? 'date' :
+      (options.propertyType === 'Date' ? 'date' :
       options.propertyType === 'Boolean' ? 'checkbox' :
         options.key === 'id' ? 'id' :
-          options.propertyType === 'Number' ? 'number' : 'text'
+          options.propertyType === 'Number' ? 'number' : 'text')
       ;
     //
-    this.serviceName = options.formField === 'select' ? options.formField : null;
+    this.serviceName = options.formField === 'select' ? options.serviceName : null;
     //
     this.required = options.required || false;
     this.order = options.order || 0;

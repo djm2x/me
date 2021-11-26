@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject, Subscription } from 'rxjs';
 import { ColumnModel } from '../../decorators/column.model';
+import { IEntity as Entity } from '../../decorators/column';
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
@@ -17,11 +18,12 @@ export class UpdateComponent implements OnInit, OnDestroy {
   title = '';
 
   columns: ColumnModel[];
+  opt = new Entity();
 
   eventSubmitFromParent = new Subject();
 
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any
-            , private fb: FormBuilder, private service: ApiService<any>) { }
+            , private fb: FormBuilder, public service: ApiService<any>) { }
 
   async ngOnInit() {
 
@@ -35,10 +37,10 @@ export class UpdateComponent implements OnInit, OnDestroy {
 
   initContext(e: { opt: any, tableModel: any } = this.service.getFromDecorator(this.o)) {
     // get from decorator ts
-    const opt = e.opt;
+    this.opt = e.opt;
     const tableModel = e.tableModel;
 
-    this.service.controller = opt.serviceName;
+    this.service.controller = this.opt.serviceName;
 
     this.columns = tableModel.columns;
   }
@@ -50,11 +52,11 @@ export class UpdateComponent implements OnInit, OnDestroy {
   onOkClick(o: any): void {
     let sub = null;
     if (!o.id || o.id === 0) {
-      sub = this.service.post(o).subscribe(r => {
+      sub = this.service.set(this.opt.serviceName).post(o).subscribe(r => {
         this.dialogRef.close(o);
       });
     } else {
-      sub = this.service.put(o.id, o).subscribe(r => {
+      sub = this.service.set(this.opt.serviceName).put(o.id, o).subscribe(r => {
         this.dialogRef.close(o);
       });
     }

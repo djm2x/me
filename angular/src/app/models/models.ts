@@ -23,8 +23,8 @@ export class User {
   @Column()
   isActive: boolean = true;
 
-  @Column({formField: 'select', serviceName: 'infos'})
-  idRole: number = null;
+  @Column({formField: 'select', serviceName: 'infos', name: 'Info'})
+  idInfo: number = null;
 }
 
 export class Role {
