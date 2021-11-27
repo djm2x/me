@@ -1,27 +1,27 @@
+import { UpdateComponent } from './update/update.component';
+import { TableComponent } from './table.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-import { MytableComponent } from './mytable.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TableModule } from '../table/table.module';
-
-
-const routes: Routes = [
-  { path: '', component: MytableComponent }
-];
+import { RouterModule } from '@angular/router';
+import { MatModule } from '../../mat.module';
 
 @NgModule({
   declarations: [
-    MytableComponent,
+    TableComponent,
+    UpdateComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule,
+    MatModule,
+  ],
+  exports: [
+    TableComponent,
   ]
 })
-export class MytableModule { }
+export class TableModule { }

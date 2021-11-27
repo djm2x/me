@@ -1,4 +1,4 @@
-import { Entity, Column } from '../lab/mytable/decorators/column';
+import { Entity, Column } from '../lab/table/decorators/column';
 
 @Entity({ popup: false, deleteRange: true })
 export class User {

@@ -1,18 +1,16 @@
 import { UpdateComponent } from './update/update.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit, Input, ViewChild, OnDestroy } from '@angular/core';
-import { IEntity as Entity, tableSymbol } from '../decorators/column';
-import { ColumnModel } from './../decorators/column.model';
-import { TableModel } from './../decorators/table.model';
 import { MatSort, Sort, SortDirection } from '@angular/material/sort';
-import { UowService } from 'src/app/services/uow.service';
-import { SuperService } from 'src/app/services/super.service';
 import { merge, Observable, Subject, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { startWith } from 'rxjs/operators';
 import { ApiService } from './api.service';
 import { HttpClient } from '@angular/common/http';
+import { IEntity } from './decorators/column';
+import { ColumnModel } from './decorators/column.model';
+import { TableModel } from './decorators/table.model';
 
 @Component({
   selector: 'app-table',
@@ -33,7 +31,7 @@ export class TableComponent implements OnInit, OnDestroy {
   dataSource: any[] = [];
   selectedList: any[] = [];
 
-  opt = new Entity();
+  opt = new IEntity();
 
   @Input() instance: any;
 

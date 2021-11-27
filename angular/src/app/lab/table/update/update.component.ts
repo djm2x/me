@@ -4,8 +4,8 @@ import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import {  FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable, Subscription } from 'rxjs';
-import { ColumnModel } from '../../decorators/column.model';
-import { IEntity as Entity } from '../../decorators/column';
+import { IEntity } from '../decorators/column';
+import { ColumnModel } from '../decorators/column.model';
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
@@ -19,7 +19,7 @@ export class UpdateComponent implements OnInit, OnDestroy {
   title = '';
 
   columns: ColumnModel[];
-  opt = new Entity();
+  opt = new IEntity();
 
   selectServices: { [key: string]: Observable<any[]>} = {};
 

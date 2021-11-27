@@ -1,8 +1,8 @@
-import { TableModel } from './../decorators/table.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { IEntity, tableSymbol } from '../decorators/column';
+import { environment } from '../../../environments/environment';
+import { IEntity, tableSymbol } from './decorators/column';
+import { TableModel } from './decorators/table.model';
 
 
 @Injectable({
