@@ -20,11 +20,54 @@
     <mat-divider> </mat-divider>
 
     <div class="mt-2">
-      <mat-form-field appearance="fill" class="col-md-6" *ngFor="let e of filters">
-        <mat-label>{{e.name}}</mat-label>
-        <input matInput [formControl]="e.fc" required>
-      </mat-form-field>
+      <div *ngFor="let e of filters; let i = index">
 
+        <!-- input text -->
+        <ng-container *ngIf="e.formField === 'text'">
+          <mat-form-field appearance="fill" class="col-md-5">
+            <mat-label>{{e.name}}</mat-label>
+            <input matInput [formControl]="e.fc" >
+          </mat-form-field>
+        </ng-container>
+
+        <!-- input checkbox -->
+        <ng-container *ngIf="e.formField === 'checkbox'">
+          <mat-checkbox class="col-md-5" [formControl]="e.fc" labelPosition="before">
+            {{e.name}}
+          </mat-checkbox>
+        </ng-container>
+
+        <!-- select -->
+        <ng-container *ngIf="e.formField === 'select'">
+          <mat-form-field appearance="fill" class="col-md-5">
+            <mat-label>{{e.name}}</mat-label>
+            <mat-select [formControl]="e.fc">
+              <mat-option *ngFor="let o of selectServices[e.serviceName] | async" [value]="o[e.selectId]">
+                {{o[e.selectName]}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ng-container>
+
+        <!-- date -->
+        <ng-container *ngIf="e.formField === 'date'">
+          <mat-form-field appearance="fill" class="col-md-5">
+            <mat-label>{{e.name}}</mat-label>
+            <input matInput [matDatepicker]="i" [formControl]="e.fc">
+            <mat-datepicker-toggle matSuffix [for]="i"></mat-datepicker-toggle>
+            <mat-datepicker #i></mat-datepicker>
+          </mat-form-field>
+        </ng-container>
+
+        <!-- input text -->
+        <ng-container *ngIf="e.formField === 'number'">
+          <mat-form-field appearance="fill" class="col-md-5">
+            <mat-label>{{e.name}}</mat-label>
+            <input matInput type="number" [formControl]="e.fc" [required]="e.required">
+          </mat-form-field>
+        </ng-container>
+
+      </div>
     </div>
 
     <div class="d-flex flex-row-reverse mb-2 mr-2">
@@ -48,24 +91,40 @@
   </div>
   <div class="example-table-container">
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
-      <ng-container [matColumnDef]="column.key" *ngFor="let column of columns">
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selectedList.length !== 0 && isAllSelected()"
+            [indeterminate]="selectedList.length !== 0 && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? check(row) : null" [checked]="isSelected(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+      <!-- generic columns -->
+      <ng-container [matColumnDef]="e.key" *ngFor="let e of columns">
         <!-- with sort -->
-        <ng-container *ngIf="column.canSort; else noSort">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="{{ column.key }}">
-            {{ column.key }}
+        <!-- <ng-container *ngIf="column.canSort; else noSort">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{ column.name }}
           </th>
-        </ng-container>
+        </ng-container> -->
         <!-- without sort -->
-        <ng-template #noSort>
-          <th mat-header-cell *matHeaderCellDef>{{ column.key }}</th>
-        </ng-template>
+        <!-- <ng-template #noSort>
+          <th mat-header-cell *matHeaderCellDef>{{ column.name }}</th>
+        </ng-template> -->
 
-        <td mat-cell *matCellDef="let element">{{ element[column.key] }}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="e.canSort === false">{{ e.name }}</th>
+        <td mat-cell *matCellDef="let row">{{ e.formField !== 'date' ? row[e.key] : (row[e.key] | date: "dd/MM/yyyy, HH:mm") }}</td>
       </ng-container>
 
       <ng-container matColumnDef="option" style="flex-direction: row-reverse;">
         <th mat-header-cell *matHeaderCellDef>
-
+          <button mat-icon-button color="warn" [disabled]="selectedList.length === 0" (click)="deleteList()">
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
         </th>
         <td mat-cell *matCellDef="let row">
           <div class="button-row">

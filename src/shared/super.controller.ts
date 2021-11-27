@@ -19,7 +19,7 @@ export abstract class SuperController<T> {
 
   @Post('/post')
   async post(@Body() model: T) {
-      await this.service.insert(model);
+    return await this.service.insert(model);
   }
 
   @Get('/get')
@@ -45,5 +45,10 @@ export abstract class SuperController<T> {
   @Delete(':id')
   async delete(@Param('id') id: number) {
     return await this.service.delete(+id);
+  }
+
+  @Post('/deleteRangeByIds')
+  async deleteRangeByIds(@Body() ids: number[]) {
+    return await this.service.delete(ids);
   }
 }

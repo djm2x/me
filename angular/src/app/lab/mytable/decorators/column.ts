@@ -48,7 +48,8 @@ export function Entity(opt = new IEntity()) {
 }
 
 export class IEntity {
-  popup = true;
+  popup?: boolean = true;
+  deleteRange?: boolean = false;
   serviceName?: string;
   name?: string;
 }

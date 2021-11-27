@@ -20,7 +20,7 @@ export class UserController extends SuperController<User> {
   ) {
 
     const [list, count] = await this.service.createQueryBuilder('e')
-      .where(username === '*' ? 'TRUE' : 'usernames LIKE :username', {username: `%${username}%`})
+      .where(username === '*' ? 'TRUE' : 'username LIKE :username', {username: `%${username}%`})
       .andWhere(email === '*' ? 'TRUE' : 'email LIKE :email', {email: `%${email}%`})
       .andWhere(role === '*' ? 'TRUE' : 'role LIKE :role', {role: `%${role}%`})
       .orderBy(sortBy, sortDir.toUpperCase())

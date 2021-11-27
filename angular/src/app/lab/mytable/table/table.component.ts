@@ -1,24 +1,25 @@
 import { UpdateComponent } from './update/update.component';
 import { FormControl } from '@angular/forms';
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, OnDestroy } from '@angular/core';
 import { IEntity as Entity, tableSymbol } from '../decorators/column';
 import { ColumnModel } from './../decorators/column.model';
 import { TableModel } from './../decorators/table.model';
 import { MatSort, Sort, SortDirection } from '@angular/material/sort';
 import { UowService } from 'src/app/services/uow.service';
 import { SuperService } from 'src/app/services/super.service';
-import { merge, Subject, Subscription } from 'rxjs';
+import { merge, Observable, Subject, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { startWith } from 'rxjs/operators';
 import { ApiService } from './api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   private tableModel: TableModel;
@@ -30,20 +31,23 @@ export class TableComponent implements OnInit {
   subs: Subscription[] = [];
 
   dataSource: any[] = [];
+  selectedList: any[] = [];
 
   opt = new Entity();
 
   @Input() instance: any;
 
   columns: ColumnModel[];
-  displayedColumns: string[];
+  displayedColumns: string[] = [];
 
   update = new Subject<boolean>();
   panelOpenState = true;
 
-  filters: { name: string, fc: FormControl }[] = [];
+  filters: { formField: string, serviceName: string, name: string, fc: FormControl }[] = [];
 
-  constructor(private service: ApiService<any>, public dialog: MatDialog) { }
+  selectServices: { [key: string]: Observable<any[]> } = {};
+
+  constructor(private service: ApiService<any>, public dialog: MatDialog, private http: HttpClient) { }
 
   ngOnInit() {
     this.init();
@@ -56,6 +60,8 @@ export class TableComponent implements OnInit {
         this.isLoadingResults = true;
 
         const args = this.filters.map(e => e.fc.value || '*').join('/');
+
+        console.log(args)
 
         this.getPage(
           startIndex,
@@ -85,6 +91,7 @@ export class TableComponent implements OnInit {
   }
 
   sortData(params: Sort) {
+    console.log(params)
     // const direction: SortDirection = params.direction;
     // this.data = direction
     //   ? orderBy(this.data, [params.active], [direction])
@@ -99,18 +106,34 @@ export class TableComponent implements OnInit {
 
     this.service.controller = this.opt.serviceName;
 
-    this.columns = this.tableModel.columns.filter(f => f.formField !== 'id');
+    this.columns = this.tableModel.columns.filter(f => f.formField !== 'id' && f.tableDisplay === true);
+
+    console.log(this.columns)
 
     this.filters = this.columns.filter(f => f.canFilter).map(f => {
       return {
+        serviceName: f.serviceName,
+        formField: f.formField,
         name: f.name,
         fc: new FormControl()
       };
     });
 
+    this.filters.map(c => {
+      if (c.formField === 'select') {
+        this.selectServices[c.serviceName] = new ApiService(this.http).set(c.serviceName).get();
+      }
+    });
+
     // this.columns = sortBy(this.columns, ['order']);
-    this.displayedColumns = this.columns.map(col => col.key);
+    if (this.opt.deleteRange === true) {
+      this.displayedColumns.push('select');
+    }
+
+    this.displayedColumns.push(...this.columns.map(col => col.key));
     this.displayedColumns.push('option');
+
+
   }
 
   reset() {
@@ -155,5 +178,48 @@ export class TableComponent implements OnInit {
     const sub = this.service.delete(id).subscribe(() => this.update.next(true));
 
     this.subs.push(sub);
+  }
+
+  //
+  isSelected(row: any): boolean {
+    return this.selectedList.find(e => e.id === row.id) ? true : false;
+  }
+
+  check(row: any) {
+    const i = this.selectedList.findIndex(o => row.id === o.id);
+    const existe: boolean = i !== -1;
+
+    existe ? this.selectedList.splice(i, 1) : this.selectedList.push(row);
+  }
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected(): boolean {
+    const numSelected = this.selectedList.length;
+    const numRows = this.dataSource.length;
+
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ? this.selectedList = [] : this.selectedList = Array.from(this.dataSource);
+  }
+
+  async deleteList() {
+    // const r = await this.mydialog.openDialog('role').toPromise();
+    // if (r === 'ok') {
+    const sub = this.service.deleteRangeByIds(this.selectedList.map(e => e.id)).subscribe(() => {
+      this.selectedList = [];
+      this.update.next(true);
+    });
+
+    this.subs.push(sub);
+    // }
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(e => {
+      e.unsubscribe();
+    });
   }
 }

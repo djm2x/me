@@ -1,20 +1,20 @@
 import { Entity, Column } from '../lab/mytable/decorators/column';
 
-@Entity({popup: false})
+@Entity({ popup: false, deleteRange: true })
 export class User {
   @Column()
   id: number = null;
 
-  @Column({ name: 'user name', order: true, canSort: true, canFilter: true})
+  @Column({ name: 'user name', canSort: true, canFilter: true })
   username: string = 'mourabit mohamed';
 
   @Column()
   password: string = '123';
 
-  @Column({ order: true, canSort: false, canFilter: true})
+  @Column({ canSort: true, canFilter: true })
   email: string = 'dj-m2x@hotmail.com';
 
-  @Column({ order: true, canSort: false, canFilter: true})
+  @Column({ canFilter: true })
   role: string = 'admin';
 
   @Column()
@@ -23,8 +23,11 @@ export class User {
   @Column()
   isActive: boolean = true;
 
-  @Column({formField: 'select', serviceName: 'infos', name: 'Info'})
-  idInfo: number = null;
+  // @Column({tableDisplay: false})
+  // date: Date = new Date();
+
+  // @Column({formField: 'select', serviceName: 'infos', name: 'Info', selectId: 'id', selectName: 'name', tableDisplay: false})
+  // idInfo: number = null;
 }
 
 export class Role {
