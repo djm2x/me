@@ -8,8 +8,8 @@
         {{ myForm.value | json}}
       </pre>
 
-      <div *ngFor="let e of (columns$ | async); let i = index">
-
+      <div *ngFor="let e of columns; let i = index">
+        <!-- {{myForm.controls[e.key].value}} -->
         <!-- input text -->
         <ng-container *ngIf="e.formField === 'text'">
           <mat-form-field appearance="fill" class="col-md-6">

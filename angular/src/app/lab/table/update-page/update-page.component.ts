@@ -1,3 +1,4 @@
+import { delay } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from './../api.service';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
@@ -22,7 +23,6 @@ export class UpdatePageComponent implements OnInit, OnDestroy {
   title = '';
 
   columns: ColumnModel[];
-  columns$ = new Subject();
   opt = new IEntity();
 
   selectServices: { [key: string]: Observable<any[]> } = {};
@@ -32,9 +32,6 @@ export class UpdatePageComponent implements OnInit, OnDestroy {
     , private http: HttpClient, private route: ActivatedRoute) { }
 
   async ngOnInit() {
-    this.columns$.subscribe(r => {
-      console.log(r)
-    })
     this.o = this.instance;
     this.initContext();
     this.createForm();
@@ -43,7 +40,7 @@ export class UpdatePageComponent implements OnInit, OnDestroy {
     this.route.params.subscribe(async (params) => {
       // console.log(this.route.snapshot.data);
       if (+params.id !== 0) {
-        this.o = await firstValueFrom(this.service.getOne(+params.id));
+        this.o = await firstValueFrom(this.service.getOne(+params.id).pipe(delay(3000)));
         this.updateForm();
       }
     });
@@ -59,11 +56,6 @@ export class UpdatePageComponent implements OnInit, OnDestroy {
     this.service.controller = this.opt.serviceName;
 
     this.columns = e.tableModel.columns;
-
-    setTimeout(() => {
-      this.columns$.next(this.columns);
-    }, 20);
-
 
     this.columns.map(c => {
       if (c.formField === 'select') {
@@ -115,8 +107,6 @@ export class UpdatePageComponent implements OnInit, OnDestroy {
     this.columns.map(e => {
       this.myForm.get(e.key).setValue(this.o[e.key]);
     });
-
-    this.columns$.next(this.columns);
   }
 
   // resetForm() {
