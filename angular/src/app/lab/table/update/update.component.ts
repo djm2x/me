@@ -4,8 +4,8 @@ import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import {  FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable, Subscription } from 'rxjs';
-import { IEntity } from '../decorators/column';
 import { ColumnModel } from '../decorators/column.model';
+import { IEntity } from '../decorators/entity.decorator';
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',

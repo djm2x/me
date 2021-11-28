@@ -1,6 +1,7 @@
-import { Entity, Column } from '../lab/table/decorators/column';
+import { Column } from '../lab/table/decorators/column.decorator';
+import { Entity } from '../lab/table/decorators/entity.decorator';
 
-@Entity({ popup: false, deleteRange: true })
+@Entity({popup: false})
 export class User {
   @Column()
   id: number = null;

@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatModule } from '../../mat.module';
+import { UpdatePageComponent } from './update-page/update-page.component';
 
 @NgModule({
   declarations: [
     TableComponent,
-    UpdateComponent
+    UpdateComponent,
+    UpdatePageComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { MatModule } from '../../mat.module';
   ],
   exports: [
     TableComponent,
+    UpdatePageComponent,
   ]
 })
 export class TableModule { }

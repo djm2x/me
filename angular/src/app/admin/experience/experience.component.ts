@@ -46,7 +46,7 @@ links = new FormControl('');
     }
 
   ngOnInit() {
-    const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
+    const sub = merge(this.sort.sortChange, this.paginator.page, this.update).pipe(startWith(null as any)).subscribe(
       r => {
         r === true ? this.paginator.pageIndex = 0 : r = r;
         !this.paginator.pageSize ? this.paginator.pageSize = 10 : r = r;

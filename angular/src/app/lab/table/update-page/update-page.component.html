@@ -1,9 +1,14 @@
 <div>
-  <h1 mat-dialog-title>{{title}}</h1>
-  <div mat-dialog-content>
+  <h1 >{{title}}</h1>
+  <div >
     <form [formGroup]="myForm">
 
-      <div *ngFor="let e of columns; let i = index">
+      <pre>
+
+        {{ myForm.value | json}}
+      </pre>
+
+      <div *ngFor="let e of (columns$ | async); let i = index">
 
         <!-- input text -->
         <ng-container *ngIf="e.formField === 'text'">
@@ -65,7 +70,7 @@
     </form>
 
   </div>
-  <div mat-dialog-actions align="end">
+  <div  align="end">
     <button mat-button (click)="onNoClick()" type="button">Annuler</button>
     <button mat-raised-button color="primary" (click)="onOkClick(myForm.value)" [disabled]="myForm.invalid"
       cdkFocusInitial>Enregistre</button>

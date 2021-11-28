@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { UpdateComponent } from './update/update.component';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit, Input, ViewChild, OnDestroy } from '@angular/core';
@@ -8,9 +9,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { startWith } from 'rxjs/operators';
 import { ApiService } from './api.service';
 import { HttpClient } from '@angular/common/http';
-import { IEntity } from './decorators/column';
 import { ColumnModel } from './decorators/column.model';
 import { TableModel } from './decorators/table.model';
+import { IEntity } from './decorators/entity.decorator';
 
 @Component({
   selector: 'app-table',
@@ -45,12 +46,13 @@ export class TableComponent implements OnInit, OnDestroy {
 
   selectServices: { [key: string]: Observable<any[]> } = {};
 
-  constructor(private service: ApiService<any>, public dialog: MatDialog, private http: HttpClient) { }
+  constructor(private service: ApiService<any>, public dialog: MatDialog
+    ,         private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.init();
 
-    const sub = merge(...[this.sort.sortChange, this.paginator.page, this.update]).pipe(startWith(null as any)).subscribe(
+    const sub = merge(this.sort.sortChange, this.paginator.page, this.update).pipe(startWith(null as any)).subscribe(
       r => {
         r === true ? this.paginator.pageIndex = 0 : r = r;
         !this.paginator.pageSize ? this.paginator.pageSize = 10 : r = r;
@@ -100,6 +102,7 @@ export class TableComponent implements OnInit, OnDestroy {
   init(e: { opt: any, tableModel: any } = this.service.getFromDecorator(this.instance)) {
     // get from decorator ts
     this.opt = e.opt;
+
     this.tableModel = e.tableModel;
 
     this.service.controller = this.opt.serviceName;
@@ -157,6 +160,11 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   add() {
+    if (this.opt.popup === false) {
+      this.router.navigate([this.opt.updateRoute, 0], { relativeTo: this.route });
+      return;
+    }
+
     this.openDialog(this.instance, `Ajouter ${this.opt.name}`).subscribe(result => {
       if (result) {
         this.update.next(true);
@@ -165,6 +173,11 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   edit(o: any) {
+    if (this.opt.popup === false) {
+      this.router.navigate([this.opt.updateRoute, o.id], { relativeTo: this.route });
+      return;
+    }
+
     this.openDialog(o, `Modifier ${this.opt.name}`).subscribe((result: any) => {
       if (result) {
         this.update.next(true);

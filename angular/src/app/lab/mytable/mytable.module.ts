@@ -5,15 +5,18 @@ import { MytableComponent } from './mytable.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from '../table/table.module';
+import { UpdateComponent } from './update/update.component';
 
 
 const routes: Routes = [
-  { path: '', component: MytableComponent }
+  { path: '', component: MytableComponent },
+  { path: 'update/:id', component: UpdateComponent },
 ];
 
 @NgModule({
   declarations: [
     MytableComponent,
+    UpdateComponent,
   ],
   imports: [
     CommonModule,

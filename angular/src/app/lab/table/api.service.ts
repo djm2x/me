@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { IEntity, tableSymbol } from './decorators/column';
+import {  tableSymbol } from './decorators/column.decorator';
+import { IEntity } from './decorators/entity.decorator';
 import { TableModel } from './decorators/table.model';
-
 
 @Injectable({
   providedIn: 'root'
