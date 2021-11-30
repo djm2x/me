@@ -2,6 +2,7 @@ export class ColumnModel {
   /** List of options */
   // label
   name: string;
+  className: string;
   key: string;
   tableDisplay: boolean;
   formField: Field;
@@ -14,8 +15,10 @@ export class ColumnModel {
   // case property is a foreign key (formField = select input)
   selectId: string;
   selectName: string;
+  columns: ColumnModel[] = [];
 
   constructor(options: Partial<ColumnModel> = {}) {
+    this.className = options.className;
     this.name = options.name || options.key;
     this.tableDisplay = options.tableDisplay !== undefined ? options.tableDisplay : true;
     this.key = options.key;

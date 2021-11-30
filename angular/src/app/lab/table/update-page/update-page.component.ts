@@ -90,7 +90,7 @@ export class UpdatePageComponent implements OnInit, OnDestroy {
 
   createForm() {
     this.columns.map(e => {
-
+      console.info(e)
       this.myForm.addControl(e.key, new FormControl(this.o[e.key]));
 
       // add simple validation if needed

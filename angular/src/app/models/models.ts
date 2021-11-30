@@ -1,6 +1,11 @@
 import { Column } from '../lab/table/decorators/column.decorator';
 import { Entity } from '../lab/table/decorators/entity.decorator';
 
+
+
+
+
+
 @Entity({popup: false})
 export class User {
   @Column()
@@ -24,6 +29,9 @@ export class User {
   @Column()
   isActive: boolean = true;
 
+  @Column({propertyType: 'Role' })
+  roles: Role = new Role();
+
   // @Column({tableDisplay: false})
   // date: Date = new Date();
 
@@ -31,9 +39,14 @@ export class User {
   // idInfo: number = null;
 }
 
+
+@Entity({popup: false})
 export class Role {
-  id = null;
-  name = '';
+  @Column()
+  id: number = null;
+
+  @Column()
+  name: string = '';
 }
 
 export class Info {
