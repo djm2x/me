@@ -15,9 +15,14 @@ export class ColumnModel {
   // case property is a foreign key (formField = select input)
   selectId: string;
   selectName: string;
+  relation: Object;
   columns: ColumnModel[] = [];
 
+  relations: Object[];
+
   constructor(options: Partial<ColumnModel> = {}) {
+    this.relation = options.relation;
+    this.relations = options.relations;
     this.className = options.className;
     this.name = options.name || options.key;
     this.tableDisplay = options.tableDisplay !== undefined ? options.tableDisplay : true;
@@ -25,15 +30,16 @@ export class ColumnModel {
     this.propertyType = options.propertyType;
     //
     this.formField = options.formField ||
-      (options.propertyType === 'Date' ? 'date' :
+      ( options.relation ? 'relation' :
+        options.propertyType === 'Date' ? 'date' :
         options.propertyType === 'Boolean' ? 'checkbox' :
           options.key === 'id' ? 'id' :
             options.propertyType === 'Number' ? 'number' : 'text')
       ;
     //
     this.serviceName = options.formField === 'select' ? options.serviceName : null;
-    this.selectId = options.formField === 'select' ? options.selectId : null;
-    this.selectName = options.formField === 'select' ? options.selectName : null;
+    this.selectId = options.selectId || null;
+    this.selectName = options.selectName || null;
     //
     this.required = options.required || false;
     this.canSort = options.canSort || false;
@@ -42,4 +48,4 @@ export class ColumnModel {
   }
 }
 
-type Field = 'text' | 'number' | 'select' | 'checkbox' | 'date' | 'id' | 'password';
+type Field = 'text' | 'number' | 'select' | 'checkbox' | 'date' | 'id' | 'relation' | 'selectFromLocal';

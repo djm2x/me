@@ -1,6 +1,6 @@
 <div>
-  <h1 >{{title}}</h1>
-  <div >
+  <h1>{{title}}</h1>
+  <div>
     <form [formGroup]="myForm">
 
       <pre>
@@ -47,7 +47,7 @@
           </mat-form-field>
         </ng-container>
 
-        <!-- input text -->
+        <!-- input number -->
         <ng-container *ngIf="e.formField === 'number'">
           <mat-form-field appearance="fill" class="col-md-6">
             <mat-label>{{e.name}}</mat-label>
@@ -63,6 +63,66 @@
             </mat-form-field>
           </ng-container> -->
 
+        <!-- input relation -->
+        <ng-container *ngIf="e.formField === 'relation'">
+          <div [formGroup]="myForm.get(e.key)">
+
+
+            <ng-container *ngFor="let r of e.columns; let i = index">
+
+              <!-- {{$any(myForm.get(e.key)).controls[r.key].value | json}} --
+              {{$any(myForm.get(e.key)).get(r.key).value | json}} -->
+
+              <!-- input text -->
+              <ng-container *ngIf="r.formField === 'text'">
+                <mat-form-field appearance="fill" class="col-md-6">
+                  <mat-label>{{r.name}}</mat-label>
+                  <input matInput [formControl]="$any(myForm.get(e.key)).controls[r.key]" [required]="r.required">
+                </mat-form-field>
+              </ng-container>
+
+              <!-- input checkbox -->
+              <ng-container *ngIf="r.formField === 'checkbox'">
+                <mat-checkbox class="col-md-6" [formControl]="$any(myForm.get(e.key)).controls[r.key]" labelPosition="before">
+                  {{r.name}}
+                </mat-checkbox>
+              </ng-container>
+
+              <!-- select -->
+              <ng-container *ngIf="r.formField === 'select'">
+                <mat-form-field appearance="fill" class="col-md-6">
+                  <mat-label>{{r.name}}</mat-label>
+                  <mat-select [formControl]="$any(myForm.get(e.key)).controls[r.key]">
+                    <mat-option *ngFor="let o of selectServices[r.serviceName] | async" [value]="o[r.selectId]">
+                      {{o[r.selectName]}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </ng-container>
+
+              <!-- date -->
+              <ng-container *ngIf="r.formField === 'date'">
+                <mat-form-field appearance="fill" class="col-md-6">
+                  <mat-label>{{r.name}}</mat-label>
+                  <input matInput [matDatepicker]="i" [formControl]="$any(myForm.get(e.key)).controls[r.key]">
+                  <mat-datepicker-toggle matSuffix [for]="i"></mat-datepicker-toggle>
+                  <mat-datepicker #i></mat-datepicker>
+                </mat-form-field>
+              </ng-container>
+
+              <!-- input number -->
+              <ng-container *ngIf="r.formField === 'number'">
+                <mat-form-field appearance="fill" class="col-md-6">
+                  <mat-label>{{r.name}}</mat-label>
+                  <input matInput type="number" [formControl]="$any(myForm.get(e.key)).controls[r.key]" [required]="r.required">
+                </mat-form-field>
+              </ng-container>
+            </ng-container>
+
+          </div>
+
+        </ng-container>
+
 
       </div>
 
@@ -70,7 +130,7 @@
     </form>
 
   </div>
-  <div  align="end">
+  <div align="end">
     <button mat-button (click)="onNoClick()" type="button">Annuler</button>
     <button mat-raised-button color="primary" (click)="onOkClick(myForm.value)" [disabled]="myForm.invalid"
       cdkFocusInitial>Enregistre</button>

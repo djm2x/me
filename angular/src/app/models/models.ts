@@ -5,6 +5,14 @@ import { Entity } from '../lab/table/decorators/entity.decorator';
 
 
 
+@Entity({popup: false})
+export class Role {
+  @Column()
+  id: number = null;
+
+  @Column({required: true, name: 'Name'})
+  name: string = 'bebech';
+}
 
 @Entity({popup: false})
 export class User {
@@ -29,8 +37,11 @@ export class User {
   @Column()
   isActive: boolean = true;
 
-  @Column({propertyType: 'Role' })
+  @Column({ relation: new Role(), tableDisplay: true, name: 'Role', selectName: 'name' })
   roles: Role = new Role();
+
+  // @Column({tableDisplay: false, formField: 'selectFromLocal', selectId: 'session.organization.super_entity.id'})
+  // super_entity_id: number = 0;
 
   // @Column({tableDisplay: false})
   // date: Date = new Date();
@@ -40,14 +51,6 @@ export class User {
 }
 
 
-@Entity({popup: false})
-export class Role {
-  @Column()
-  id: number = null;
-
-  @Column()
-  name: string = '';
-}
 
 export class Info {
   id = 0;

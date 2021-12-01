@@ -9,13 +9,14 @@ type Target = {
 
 export const tableSymbol = Symbol('column');
 
-export function Column(options: Partial<ColumnModel> = {}) {
+export function Column(options: Partial<ColumnModel> = {}): PropertyDecorator {
   return (target: Object, propertyKey: string) => {
     // console.log('decorator column for', propertyKey);
 
     if (!target[tableSymbol]) {
       target[tableSymbol] = new TableModel();
     }
+
     options.key = propertyKey;
     const propType = Reflect.getMetadata('design:type', target, propertyKey);
     // console.log(target.constructor.name, propType.name, Object.getOwnPropertyNames(propType.name));

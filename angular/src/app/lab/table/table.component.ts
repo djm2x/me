@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 import { ColumnModel } from './decorators/column.model';
 import { TableModel } from './decorators/table.model';
 import { IEntity } from './decorators/entity.decorator';
+import { Role } from 'src/app/models/models';
 
 @Component({
   selector: 'app-table',
@@ -79,11 +80,14 @@ export class TableComponent implements OnInit, OnDestroy {
   getPage(startIndex, pageSize, sortBy, sortDir, ...args) {
     // tslint:disable-next-line:max-line-length
     const sub = this.service.getPage(startIndex, pageSize, sortBy, sortDir, args).subscribe(
-      (r: any) => {
-        console.log(r);
-        this.dataSource = r.list;
+      (r) => {
+        this.dataSource = r.list.map(e => {
+          e.roles = new Role();
+          return e;
+        });
         this.resultsLength = r.count;
         this.isLoadingResults = false;
+        console.log(this.dataSource);
       }
     );
 
@@ -107,7 +111,16 @@ export class TableComponent implements OnInit, OnDestroy {
 
     this.service.controller = this.opt.serviceName;
 
-    this.columns = this.tableModel.columns.filter(f => f.formField !== 'id' && f.tableDisplay === true);
+    this.columns = this.tableModel.columns.filter(f => f.formField !== 'id' && f.tableDisplay === true).map(e => {
+      if (e.relation) {
+        const y = this.service.getFromDecorator(e.relation);
+
+        e.columns.push(...y.tableModel.columns);
+
+      }
+
+      return e;
+    });
 
     console.log(this.columns)
 
@@ -135,6 +148,18 @@ export class TableComponent implements OnInit, OnDestroy {
     this.displayedColumns.push('option');
 
 
+  }
+
+  getColumnValue(row: any, e : ColumnModel): string {
+    const col = this.columns.find(c => c.key === e.key);
+
+    console.log(e)
+
+    let value = row[e.key];
+
+    e.selectName.split('.').forEach(i =>  value = value[i]);
+
+    return value;
   }
 
   reset() {

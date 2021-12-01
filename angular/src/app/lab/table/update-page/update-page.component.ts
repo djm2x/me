@@ -2,7 +2,7 @@ import { delay } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from './../api.service';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import {  Observable, Subscription, Subject, firstValueFrom } from 'rxjs';
 import { ColumnModel } from '../decorators/column.model';
 import { IEntity } from '../decorators/entity.decorator';
@@ -71,6 +71,7 @@ export class UpdatePageComponent implements OnInit, OnDestroy {
 
   onOkClick(o: any): void {
     let sub = null;
+
     if (!o.id || o.id === 0) {
       sub = this.service.set(this.opt.serviceName).post(o).subscribe(r => {
         this.router.navigate([this.router.url.replace(this.route.snapshot.paramMap.get('id'), r.id)]);
@@ -90,7 +91,49 @@ export class UpdatePageComponent implements OnInit, OnDestroy {
 
   createForm() {
     this.columns.map(e => {
-      console.info(e)
+
+      if (e.formField === 'date') {
+        // this.myForm.addControl(e.key, new FormControl(formatDate(this.o[e.key], 'yyyy-MM-ddTHH:mm', 'fr')));
+        this.myForm.addControl(e.key, new FormControl(this.o[e.key]));
+      } else if (e.formField === 'selectFromLocal') {
+        // const value = e.selectId.split('.').reduce((p, c) => this[p][c]);
+
+        // exemble of value : e.selectId = session.organization.super_entity.id: 84 => value = 84
+        let value = this;
+        e.selectId.split('.').forEach(i =>  value = value[i]);
+
+        this.myForm.addControl(e.key, new FormControl(value));
+      } else if (e.relation) {
+        const y = this.service.getFromDecorator(e.relation);
+
+        //
+        e.columns.push(...y.tableModel.columns);
+
+        const fg = this.fb.group({});
+
+        y.tableModel.columns.map(c => {
+
+          fg.addControl(c.key, new FormControl(e.relation[c.key]));
+
+          if (c.required) {
+            fg.get(c.key).setValidators(Validators.required);
+          }
+        });
+
+        this.myForm.addControl(e.key, fg);
+
+        console.log(this.myForm.get(e.key))
+
+        return;
+      } else {
+        this.myForm.addControl(e.key, new FormControl(this.o[e.key]));
+      }
+
+      // add simple validation if needed
+      if (e.required) {
+        this.myForm.get(e.key).setValidators(Validators.required);
+      }
+
       this.myForm.addControl(e.key, new FormControl(this.o[e.key]));
 
       // add simple validation if needed
