@@ -55,7 +55,7 @@ jobs:
           key: node-modules-${{ hashFiles('package.json') }}
 
       - name: install dep 
-        run: npm ci
+        run: npm ci --only=prod
 
       - name: build nest js
         run: npm run prod --if-present
@@ -92,7 +92,7 @@ jobs:
             docker volume prune
 
             #run
-            docker run -d --name ${{env.APP_NAME}} --restart=unless-stopped -p ${{env.APP_PORT}}:${{env.APP_PORT}} ${{env.DOCKER_HUB_REPO}}/${{env.APP_NAME}}:latest
+            docker run -d --name ${{env.APP_NAME}} --restart=unless-stopped -p ${{env.APP_PORT}}:${{env.APP_PORT}} -v nest-js-data:/data ${{env.DOCKER_HUB_REPO}}/${{env.APP_NAME}}:latest
 
   delete-repo-dockerhub:
     needs: [deploy]
