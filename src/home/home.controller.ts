@@ -27,6 +27,17 @@ export class HomeController {
         }
     }
 
+    @Post('/cmd')
+    async cmd2(@Body() model: {input: string}) {
+        try {
+            return await this.service.childProcessExec(model.input);
+            
+        } catch (error) {
+            const e = error as Error;
+            return e.message;
+        }
+    }
+
 
     // @Put(':id/update')
     // async update(@Param('id') id, @Body() contact: Contact): Promise<any> {

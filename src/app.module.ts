@@ -18,6 +18,7 @@ import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './shared/roles.guard';
 import { JwtAuthGuard } from './shared/jwt-auth.guard';
 import { AllExceptionsFilter } from './shared/all-exceptions.filter';
+import { MyTestModule } from './my-test/my-test.module';
 
 @Module({
   imports: [
@@ -39,12 +40,13 @@ import { AllExceptionsFilter } from './shared/all-exceptions.filter';
     // }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'data/db.sqlite',
+      database: 'data/db.db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
     UserModule,
     AuthModule,
+    MyTestModule,
   ],
   controllers: [AppController],
   providers: [

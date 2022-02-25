@@ -2,12 +2,12 @@ name: Asp.net & Angular CI
 
 on:
   push:
-    branches: [master, dev-]
+    branches: [master, dev]
   pull_request:
-    branches: [master, dev-]
+    branches: [master, dev]
 
 env:
-  APP_NAME: portfolio
+  APP_NAME: nestjs-api
   APP_PORT: 3000
   NODE_VERSION: 16
   DOCKER_HUB_REPO: djm2x
@@ -48,25 +48,13 @@ jobs:
           node-version: '${{ env.NODE_VERSION }}'
           # cache: "npm"
 
-      - name : Cache node_modules for angular
-        uses: actions/cache@v2
-        with:
-          path: "angular/node_modules"
-          key: node-modules-${{ hashFiles('angular/package.json') }}
-
-      - name: install dep for angular
-        run: npm run install-angular-dep 
-
-      - name: build angular
-        run: npm run build-angular --if-present
-
-      - name : Cache node_modules for nest js
+      - name : Cache node_modules
         uses: actions/cache@v2
         with:
           path: "node_modules"
           key: node-modules-${{ hashFiles('package.json') }}
 
-      - name: install dep for nest js
+      - name: install dep 
         run: npm ci
 
       - name: build nest js
@@ -101,6 +89,7 @@ jobs:
 
             # Free up space
             docker system prune -a
+            docker volume prune
 
             #run
             docker run -d --name ${{env.APP_NAME}} --restart=unless-stopped -p ${{env.APP_PORT}}:${{env.APP_PORT}} ${{env.DOCKER_HUB_REPO}}/${{env.APP_NAME}}:latest

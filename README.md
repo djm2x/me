@@ -79,4 +79,4 @@ docker run -it --rm --entrypoint sh 5d
 npm i bcrypt @nestjs/passport @nestjs/jwt  passport passport-jwt 
 npm i @types/bcrypt @types/passport @types/passport-jwt -D
 
-
+nest g resource users --no-spec
