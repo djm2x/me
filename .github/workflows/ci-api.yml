@@ -55,7 +55,7 @@ jobs:
           key: node-modules-${{ hashFiles('package.json') }}
 
       - name: install dep 
-        run: npm ci --only=prod
+        run: npm ci
 
       - name: build nest js
         run: npm run prod --if-present
