@@ -12,7 +12,7 @@ env:
   NODE_VERSION: 16
   DOCKER_HUB_REPO: djm2x
   DOCKER_HUB_USER: djm2x
-  DOCKER_HUB_PW: ${{ secrets.DOCKER_PASSWORD }}
+  DOCKER_HUB_PW: digitransform01
 
   SERVER_NAME: vmi633563.contaboserver.net
   SERVER_HOST: 194.163.148.222
