@@ -1,18 +1,9 @@
 {
   "experiences": [
     {
-      "id": 1,
-      "period": "2018-05",
-      "societe": "Pixie Web",
-      "job": "Developpeur web Full Stack",
-      "task": "Conception et développement d'une application web",
-      "tech":"Angular, Asp core, SignalR et Sql server, Bootstrap 4",
-      "links":""
-    },
-    {
       "id": 2,
-      "period": "2018-08",
-      "societe": "Localhost",
+      "period": "2018",
+      "societe": "Pixie Web",
       "job": "Developpeur web Full Stack",
       "task": "Application web de recette de cuisine",
       "tech":"Angular, Angular Universal, Node expresse js (API), Mongo db, JWT, Socket io",
@@ -20,8 +11,8 @@
     },
     {
       "id": 3,
-      "period": "2018-11",
-      "societe": "Localhost",
+      "period": "2018",
+      "societe": "Pixie Web",
       "job": "Developpeur web Full Stack",
       "task": "Site web pour trouver l'ouvrier/professionnelle le plus adequat/proche",
       "tech":"Angular, Angular material, Asp .net core, Mysql",
@@ -29,7 +20,7 @@
     },
     {
       "id": 4,
-      "period": "2019-01 à 2019-07",
+      "period": "2018",
       "societe": "Harmony Technology",
       "job": "Developpeur web Full Stack",
       "task": "Projet de développement de système RFID pour la traçabilité des bandes de sauvegarde",
@@ -38,7 +29,7 @@
     },
     {
       "id": 3,
-      "period": "2019-11 à 2020-10",
+      "period": "2019",
       "societe": "MARIT",
       "job": "Developpeur web Full Stack",
       "task": "Site web et application web Intanet",
@@ -46,31 +37,40 @@
       "links":"didh0;panddh0;co0merciale0;http://aucnom.com0;http://connectingroup.org/0;mem-ssa0;"
     },
     {
+      "id": 6,
+      "period": "Depuis 2020",
+      "societe": "Digi-Transform",
+      "job": "Developpeur Full Stack & DevOps Engineer",
+      "task": "Dev APis REST (Spring boot & Asp core), Dev Front Angular/Ionic, DevOps: Os(Linux/Windows), Deploy: Docker/Docker-compose, CI/CD: Jenkins/Github Actions",
+      "tech":"Angular, Angular material,  Spring boot, PostgresSQL",
+      "links":""
+    },
+    {
       "id": 5,
-      "period": "2020-02 à 2020-03",
-      "societe": "Licence pro (Projet tuteuré)",
+      "period": "Projet Ecommerce",
+      "societe": "Digi-Transform",
       "job": "Developpeur web Full Stack",
-      "task": "Site web qui vise les personnes ayant entre 18-25 ans désirant visiter un lieu sans avoir besoin d’un guide",
-      "tech":"Angular, Angular material, Express JS/Ts, Sqlite",
-      "links":"tourisme-autoguide0;"
+      "task": "Ecommerce",
+      "tech":"Angular, Angular material, Asp .net core, Sql Server",
+      "links":""
+    },
+    {
+      "id": 5,
+      "period": "Projet Logistics",
+      "societe": "Digi-Transform",
+      "job": "Developpeur web Full Stack",
+      "task": "Logistics",
+      "tech":"Angular, Angular material, Spring boot, PostgresSQL, Kafka, Architecture MicroServices",
+      "links":""
     },
     {
       "id": 6,
-      "period": "2020-03 à 2020-06",
-      "societe": "Licence pro (Stage d'application professionnelle)",
+      "period": "Projet d'assistance aux praticiens",
+      "societe": "Digi-Transform",
       "job": "Developpeur web Full Stack",
-      "task": "Système pour la gestion des biens informatique et Application Bureau qui collecte les informations système (cpu, gpu, network, bios, model, ram ...), et une liste des applications installé sur l'appareil.",
-      "tech":"Angular, Angular material, Asp .net core, Sqlite, Electron JS/TS",
-      "links":"gestion-material0;https://gestion-material.herokuapp.com/a/desktop0;"
-    },
-    {
-      "id": 7,
-      "period": "2020-11",
-      "societe": "localhost:80",
-      "job": "Developpeur Full Stack",
-      "task": "Time track est un logiciel de gestion du temps et de pointage",
-      "tech":"Angular, Angular material, Asp .net core, Sqlite",
-      "links":"https://p0intage.herokuapp.com0;"
+      "task": "Assistance aux praticiens",
+      "tech":"Angular, Angular material,  Spring boot, PostgresSQL",
+      "links":""
     }
   ],
   "projects": [
@@ -233,6 +233,7 @@
       "domaine": "back-end",
       "items": [
         { "name": "ASP.NET  core", "value": 95 },
+        { "name": "Spring Boot", "value": 90 },
         { "name": "Node js (Express Js & Ts)", "value": 90 },
         { "name": "Laravel", "value": 90 }
       ]
@@ -252,6 +253,7 @@
         { "name": "Sqlite", "value": 90 },
         { "name": "MySQL", "value": 80 },
         { "name": "SQL Server", "value": 80 },
+        { "name": "PostgresSQL", "value": 70 },
         { "name": "MongoDB", "value": 90 }
       ]
     },
@@ -298,20 +300,14 @@
     {
       "id": 4,
       "period": "2017",
-      "dipolma": "Certification Microsoft (ASP.NET MVC 5, SQL SERVER, C#, « HTML,CSS et JS », WIN 7)",
-      "universite": "Institut Spécialisé de Technologie Appliquée - TEMARA"
-    },
-    {
-      "id": 5,
-      "period": "2016-2018",
-      "dipolma": "DTS Développement Informatique",
+      "dipolma": "Certification Microsoft (ASP.NET MVC 5, SQL SERVER, C#, « HTML,CSS et JS »)",
       "universite": "Institut Spécialisé de Technologie Appliquée - TEMARA"
     },
     {
       "id": 6,
-      "period": "2019-2020",
-      "dipolma": "Licence pro - Métiers de l’informatique : conduite de projet – Tech du développement web ",
-      "universite": "Faculté des Sciences & Techniques - Université de Limoges FRANCE"
+      "period": "2018",
+      "dipolma": "Licence pro - Conduite de projet – Tech du développement web ",
+      "universite": "FST - Université de Limoges FRANCE"
     }
   ],
   "about": {
@@ -322,8 +318,7 @@
     "profession": "Developpeur web full stack",
     "image": "assets/me.png",
     "info": [
-      { "icon": "language", "name2": "https://djm2x.github.io/me", "name": "mohamed-mourabit.com", "href": "https://mohamed-mourabit.com"},
-      { "icon": "email", "name": "dj-m2x@hotmail.com", "href": "mailto:dj-m2x@hotmail.com" },
+      { "icon": "email", "name": "mohamed.mourabit@digitransform.co", "href": "mailto:mohamed.mourabit@digitransform.co" },
       { "icon": "", "text": "in", "name": "in/mohamed-mourabit", "href": "https://www.linkedin.com/in/mohamed-mourabit" },
       { "icon": "", "text": "git", "name": "github.com/djm2x", "href": "https://github.com/djm2x" },
       { "icon": "call", "name": "(+212) 6 71 26 54 78", "href": "tel:+212671265478" },

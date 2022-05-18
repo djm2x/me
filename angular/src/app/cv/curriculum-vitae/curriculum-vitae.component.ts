@@ -37,6 +37,10 @@ export class CurriculumVitaeComponent implements OnInit {
     setTimeout(() => this.state = 'show', 300);
   }
 
+  toList(e: string) {
+    return e.split(',')
+  }
+
   public mouseup() {
     if (this.timeoutHandler) {
       clearInterval(this.timeoutHandler);

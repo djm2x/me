@@ -35,7 +35,7 @@ export class DbService {
   }
 
   all() {
-    return this.http.get<DataBase>('assets/db/database.json');
+    return this.http.get<DataBase>('assets/db/database-dt.json');
   }
 }
 
