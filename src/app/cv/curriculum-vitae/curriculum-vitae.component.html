@@ -132,12 +132,15 @@
           <div *ngFor="let e of o.experiences; let i=index" class="mb-3">
             <div class="d-flex justify-content-between align-items-center">
               <span class="date">
-                <mat-icon>event</mat-icon> {{e.period}}
+                <mat-icon>event</mat-icon> {{e.job}} / {{e.period}}
               </span>
               <span class="place">
                 <mat-icon>place</mat-icon> {{e.societe}}
               </span>
             </div>
+            <ng-container *ngFor="let e of toList(e.task)" >
+              <p class="desc">{{e}}</p>
+            </ng-container>
             <!-- <p class="desc">{{e.job}}</p> -->
             <p class="tech">
               <mat-icon>code</mat-icon> {{e.tech}}
