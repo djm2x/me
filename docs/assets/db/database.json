@@ -275,7 +275,7 @@
     "firstName": "Mohamed",
     "lastName": "Mourabit",
     "profession": "Developpeur web full stack",
-    "image": "assets/me.png",
+    "image": "assets/me.jpg",
     "info": [
       { "icon": "language", "name2": "https://djm2x.github.io/me", "name": "mohamed-mourabit.com", "href": "https://mohamed-mourabit.com"},
       { "icon": "email", "name": "mohamed.mourabit@outlook.com", "href": "mailto:mohamed.mourabit@outlook.com" },
