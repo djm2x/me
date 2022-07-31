@@ -5,18 +5,9 @@
       "period": "2018",
       "societe": "Pixie Web",
       "job": "Developpeur web Full Stack",
-      "task": "Application web de recette de cuisine",
-      "tech":"Angular, Angular Universal, Node expresse js (API), Mongo db, JWT, Socket io",
-      "links":"recipe0;"
-    },
-    {
-      "id": 3,
-      "period": "2018",
-      "societe": "Pixie Web",
-      "job": "Developpeur web Full Stack",
-      "task": "Site web pour trouver l'ouvrier/professionnelle le plus adequat/proche",
-      "tech":"Angular, Angular material, Asp .net core, Mysql",
-      "links":"ouvrier0;"
+      "task": "Deux application web (Recette de cuisine, Rechercher de l'ouvrier/professionnelle)",
+      "tech":"Angular, Expresse js (API), Mongo Db, JWT, Socket io, Asp .net core, Mysql",
+      "links":"recipe0;ouvrier0;"
     },
     {
       "id": 4,
@@ -40,8 +31,8 @@
       "id": 6,
       "period": "Depuis 2020",
       "societe": "Digi-Transform",
-      "job": "Dev Full Stack & DevOps Engineer",
-      "task": "DevOps: Os(Linux/Windows), Deploy: Docker / Docker-compose / Portainer (Microservices arch + Kafka), Reverse-proxy / SSL / Load-Balancing: Traefik, Monitoring: Prometheus | Grafana, CI / CD: Jenkins / Github Actions, Dev APis REST (Spring boot & Asp core), Dev Front Angular / Ionic, Gestion de projets, Tutorat de stagiaires, Documentation",
+      "job": "DevOps Engineer",
+      "task": "Deploy: Docker / Docker-compose / Portainer (Microservices arch + Kafka), Reverse-proxy / SSL / Load-Balancing: Traefik, Monitoring: Prometheus | Grafana, CI / CD: Jenkins / Github Actions, Dev APis REST (Spring boot & Asp core), Dev Front Angular / Ionic, Gestion de projets, Tutorat de stagiaires, Documentation",
       "tech":"Angular, Angular material,  Spring boot, Asp Core, PostgresSQL, SQL Qerver",
       "links":""
     }
@@ -263,10 +254,16 @@
       "universite": "Institut Spécialisé de Technologie Appliquée - TEMARA"
     },
     {
+      "id": 5,
+      "period": "2016-2018",
+      "dipolma": "DTS Développement Informatique",
+      "universite": "Institut Spécialisé de Technologie Appliquée - TEMARA"
+    },
+    {
       "id": 6,
-      "period": "2018",
-      "dipolma": "Licence pro - Conduite de projet – Tech du développement web ",
-      "universite": "FST - Université de Limoges FRANCE"
+      "period": "2019-2020",
+      "dipolma": "Licence pro - Métiers de l’informatique : conduite de projet – Tech du développement web ",
+      "universite": "Faculté des Sciences & Techniques - Université de Limoges FRANCE"
     }
   ],
   "about": {
@@ -274,7 +271,7 @@
     "intro2": "Passionner par le métier. Constamment à l’écoute et en veille technique dans mon domaine, je reste toujours à et à l'écoute du marché et je veille à développer avec les derniers technologies qui existe et bien les maîtriser.",
     "firstName": "Mohamed",
     "lastName": "Mourabit",
-    "profession": "Developpeur web full stack",
+    "profession": "DevOps Engineer",
     "image": "assets/me.png",
     "info": [
       { "icon": "language", "name2": "https://djm2x.github.io/me", "name": "mohamed-mourabit.com", "href": "https://mohamed-mourabit.com"},
