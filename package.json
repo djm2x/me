@@ -6,7 +6,7 @@
     "f": "ng serve --port 4206 --hmr",
     "copy": "node --require ts-node/register ./copy.script.ts",
     "f-p0": "ng build --configuration production --output-path docs --base-href=/me/ && npm run copy",
-    "f-p": "ng build --configuration production --output-path docs --base-href=/ && npm run copy",
+    "f-p": "ng build --configuration production --output-path docs --base-href=/me && npm run copy",
     "analyze": "ng run portfolio:analyze --diffLoading=false",
     "git": "---------------------------------------------------------------------",
     "create-branch": "git branch new-one",

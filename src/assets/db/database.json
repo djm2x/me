@@ -162,7 +162,7 @@
       "tech": "Angular, Angular material, Electron JS/Ts",
       "image": "assets/system-info.jpg",
       "url": "https://gestion-material.herokuapp.com/a/desktop",
-      "isPrivate": false,
+      "isPrivate": true,
       "git": "https://github.com/djm2x/systeminformation-electron"
     },
     {
