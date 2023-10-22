@@ -22,7 +22,7 @@ export class ExperienceComponent implements OnInit {
     const isPrivate = +this.route.snapshot.paramMap.get('isPrivate') === 1;
     // this.service2.private = isPrivate ? '/with-private' : '';
     this.service.projects().subscribe(r => {
-      this.list = r.filter(e => isPrivate ? true : e.isPrivate === false );
+      this.list = r.filter(e => isPrivate ? true : e.isPrivate === false ).sort((a, b) => b.id - a.id);
     });
   }
 
@@ -33,7 +33,7 @@ export class ExperienceComponent implements OnInit {
   detail(o: Project) {
     this.dialog.open(DetailComponent, {
       width: '750px',
-      disableClose: true,
+      disableClose: false,
       data: { model: o, title: o.title }
     });
   }

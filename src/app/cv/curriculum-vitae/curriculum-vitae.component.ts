@@ -1,20 +1,25 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { DbService, DataBase } from 'src/app/shared/db.service';
 import { PdfService } from '../pdf.service';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/shared/service.service';
 import { animations } from 'src/app/shared/animations';
-
+import { saveAs } from 'file-saver';
+import { asBlob } from 'html-docx-js-typescript'
 @Component({
   selector: 'app-curriculum-vitae',
   templateUrl: './curriculum-vitae.component.html',
-  styleUrls: ['./curriculum-vitae.component.scss'],
+  styleUrls: [
+    './curriculum-vitae.component.scss',
+  // './tailwind-classes.scss'
+],
+  // encapsulation: ViewEncapsulation.None,
   animations: animations,
 })
 export class CurriculumVitaeComponent implements OnInit {
   zoom = 1;
   state = 'hide';
-  @ViewChild('cv') cv: ElementRef;
+  @ViewChild('cv') cv: ElementRef<HTMLDivElement>;
   o = new DataBase();
   isPrivate = false;
   timeoutHandler = null;
@@ -63,6 +68,80 @@ export class CurriculumVitaeComponent implements OnInit {
     this.zoom = 1;
     this.pdf.downloadPDF(this.cv.nativeElement);
   }
+
+   async generateWordDocument() {
+      const htmlContent = `
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  body {
+    font-family: Calibri, sans-serif;
+    line-height: 1;
+    background-color: #ccc;
+  }
+  a {
+    color: black;
+    // text-decoration: none;
+    text-decoration: underline;
+  }
+  h3, h4, h5 {
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+  p, a {
+    margin-top: 0;
+    font-size: 10pt;
+    // margin-bottom: 5px;
+  }
+
+  hr {
+    margin-top: 0;
+    height: 1px;
+    margin-bottom: 0px;
+    color: #ccc;
+    background-color: #ccc;
+  }
+  </style>
+</head>
+<body>
+    ${this.cv.nativeElement.innerHTML}
+</body>
+</html>
+      `;
+
+      //default: 1440, i.e. 2.54 cm
+      const scale = 1440 / 2.54;
+
+      // console.warn(this.cv.nativeElement.innerHTML)
+
+      asBlob(htmlContent, {
+        // orientation: 'landscape',
+
+        margins: {
+          top: 0.3 * scale ,
+          right: 0.5 * scale,
+          bottom: 0.3 * scale,
+          left: 0.5 * scale,
+          // header: 0,
+          // footer: 0,
+          gutter: 0,
+        },
+      }).then(data => {
+        console.log(data)
+        saveAs(data, 'file.docx') // save as docx file
+      })
+
+      // const blob: Blob = await HTMLtoDOCX(htmlContent)
+
+      // this.downloadBlobAsFile(blob as any, 'document.docx');
+
+      // Use docx as a Blob to save or open in Microsoft Word
+      // saveAs(docx, 'document.docx'); // You can use the FileSaver library to save it as a file
+    }
+
 
   displayUrl(links: string): string[] {
     const r = links.split(';');

@@ -46,6 +46,7 @@ export class DataBase {
   educations: Education[] = [];
   about = new About();
   langs: Lang[] = [];
+  hobbies: Lang[] = [];
 }
 
 export class Experience {
@@ -53,7 +54,7 @@ export class Experience {
   period = '';
   societe = '';
   job = '';
-  task = '';
+  task :string[] = [];
   tech = '';
   links = '';
 }
@@ -94,6 +95,6 @@ export class About {
 
 export class Lang {
   id = 0;
-  lang = '';
+  name = '';
   level = '';
 }

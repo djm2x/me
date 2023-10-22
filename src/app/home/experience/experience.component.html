@@ -5,11 +5,14 @@
     <div *ngFor="let e of list; let i=index" class="col-md-3 text-center">
       <mat-card [@scrollAnimation]="state">
 
-        <img mat-card-image [src]="e.image" style="height: 220px;">
+        <div mat-card-image >
+
+          <img  [src]="e.image" style="height: 220px;padding: 10px;background-color: rgb(218, 218, 218);">
+        </div>
         <!-- <mat-divider></mat-divider> -->
         <mat-card-content class="mt-2">
           <p>
-            {{e.title}}
+            {{e.title}} | {{e.date}}
           </p>
         </mat-card-content>
 
