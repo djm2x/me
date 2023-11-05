@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 // import { paths } from './app-paths';
 
@@ -8,7 +8,7 @@ const paths = ['cv', 'home']
 @Injectable({
   providedIn: 'root'
 })
-export class PathResolveService implements Resolve<string | null> {
+export class PathResolveService  {
 
   constructor() {}
 

@@ -1,66 +1,121 @@
 // @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
-@use '@angular/material' as mat;
-@import "./iconfont/montserrat.css";
 // @import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import "@angular/material/theming";
-@include mat.core();
+// @import "./iconfont/montserrat.css";
+// @include mat-core();
+
 
 // Define a custom typography config that overrides the font-family as well as the
 // `headlines` and `body-1` levels.
+// $font-family: 'Montserrat',
+// $custom-typography: mat-typography-config(
+  //   $headline: mat-typography-level(32px, 48px, 700),
+  //   $body-1: mat-typography-level(16px, 24px, 500)
+  // );
 
-// $body-1: mat-typography-level(font-size, line-height, font-weight),
+  // @include angular-material-typography($custom-typography);
+  // @include mat-core($custom-typography);
+  // @import 'themes/black-theme.scss';
 
-$custom-typography: mat.define-typography-config(
-  $font-family: 'Montserrat',
-  $headline: mat.define-typography-level(32px, 48px, 700),
-  $body-1: mat.define-typography-level(16px, 20px, 500),
-);
+  // @import "@angular/material/theming";
 
-@include mat.all-component-typographies($custom-typography);
+  @use '@angular/material' as mat;
 
-// @import 'mat-palette-gen.scss';
+@import 'mat-palette-gen.scss';
 
-// $primary-color: #2b8855;
-// $accent-color: #f78a21;
-// $warn-color: #cd2330;
+$primary-color: #4f144c;
+$accent-color: #07a29f;
+$warn-color: #fa9105;
 
-// $primary-palette: createPalette($primary-color);
-// $accent-palette: createPalette($accent-color);
-// $warn-palette: createPalette($warn-color);
+$primary-palette: createPalette($primary-color);
+$accent-palette: createPalette($accent-color);
+$warn-palette: createPalette($warn-color);
 
+$primary: mat-palette($primary-palette);
+$accent: mat-palette($accent-palette);
+$warn: mat-palette($warn-palette);
 
-$candy-app-primary: mat.define-palette(mat.$blue-palette, 700);
-$candy-app-accent: mat.define-palette(mat.$yellow-palette, 600);
-$candy-app-warn: mat.define-palette(mat.$red-palette, 700);
+// Pick one
+$light: mat.define-light-theme(( color: (primary: $primary,accent: $accent, warn: $warn )));
+$dark: mat.define-dark-theme(( color: (primary: $primary,accent: $accent, warn: $warn )));
 
-$candy-app-theme: mat.define-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+// $theme: mat-light-theme($primary, $accent, $warn);
 
-$alt-primary: mat.define-palette(mat.$deep-orange-palette, 700, 800, 900);
-$alt-accent: mat.define-palette(mat.$light-green-palette, 700);
-$alt-warn: mat.define-palette(mat.$red-palette, 700);
-
-$alt-theme: mat.define-dark-theme($alt-primary, $alt-accent, $alt-warn);
-
-.dark-theme {
-  @include mat.all-component-themes($alt-theme);
-  // --background-primary: mat-color($alt-primary) !important;
-  --selected-primary: #{mat.get-color-from-palette($alt-primary)};
-  --selected-accent: #{mat.get-color-from-palette($alt-accent)};
-  --selected-warn: #{mat.get-color-from-palette($alt-warn)};
-  --selected-neutral: rgb(172, 172, 172);
-  --selected-link: rgb(255, 166, 0);
-
-
-}
+// @include angular-material-theme($light);
 
 .light-theme {
-  @include mat.all-component-themes($candy-app-theme);
-  // --background-primary: mat-color($candy-app-primary) !important;
-  //map-get($candy-app-theme, primary);
-  --selected-primary: #{mat.get-color-from-palette($candy-app-primary)};
-  --selected-accent: #{mat.get-color-from-palette($candy-app-accent)};
-  --selected-warn: #{mat.get-color-from-palette($candy-app-warn)};
-  --selected-neutral: gray;
-  --selected-link: blue;
-  // $primary: map-get($theme, primary);
+  @include mat.all-component-themes($light);
+
+  --primary: #{mat-color($primary)};
+  --accent: #{mat-color($accent)};
+  --warn: #{mat-color($warn)};
+  --color: rgb(0, 0, 0);
+  --background: white;
+
+  .alert-snackbar {
+    background-color: var(--warn);
+    color: white !important;
+  }
+
+  .load-snackbar {
+    background-color: var(--accent);
+    color: white !important;
+    font-weight: bold;
+  }
+
+  .green-snackbar {
+    background-color: var(--primary);
+    color: white !important;
+  }
 }
+
+.dark-theme {
+  @include mat.angular-material-theme($dark);
+  --primary: #{mat-color($primary)};
+  --accent: #{mat-color($accent)};
+  --warn: #{mat-color($warn)};
+  --color: white;
+  --background: #424242;
+
+  .alert-snackbar {
+    background-color: var(--warn);
+  }
+
+  .load-snackbar {
+    background-color: var(--accent);
+    color: white !important;
+    font-weight: bold;
+  }
+
+  .green-snackbar {
+    background-color: var(--primary);
+  }
+}
+
+
+
+// // candy
+// $candy-app-primary: mat-palette($mat-blue, 700);
+// $candy-app-accent: mat-palette($mat-yellow, 600);
+// $candy-app-warn: mat-palette($mat-red, 700);
+
+// $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+// .default-theme {
+//   @include angular-material-theme($candy-app-theme);
+//   --primary: #{mat-color($candy-app-primary)};
+// }
+
+
+// // bark
+// $alt-primary: mat-palette($mat-deep-orange, 700, 800, 900);
+// $alt-accent: mat-palette($mat-light-green, 700);
+// $alt-warn: mat-palette($mat-red, 700);
+
+// $alt-theme: mat-dark-theme($alt-primary, $alt-accent, $alt-warn);
+
+// .dark-theme {
+//   @include angular-material-theme($alt-theme);
+//   --primary: #{mat-color($alt-primary)};
+// }
+
+

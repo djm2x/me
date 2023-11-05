@@ -2,9 +2,9 @@
 
   <div class="mybtn d-flex flex-column justify-content-center my-3" [@scrollTitle]="state">
     <button mat-mini-fab color="accent" (click)="generateWordDocument()">
-      <mat-icon *ngIf="!pdf.loader">get_app</mat-icon>
+      <mat-icon >get_app</mat-icon>
 
-      <mat-icon *ngIf="pdf.loader">hourglass_top</mat-icon>
+      <!-- <mat-icon *ngIf="pdf.loader">hourglass_top</mat-icon> -->
     </button>
   </div>
 
@@ -81,7 +81,7 @@
         <p *ngIf="!!e.links.length">
           <span>Liens : </span>
         <ng-container *ngFor="let e of e.links">
-          &nbsp;<a [href]="e.href" target="_blank" rel="noopener noreferrer">{{e.name}}</a>&nbsp;&nbsp;
+          &nbsp;<a [href]="$any(e).href" target="_blank" rel="noopener noreferrer">{{$any(e).name}}</a>&nbsp;&nbsp;
           </ng-container>
         </p>
       </ng-container>

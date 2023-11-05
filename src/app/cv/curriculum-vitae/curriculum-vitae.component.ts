@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { DbService, DataBase } from 'src/app/shared/db.service';
-import { PdfService } from '../pdf.service';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/shared/service.service';
 import { animations } from 'src/app/shared/animations';
@@ -24,7 +23,7 @@ export class CurriculumVitaeComponent implements OnInit {
   isPrivate = false;
   timeoutHandler = null;
 
-  constructor(private service: DbService, public pdf: PdfService
+  constructor(private service: DbService
     , private route: ActivatedRoute, public service2: SharedService) { }
 
   ngOnInit(): void {
@@ -57,16 +56,6 @@ export class CurriculumVitaeComponent implements OnInit {
     this.timeoutHandler = setInterval(() => {
       this.zoom += i;
     }, 100);
-  }
-
-  openPDF() {
-    this.zoom = 1;
-    this.pdf.captureScreen(this.cv.nativeElement);
-  }
-
-  downloadPDF() {
-    this.zoom = 1;
-    this.pdf.downloadPDF(this.cv.nativeElement);
   }
 
    async generateWordDocument() {
