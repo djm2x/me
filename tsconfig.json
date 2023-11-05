@@ -12,14 +12,18 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "ES2022",
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }
