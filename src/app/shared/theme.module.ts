@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
       <mat-icon>palette</mat-icon>
     </button>
     <mat-menu #beforeMenuTheme="matMenu" xPosition="before">
-      <mat-radio-group [formControl]="theme" class="d-flex flex-column p-2">
+      <mat-radio-group [formControl]="theme" class="flex flex-col p-2">
         <mat-radio-button *ngFor="let e of list" [value]="e.id" style="color: var(--color)">{{e.name}}</mat-radio-button>
       </mat-radio-group>
     </mat-menu>
@@ -44,7 +44,7 @@ export class ThemeComponent implements OnInit {
     this.changeTheme(theme);
 
     // on every change
-    this.theme.valueChanges.subscribe((t: string) => this.changeTheme(t));
+    this.theme.valueChanges.subscribe((t) => this.changeTheme(t!));
   }
 
   changeTheme(theme: string) {
@@ -55,7 +55,7 @@ export class ThemeComponent implements OnInit {
     this.themeForBtnNav(theme);
   }
 
-  themeForBtnNav(theme) {
+  themeForBtnNav(theme: any) {
     // this.themeClass = theme;
     const classList = this.overlayContainer.getContainerElement().classList;
     const toRemove = Array.from(classList).filter((item: string) => item.includes('-theme'));

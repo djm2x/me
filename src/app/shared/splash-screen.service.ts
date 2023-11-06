@@ -9,7 +9,7 @@ import { animate, AnimationBuilder, style } from '@angular/animations';
 })
 export class SplashScreenService {
 
-  splashScreenElem: HTMLElement;
+  splashScreenElem!: HTMLElement;
 
   constructor(private router: Router, @Inject(DOCUMENT) private document: Document,
     private animationBuilder: AnimationBuilder) {
@@ -17,7 +17,7 @@ export class SplashScreenService {
   }
 
   init() {
-    this.splashScreenElem = this.document.body.querySelector('#splash-screen');
+    this.splashScreenElem = this.document.body.querySelector('#splash-screen')!;
 
     if (this.splashScreenElem) {
       this.router.events.pipe(

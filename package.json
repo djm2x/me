@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "f": "ng serve --port 4206 --hmr",
+    "f": "set NODE_ENV=production && ng serve --port 4206 --hmr",
     "copy": "node --require ts-node/register ./copy.script.ts",
     "f-p0": "ng build --configuration production --output-path docs --base-href=/me/ && npm run copy",
     "f-p": "ng build --configuration production --output-path docs --base-href=/me && npm run copy",
@@ -40,6 +40,7 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^16.0.1",
     "@angular-devkit/build-angular": "^16.2.9",
     "@angular-devkit/core": "^16.2.9",
     "@angular-devkit/schematics": "^16.2.9",
@@ -51,6 +52,7 @@
     "@types/jasminewd2": "~2.0.12",
     "@types/node": "^20.8.10",
     "codelyzer": "^6.0.2",
+    "dotenv-webpack": "^8.0.1",
     "jasmine-core": "~5.1.1",
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "~6.4.2",

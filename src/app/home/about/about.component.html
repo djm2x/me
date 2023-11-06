@@ -8,7 +8,7 @@
 
 <div class="container" appScroll (visibilityChange)="$event === true ? state = 'show' : state = 'hide'">
   <mat-card [@scrollAnimation]="state">
-    <div class="row  justify-content-center">
+    <div class="row  justify-center">
       <div class="col-md-7 text">
         <!-- <div *ngFor="let item of list; let i=index">
           <p><i [class]="item.icon" style="font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;{{item.name}}</p>
@@ -17,7 +17,7 @@
         <h2>{{o.profession}}</h2>
         <p>{{o.intro}}</p>
 
-        <div class="d-flex mt-4">
+        <div class="flex mt-4">
           <button mat-raised-button [routerLink]="['/cv']"  color="primary">Mon CV</button>
           &nbsp;&nbsp;
           <button mat-raised-button color="accent" (click)="scrollTo('section4')">Projects</button>
@@ -26,7 +26,7 @@
       <!-- <div class="between">
 
       </div> -->
-      <div class="col-md-5 d-flex flex-column justify-content-center align-items-center">
+      <div class="col-md-5 flex flex-col justify-center items-center">
         <img [src]="o.image">
 
       </div>

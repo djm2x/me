@@ -1,6 +1,6 @@
 <div class="host">
 
-  <div class="mybtn d-flex flex-column justify-content-center my-3" [@scrollTitle]="state">
+  <div class="mybtn flex flex-col justify-center my-3" [@scrollTitle]="state">
     <!-- <button mat-mini-fab color="warn" (click)="openPDF()">
       <mat-icon *ngIf="!pdf.loader">open_in_full</mat-icon>
 
@@ -47,8 +47,8 @@
 
 
     <!-- <section class="page mb-2" #cv [@scrollTitle]="state"> -->
-    <!-- <mat-card class="d-flex" style="height: 295mm;" [style.transform]="'scale(' + zoom + ')'" [style.marginBottom]="zoom * 10"> -->
-    <mat-card class="d-flex"
+    <!-- <mat-card class="flex" style="height: 295mm;" [style.transform]="'scale(' + zoom + ')'" [style.marginBottom]="zoom * 10"> -->
+    <mat-card class="flex"
       [ngStyle]="{transform: 'scale(' + zoom + ')', marginBottom: (zoom <= 1 ? 0 : zoom * 100) + 'px', height: '297mm'}">
 
       <aside>
@@ -70,7 +70,7 @@
 
         <div class="my-1">
           <div class=" info" *ngFor="let e of o.about.info; let i=index">
-            <div class="d-flex align-items-center" *ngIf="!e.text?.includes('git') && !e.text?.includes('in')">
+            <div class="flex items-center" *ngIf="!e.text?.includes('git') && !e.text?.includes('in')">
               <mat-icon *ngIf="e.icon !== ''"
                 style="font-size: .8em;width: 15px; height: 15px;padding-top: 3px;margin-right: 2px;">{{e.icon}}</mat-icon>
               <span class="text" *ngIf="e.icon === ''">{{e.text}}</span>
@@ -104,7 +104,7 @@
             <mat-icon>g_translate</mat-icon> langue
           </p>
           <div *ngFor="let e of o.langs; let i=index">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="flex justify-content-between items-center">
               <p class="lang">
                 <mat-icon>translate</mat-icon> {{e.lang}} :
               </p>
@@ -136,7 +136,7 @@
                 et bien les maîtriser.</p>
             </div>
             <div class="col-md-5 px-0">
-                <div class="d-flex align-items-center info" *ngFor="let e of o.about.info; let i=index">
+                <div class="flex items-center info" *ngFor="let e of o.about.info; let i=index">
                   <mat-icon *ngIf="e.icon !== ''">{{e.icon}}</mat-icon>
                   <span class="text" *ngIf="e.icon === ''">{{e.text}}</span>
                   <span class="link">{{e.name}}</span>
@@ -151,7 +151,7 @@
             <mat-icon>library_books</mat-icon> experiences
           </p>
           <div *ngFor="let e of o.experiences; let i=index" class="mb-3">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="flex justify-content-between items-center">
               <span class="date">
                 <mat-icon>event</mat-icon> {{e.job}} / {{e.period}}
               </span>
@@ -182,7 +182,7 @@
             <mat-icon>school</mat-icon> educations
           </p>
           <div *ngFor="let e of o.educations; let i=index" class="mb-2">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="flex justify-content-between items-center">
               <span class="date">
                 <mat-icon>event</mat-icon> {{e.period}}
               </span>

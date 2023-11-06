@@ -49,3 +49,5 @@ apres
 ```
 npm run analyze
 ```
+
+https://medium.com/@desinaoluseun/using-env-to-store-environment-variables-in-angular-20c15c7c0e6a

@@ -7,7 +7,7 @@ import { Subject, Observable, Subscription } from 'rxjs';
 export class ScrollDirective implements OnInit, OnDestroy {
 
   @Output() visibilityChange = new Subject<boolean>();
-  sub: Subscription = null;
+  sub!: Subscription;
 
   constructor(private el: ElementRef) { }
 

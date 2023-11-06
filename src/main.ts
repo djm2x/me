@@ -22,6 +22,14 @@ const providers: StaticProvider[] = [
   }
 ];
 
+declare var $ENV: Env;
+
+interface Env {
+  ENVIRONMENT: string;
+  SomeAPIKey: string;
+  SomeOtherAPIKey: string;
+}
+
 
 if (environment.production) {
   enableProdMode();
