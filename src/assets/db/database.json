@@ -333,17 +333,12 @@
     "firstName": "Mohamed",
     "lastName": "Mourabit",
     "profession": "Tech Lead & DevOps",
-    "image": "https://pps.whatsapp.net/v/t61.24694-24/374547441_685355666892999_2796633481322797202_n.jpg?ccb=11-4&oh=01_AdRsIB2nebl8ujskaa1uqYAkbfSGs7IHO6BIMzsozOjLsg&oe=65552780&_nc_sid=e6ed6c&_nc_cat=111",
+    "image": "assets/me.png",
     "info": [
       {
-        "icon": "language",
-        "name": "https://djm2x.github.io/me",
-        "href": "https://djm2x.github.io/me"
-      },
-      {
         "icon": "email",
-        "name": "mohamed.mourabit@outlook.com",
-        "href": "mailto:mohamed.mourabit@outlook.com"
+        "name": "mohamed.mourabit@digitransform.co",
+        "href": "mailto:mohamed.mourabit@digitransform.co"
       },
       {
         "icon": "",
@@ -354,8 +349,8 @@
       {
         "icon": "",
         "text": "git",
-        "name": "github.com/djm2x",
-        "href": "https://github.com/djm2x"
+        "name": "github.com/mohamed-mourabit",
+        "href": "https://github.com/mohamed-mourabit"
       },
       {
         "icon": "call",

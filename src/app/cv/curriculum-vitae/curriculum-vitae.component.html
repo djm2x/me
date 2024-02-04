@@ -78,12 +78,12 @@
         <ng-container *ngFor="let e of e.task">
           <p>-&nbsp;{{e}}</p>
         </ng-container>
-        <p *ngIf="!!e.links.length">
+        <!-- <p *ngIf="!!e.links.length">
           <span>Liens : </span>
         <ng-container *ngFor="let e of e.links">
           &nbsp;<a [href]="$any(e).href" target="_blank" rel="noopener noreferrer">{{$any(e).name}}</a>&nbsp;&nbsp;
           </ng-container>
-        </p>
+        </p> -->
       </ng-container>
     </section>
 
