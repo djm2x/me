@@ -280,10 +280,6 @@
           "value": 90
         },
         {
-          "name": "Grafana, Prometheus, Portainer",
-          "value": 90
-        },
-        {
           "name": "Typescript scripting",
           "value": 100
         }
@@ -293,19 +289,19 @@
   "educations": [
     {
       "id": 1,
-      "period": "2007-2008",
+      "period": "2008",
       "dipolma": "Baccalauréat Science Physique",
       "universite": "Lycée Moulay Ali Charif TEMARA"
     },
     {
       "id": 2,
-      "period": "2008-2010",
+      "period": "2010",
       "dipolma": "DUT Lieutenant de Maritime",
       "universite": "Institut Supérieur des Pêches Maritimes - AGADIR"
     },
     {
       "id": 3,
-      "period": "2014-2015",
+      "period": "2015",
       "dipolma": "Licence professionnel en Pêche",
       "universite": "Institut Supérieur des Pêches Maritimes - AGADIR"
     },
@@ -317,15 +313,21 @@
     },
     {
       "id": 5,
-      "period": "2016-2018",
+      "period": "2018",
       "dipolma": "DTS Développement Informatique",
       "universite": "Institut Spécialisé de Technologie Appliquée - TEMARA"
     },
     {
       "id": 6,
-      "period": "2019-2020",
+      "period": "2020",
       "dipolma": "Licence pro - Métiers de l’informatique : conduite de projet – Tech du développement web ",
       "universite": "Faculté des Sciences & Techniques - Université de Limoges FRANCE"
+    },
+    {
+      "id": 7,
+      "period": "2024",
+      "dipolma": "Master pro - Génie Logiciel et Web applications",
+      "universite": "Ecole Supérieure des Multimédia, Informatique & Réseaux - SUPEMIR Casablanca"
     }
   ],
   "about": {
@@ -333,7 +335,7 @@
     "firstName": "Mohamed",
     "lastName": "Mourabit",
     "profession": "Tech Lead & DevOps",
-    "image": "https://media.licdn.com/dms/image/C4E03AQGGIb2fi-CRQQ/profile-displayphoto-shrink_800_800/0/1658224079985?e=1712793600&v=beta&t=rXy-kbNE0WLY9I3XdAS7gX756V7FkclXvDk86WB_-s8",
+    "image": "https://djm2x.github.io/me/assets/me.png",
     "info": [
       {
         "icon": "email",
