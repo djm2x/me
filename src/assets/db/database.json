@@ -324,10 +324,16 @@
       "universite": "Faculté des Sciences & Techniques - Université de Limoges FRANCE"
     },
     {
-      "id": 7,
+      "id": 8,
       "period": "2024",
       "dipolma": "Master pro - Génie Logiciel et Web applications",
       "universite": "Ecole Supérieure des Multimédia, Informatique & Réseaux - SUPEMIR Casablanca"
+    },
+    {
+      "id": 7,
+      "period": "2024",
+      "dipolma": "Master Of Business Administration - Management de projects (Direction d'entreprises, Création-Reprise, Start-Up)",
+      "universite": "MBA de l'École WESFORD"
     }
   ],
   "about": {
