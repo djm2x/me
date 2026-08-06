@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV — Mohamed Mourabit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --ink:#1c1f26;
+    --ink-soft:#4a5058;
+    --accent:#1f4d5c;
+    --rule:#c7ccd1;
+    --paper:#ffffff;
+    --font-body: Calibri, Carlito, Arial, "Helvetica Neue", sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:#eceef0;
+    font-family: var(--font-body);
+    color:var(--ink);
+  }
+
+  /* Toolbar (screen only) */
+  #toolbar{
+    position:sticky; top:0; z-index:10;
+    background:#20242b;
+    color:#fff;
+    padding:10px 16px;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:13px;
+    font-family: -apple-system, Arial, sans-serif;
+  }
+  #toolbar button{
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    padding:8px 16px;
+    border-radius:4px;
+    font-size:13px;
+    cursor:pointer;
+  }
+  #toolbar button:hover{ opacity:0.9; }
+  #status{ opacity:0.85; }
+
+  #loadError{
+    max-width:700px;
+    margin:60px auto;
+    background:#fff;
+    padding:24px 28px;
+    border-radius:6px;
+    line-height:1.55;
+    font-size:14px;
+    display:none;
+  }
+  #loadError code{
+    background:#f0f1f3;
+    padding:2px 6px;
+    border-radius:3px;
+    font-size:13px;
+  }
+  #loadError.show{ display:block; }
+
+  /* Page */
+  #page{
+    width:210mm;
+    min-height:297mm;
+    margin:20px auto;
+    background:var(--paper);
+    padding:10mm 12mm;
+    box-shadow:0 0 8px rgba(0,0,0,0.15);
+    display:none;
+  }
+  #page.show{ display:block; }
+
+  /* Header */
+  header{
+    border-bottom:2.5px solid var(--accent);
+    padding-bottom:8px;
+    margin-bottom:12px;
+  }
+  h1{
+    margin:0 0 2px 0;
+    font-size:23px;
+    letter-spacing:0.3px;
+    color:var(--ink);
+  }
+  .role-title{
+    font-size:12.5px;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .contact-line{
+    font-size:10.5px;
+    color:var(--ink-soft);
+  }
+  .contact-line a{ color:var(--ink-soft); text-decoration:none; }
+  .contact-line span.sep{ margin:0 6px; color:var(--rule); }
+
+  /* Summary */
+  #summary{
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-bottom:14px;
+    line-height:1.45;
+  }
+
+  /* Section titles */
+  h2{
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    color:var(--accent);
+    border-bottom:1px solid var(--rule);
+    padding-bottom:3px;
+    margin:0 0 8px 0;
+  }
+  section{ margin-bottom:13px; }
+  section:last-child{ margin-bottom:0; }
+
+  /* Experience */
+  .job{ margin-bottom:10px; }
+  .job:last-child{ margin-bottom:0; }
+  .job-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:10px;
+  }
+  .job-company{ font-size:12px; font-weight:700; }
+  .job-period{ font-size:10.5px; color:var(--ink-soft); white-space:nowrap; }
+  .job-role{ font-size:11px; font-style:italic; color:var(--ink-soft); margin-bottom:3px; }
+  .job-summary{ font-size:10.6px; line-height:1.42; color:var(--ink); margin:0 0 3px 0; }
+  ul.bullets{ margin:4px 0 0 0; padding-left:15px; }
+  ul.bullets li{ font-size:10.6px; line-height:1.42; margin-bottom:2.5px; color:var(--ink); }
+
+  /* Education */
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-size:10.8px;
+    margin-bottom:5px;
+  }
+  .edu-diploma{ font-weight:700; }
+  .edu-school{ color:var(--ink-soft); }
+  .edu-period{ color:var(--ink-soft); white-space:nowrap; font-size:10.5px; }
+
+  /* Skills */
+  .skill-row{ font-size:10.8px; margin-bottom:4px; line-height:1.4; }
+  .skill-cat{ font-weight:700; }
+
+  /* Languages */
+  #languagesList{ font-size:10.8px; }
+  #languagesList span.lang-sep{ color:var(--rule); margin:0 8px; }
+
+  /* Print */
+  @media print{
+    body{ background:#fff; }
+    #toolbar{ display:none; }
+    #page{
+      box-shadow:none;
+      margin:0;
+      width:auto;
+      min-height:auto;
+      padding:5mm 7mm;
+    }
+    @page{ size:A4; margin:0; }
+  }
+</style>
+</head>
+<body>
+
+  <div id="toolbar">
+    <span id="status">Chargement de cv-data.json…</span>
+    <button onclick="window.print()">Imprimer / Exporter en PDF</button>
+  </div>
+
+  <div id="loadError">
+    <strong>Impossible de charger cv-data.json</strong>
+    <p>Si vous avez ouvert ce fichier directement (double-clic, <code>file://</code>), le navigateur bloque la lecture du fichier JSON voisin pour des raisons de sécurité.</p>
+    <p>Solution rapide — lancez un petit serveur local dans le dossier contenant les deux fichiers, puis ouvrez l'adresse indiquée :</p>
+    <p><code>python3 -m http.server 8000</code> puis ouvrez <code>http://localhost:8000/cv.html</code></p>
+    <p>Ou, si vous utilisez VS Code : clic droit sur <code>cv.html</code> → "Open with Live Server".</p>
+  </div>
+
+  <div id="page">
+    <header>
+      <h1 id="fullname"></h1>
+      <div class="role-title" id="roleTitle"></div>
+      <div class="contact-line" id="contactLine"></div>
+    </header>
+
+    <div id="summary"></div>
+
+    <section>
+      <h2>Expérience professionnelle</h2>
+      <div id="experienceList"></div>
+    </section>
+
+    <section>
+      <h2>Formation</h2>
+      <div id="educationList"></div>
+    </section>
+
+    <section>
+      <h2>Compétences techniques</h2>
+      <div id="skillsList"></div>
+    </section>
+
+    <section>
+      <h2>Langues</h2>
+      <div id="languagesList"></div>
+    </section>
+  </div>
+
+<script>
+async function loadCV(){
+  const status = document.getElementById('status');
+  try{
+    const res = await fetch('cv-data.json', {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    render(data);
+    document.getElementById('page').classList.add('show');
+    status.textContent = 'cv-data.json chargé';
+  }catch(err){
+    document.getElementById('loadError').classList.add('show');
+    status.textContent = 'Échec du chargement — voir le message ci-dessous';
+  }
+}
+
+function render(data){
+  const p = data.profile;
+
+  document.getElementById('fullname').textContent = p.firstName + ' ' + p.lastName;
+  document.getElementById('roleTitle').textContent = p.title;
+
+  const contactParts = [
+    p.location,
+    p.phone,
+    p.email
+  ].filter(Boolean);
+
+  const contactLine = document.getElementById('contactLine');
+  contactLine.innerHTML = contactParts.join(' <span class="sep">•</span> ') +
+    (p.linkedin ? ' <span class="sep">•</span> <a href="' + p.linkedinUrl + '">' + p.linkedin + '</a>' : '') +
+    (p.github ? ' <span class="sep">•</span> <a href="' + p.githubUrl + '">' + p.github + '</a>' : '') +
+    (p.website ? ' <span class="sep">•</span> <a href="' + p.websiteUrl + '">' + p.website + '</a>' : '');
+
+  document.getElementById('summary').textContent = p.summary;
+
+  const expEl = document.getElementById('experienceList');
+  expEl.innerHTML = data.experience.map(job => `
+    <div class="job">
+      <div class="job-row">
+        <span class="job-company">${job.company}</span>
+        <span class="job-period">${job.period}</span>
+      </div>
+      <div class="job-role">${job.role}</div>
+      ${job.summary ? `<p class="job-summary">${job.summary}</p>` : ''}
+      <ul class="bullets">
+        ${job.bullets.map(b => `<li>${b}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  const eduEl = document.getElementById('educationList');
+  eduEl.innerHTML = data.education.map(e => `
+    <div class="edu-row">
+      <div><span class="edu-diploma">${e.diploma}</span> — <span class="edu-school">${e.school}</span></div>
+      <div class="edu-period">${e.period}</div>
+    </div>
+  `).join('');
+
+  const skillsEl = document.getElementById('skillsList');
+  skillsEl.innerHTML = data.skills.map(s => `
+    <div class="skill-row"><span class="skill-cat">${s.category}:</span> ${s.items}</div>
+  `).join('');
+
+  const langEl = document.getElementById('languagesList');
+  langEl.innerHTML = data.languages.map((l,i) =>
+    (i>0 ? '<span class="lang-sep">•</span>' : '') + `${l.name} (${l.level})`
+  ).join('');
+}
+
+loadCV();
+</script>
+
+</body>
+</html>

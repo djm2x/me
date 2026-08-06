@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV — Mohamed Mourabit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    @page { size: A4; margin: 0; }
+
+    [x-cloak] { display: none !important; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #eceef0;
+      font-family: Calibri, Carlito, Arial, "Helvetica Neue", sans-serif;
+      color: #1c1f26;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .screen-only { display: none !important; }
+      .cv-page {
+        width: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 10mm 14mm !important;
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main x-data="cvApp()" x-init="loadCV()" class="min-h-screen">
+    <div class="screen-only sticky top-0 z-10 flex items-center justify-between gap-4 bg-[#20242b] px-4 py-2.5 text-[13px] text-white">
+      <span class="opacity-85" x-text="status"></span>
+      <button
+        type="button"
+        @click="window.print()"
+        class="shrink-0 rounded bg-[#1f4d5c] px-4 py-2 text-[13px] text-white transition hover:opacity-90"
+      >
+        Imprimer / Exporter en PDF
+      </button>
+    </div>
+
+    <div x-cloak x-show="error" class="mx-auto my-16 max-w-[700px] rounded-md bg-white p-6 text-sm leading-relaxed shadow-sm">
+      <strong>Impossible de charger cv-data.json</strong>
+      <p>Si vous avez ouvert ce fichier directement (double-clic, <code class="rounded bg-[#f0f1f3] px-1.5 py-0.5 text-[13px]">file://</code>), le navigateur bloque la lecture du fichier JSON voisin pour des raisons de sécurité.</p>
+      <p>Solution rapide — lancez un petit serveur local dans le dossier contenant les deux fichiers, puis ouvrez l'adresse indiquée :</p>
+      <p><code class="rounded bg-[#f0f1f3] px-1.5 py-0.5 text-[13px]">python3 -m http.server 8000</code> puis ouvrez <code class="rounded bg-[#f0f1f3] px-1.5 py-0.5 text-[13px]">http://localhost:8000/cv-tailwind.html</code></p>
+      <p>Ou, si vous utilisez VS Code : clic droit sur <code class="rounded bg-[#f0f1f3] px-1.5 py-0.5 text-[13px]">cv-tailwind.html</code> → "Open with Live Server".</p>
+    </div>
+
+    <article x-cloak x-show="loaded" class="cv-page mx-auto my-5 hidden min-h-[297mm] w-[210mm] bg-white px-[16mm] py-[14mm] shadow-[0_0_8px_rgba(0,0,0,0.15)] print:block">
+      <header class="mb-3 border-b-[2.5px] border-[#1f4d5c] pb-2">
+        <h1 class="mb-0.5 text-[23px] tracking-[0.3px]" x-text="fullName"></h1>
+        <div class="mb-1.5 text-[12.5px] font-bold text-[#1f4d5c]" x-text="profile.title"></div>
+        <div class="text-[10.5px] text-[#4a5058]">
+          <template x-for="(item, index) in contacts" :key="item.label">
+            <span>
+              <span x-show="index > 0" class="mx-1.5 text-[#c7ccd1]">•</span>
+              <template x-if="item.url">
+                <a :href="item.url" target="_blank" rel="noreferrer" class="hover:underline" x-text="item.label"></a>
+              </template>
+              <template x-if="!item.url">
+                <span x-text="item.label"></span>
+              </template>
+            </span>
+          </template>
+        </div>
+      </header>
+
+      <div class="mb-3.5 text-[11px] leading-[1.45] text-[#4a5058]" x-text="profile.summary"></div>
+
+      <section class="mb-[13px]">
+        <h2 class="mb-2 border-b border-[#c7ccd1] pb-[3px] text-[11.5px] uppercase tracking-[1.2px] text-[#1f4d5c]">Expérience professionnelle</h2>
+        <div>
+          <template x-for="job in experience" :key="job.company + job.period">
+            <div class="mb-2.5 last:mb-0">
+              <div class="flex items-baseline justify-between gap-2.5">
+                <span class="text-[12px] font-bold" x-text="job.company"></span>
+                <span class="whitespace-nowrap text-[10.5px] text-[#4a5058]" x-text="job.period"></span>
+              </div>
+              <div class="mb-[3px] text-[11px] italic text-[#4a5058]" x-text="job.role"></div>
+              <p class="mb-[3px] text-[10.6px] leading-[1.42] text-[#2d3238]" x-show="job.summary" x-text="job.summary"></p>
+              <ul class="m-0 list-disc pl-[15px]">
+                <template x-for="bullet in job.bullets" :key="bullet">
+                  <li class="mb-[2.5px] text-[10.6px] leading-[1.42] last:mb-0" x-text="bullet"></li>
+                </template>
+              </ul>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <section class="mb-[13px]">
+        <h2 class="mb-2 border-b border-[#c7ccd1] pb-[3px] text-[11.5px] uppercase tracking-[1.2px] text-[#1f4d5c]">Formation</h2>
+        <div>
+          <template x-for="educationItem in education" :key="educationItem.diploma + educationItem.period">
+            <div class="mb-[5px] flex justify-between gap-2.5 text-[10.8px] last:mb-0">
+              <div><span class="font-bold" x-text="educationItem.diploma"></span> — <span class="text-[#4a5058]" x-text="educationItem.school"></span></div>
+              <div class="whitespace-nowrap text-[10.5px] text-[#4a5058]" x-text="educationItem.period"></div>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <section class="mb-[13px]">
+        <h2 class="mb-2 border-b border-[#c7ccd1] pb-[3px] text-[11.5px] uppercase tracking-[1.2px] text-[#1f4d5c]">Compétences techniques</h2>
+        <div>
+          <template x-for="skill in skills" :key="skill.category">
+            <div class="mb-1 text-[10.8px] leading-[1.4] last:mb-0"><span class="font-bold" x-text="skill.category + ':'"></span> <span x-text="skill.items"></span></div>
+          </template>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="mb-2 border-b border-[#c7ccd1] pb-[3px] text-[11.5px] uppercase tracking-[1.2px] text-[#1f4d5c]">Langues</h2>
+        <div class="text-[10.8px]">
+          <template x-for="(language, index) in languages" :key="language.name">
+            <span>
+              <span x-show="index > 0" class="mx-2 text-[#c7ccd1]">•</span>
+              <span x-text="`${language.name} (${language.level})`"></span>
+            </span>
+          </template>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <script>
+    function cvApp() {
+      return {
+        loaded: false,
+        error: false,
+        status: 'Chargement de cv-data.json…',
+        profile: {},
+        experience: [],
+        education: [],
+        skills: [],
+        languages: [],
+        get fullName() {
+          return `${this.profile.firstName || ''} ${this.profile.lastName || ''}`.trim();
+        },
+        get contacts() {
+          const profile = this.profile;
+          return [
+            { label: profile.location },
+            { label: profile.phone },
+            { label: profile.email },
+            { label: profile.linkedin, url: profile.linkedinUrl },
+            { label: profile.github, url: profile.githubUrl },
+            { label: profile.website, url: profile.websiteUrl }
+          ].filter(contact => contact.label);
+        },
+        async loadCV() {
+          try {
+            const response = await fetch('cv-data.json', { cache: 'no-store' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const data = await response.json();
+            this.profile = data.profile;
+            this.experience = data.experience;
+            this.education = data.education;
+            this.skills = data.skills;
+            this.languages = data.languages;
+            this.loaded = true;
+            this.status = 'cv-data.json chargé';
+          } catch (loadError) {
+            this.error = true;
+            this.status = 'Échec du chargement — voir le message ci-dessous';
+          }
+        }
+      };
+    }
+  </script>
+</body>
+</html>

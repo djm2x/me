@@ -1,0 +1,133 @@
+{
+  "_instructions": "Modifiez uniquement les valeurs entre guillemets ci-dessous. Ne touchez pas aux noms de champs (à gauche des ':'). Sauvegardez le fichier, puis rechargez cv.html dans le navigateur pour voir le résultat. Pour ajouter une expérience/formation/ligne de compétence : dupliquez un bloc {...} existant dans le tableau concerné et modifiez son contenu.",
+
+  "profile": {
+    "firstName": "Mohamed",
+    "lastName": "Mourabit",
+    "title": "Développeur Full Stack & DevOps | Chef de Projet Technique",
+    "summary": "Développeur Full Stack & DevOps avec une double compétence en pilotage technique de projets. Expérience en conception et déploiement d'applications web (ASP.NET Core, Angular, Spring Boot) et d'infrastructures cloud (Kubernetes, OpenStack). Solide expertise en architecture multi-tenant, intégration de systèmes tiers, agents IA et automatisation.",
+    "location": "Témara, Maroc",
+    "phone": "+212 6 71 26 54 78",
+    "email": "mohamed.mourabit@digitransform.co",
+    "linkedin": "linkedin.com/in/mohamed-mourabit",
+    "linkedinUrl": "https://www.linkedin.com/in/mohamed-mourabit",
+    "github": "github.com/mohamed-mourabit",
+    "githubUrl": "https://github.com/mohamed-mourabit",
+    "website": "mohamed-mourabit.com",
+    "websiteUrl": "https://mohamed-mourabit.com"
+  },
+
+  "experience": [
+    {
+      "company": "Digitransform",
+      "role": "Développeur Full Stack & DevOps / Chef de Projet Technique",
+      "period": "À compléter (ex. 2021 – Présent)",
+      "bullets": [
+        "Pilotage technique de projets multi-clients : architecture, développement et déploiement, en autonomie ou en tant que tech lead",
+        "Conception de plateformes SaaS multi-tenant (ASP.NET Core, Angular, PostgreSQL/EF Core) avec routage par sous-domaine (Traefik), JWT multi-organisation et pipelines CI/CD",
+        "Déploiement et administration d'infrastructures cloud : clusters Kubernetes (k3s/k3d, ArgoCD, GitLab CI/CD) et cluster OpenStack (Kolla-Ansible, installation et gestion de VM, réseaux VXLAN, IP flottantes)",
+        "Création d'ExosCloud, plateforme cloud privé inspirée d'OVH, bâtie sur une infrastructure OpenStack",
+        "Conception d'un agent IA de scraping web (Node.js, Playwright, crawl4ai) pour l'extraction et la structuration automatisées de données, incluant la gestion de pages dynamiques (SPA)",
+        "Intégration système avec la plateforme bancaire Sopra Amplitude pour un établissement de microfinance (Al Amana)",
+        "Développement d'une plateforme e-commerce B2C/B2B multi-vendeurs (type AliExpress) : catalogue, panier, paiement, recommandations produit",
+        "Génération automatisée de rapports de maintenance et de documentation technique (Word, Excel) à partir de données opérationnelles"
+      ]
+    },
+    {
+      "company": "MARIT",
+      "role": "Développeur Web Full Stack",
+      "period": "2020",
+      "bullets": [
+        "Développement d'un intranet de suivi des recommandations pour la Délégation Interministérielle aux Droits de l'Homme (Angular, ASP.NET Core, SQL Server, internationalisation)",
+        "Développement d'un système de suivi du plan d'action national pour la démocratie et les droits de l'homme (Angular, ASP.NET Core, SQL Server)",
+        "Développement d'une application de gestion commerciale pour un magasin de quincaillerie et matériaux de construction (Angular, ASP.NET Core, SQL Server)",
+        "Développement de sites web pour le Centre National de Transfusion Sanguine et d'Hématologie et pour Connecting Group International (Angular, Laravel, MySQL)",
+        "Développement d'une application de suivi des activités des services déconcentrés pour le Ministère de l'Énergie, des Mines et de l'Environnement, avec génération automatique de statistiques (Angular, ASP.NET Core)",
+        "Développement d'un système de gestion de parc informatique avec application bureau de collecte d'informations système (CPU, GPU, réseau, BIOS, RAM...) et inventaire logiciel (Angular, ASP.NET Core, Electron.js, SQLite)"
+      ]
+    },
+    {
+      "company": "Harmony Technology",
+      "role": "Développeur Web Full Stack",
+      "period": "2019",
+      "bullets": [
+        "Développement d'un système RFID de traçabilité de bandes de sauvegarde (API RFID, ASP.NET, SQL Server, Angular, SignalR)"
+      ]
+    },
+    {
+      "company": "Localhost (projet personnel)",
+      "role": "Développeur Web Full Stack",
+      "period": "2018",
+      "bullets": [
+        "Développement d'une plateforme de mise en relation avec des ouvriers/professionnels à proximité (Angular, Angular Material, ASP.NET Core, MySQL)",
+        "Développement d'une application web de recettes de cuisine avec rendu côté serveur (Angular Universal), API Node.js/Express, MongoDB, authentification JWT et fonctionnalités temps réel (Socket.io)"
+      ]
+    },
+    {
+      "company": "Pixie Web",
+      "role": "Développeur Web Full Stack",
+      "period": "2018",
+      "bullets": [
+        "Conception et développement d'une application web (Angular, ASP.NET Core, SignalR, SQL Server, Bootstrap 4)"
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "period": "2025",
+      "diploma": "MBA Management de Projets (Direction d'entreprise / Création / Reprise / Start-up)",
+      "school": "Wesford"
+    },
+    {
+      "period": "2024",
+      "diploma": "Master Génie Logiciel et Web Applications",
+      "school": "Supemir"
+    },
+    {
+      "period": "2020",
+      "diploma": "Licence Professionnelle — Métiers de l'Informatique : Conduite de Projet, Développement Web",
+      "school": "Faculté des Sciences & Techniques, Université de Limoges (France)"
+    },
+    {
+      "period": "2018",
+      "diploma": "DTS Développement Informatique",
+      "school": "Institut Spécialisé de Technologie Appliquée, Témara"
+    },
+    {
+      "period": "2017",
+      "diploma": "Certification Microsoft — ASP.NET MVC 5, SQL Server, C#, HTML/CSS/JS",
+      "school": "ISTA, Témara"
+    },
+    {
+      "period": "2015",
+      "diploma": "Licence Professionnelle en Pêche",
+      "school": "Institut Supérieur des Pêches Maritimes, Agadir"
+    },
+    {
+      "period": "2010",
+      "diploma": "DUT Lieutenant de Pêche",
+      "school": "Institut Supérieur des Pêches Maritimes, Agadir"
+    },
+    {
+      "period": "2008",
+      "diploma": "Baccalauréat, série Sciences Physiques",
+      "school": "Lycée Moulay Ali Cherif, Témara"
+    }
+  ],
+
+  "skills": [
+    { "category": "Front-end", "items": "Angular, TypeScript, Bootstrap, HTML/CSS" },
+    { "category": "Back-end", "items": "ASP.NET Core, Spring Boot (Java), Node.js/Express, C#, Laravel" },
+    { "category": "Bases de données", "items": "PostgreSQL, SQL Server, MySQL, MongoDB" },
+    { "category": "DevOps & Cloud", "items": "Docker, Kubernetes (k3s/k3d), OpenStack (Kolla-Ansible), Traefik, Jenkins, GitLab CI/CD, ArgoCD" },
+    { "category": "IA & Automatisation", "items": "Agents IA, web scraping (Playwright, crawl4ai), intégrations API" },
+    { "category": "Gestion de projet", "items": "Pilotage technique, architecture logicielle, méthodologie agile" }
+  ],
+
+  "languages": [
+    { "name": "Arabe", "level": "Maternelle" },
+    { "name": "Français", "level": "Courant" },
+    { "name": "Anglais", "level": "Intermédiaire" }
+  ]
+}

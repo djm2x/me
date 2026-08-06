@@ -1,0 +1,128 @@
+{
+  "_instructions": "Modifiez uniquement les valeurs entre guillemets ci-dessous. Ne touchez pas aux noms de champs (à gauche des ':'). Sauvegardez le fichier, puis rechargez cv.html dans le navigateur pour voir le résultat. Pour ajouter une expérience/formation/ligne de compétence : dupliquez un bloc {...} existant dans le tableau concerné et modifiez son contenu.",
+
+  "profile": {
+    "firstName": "Mohamed",
+    "lastName": "Mourabit",
+    "title": "Développeur Full Stack & DevOps | Chef de Projet Technique",
+    "summary": "Développeur Full Stack & DevOps, spécialisé dans le pilotage technique de projets de bout en bout : conception d'architecture, développement et mise en production. Expérience confirmée en applications web (ASP.NET Core, Angular, Spring Boot), plateformes SaaS multi-tenant et infrastructures cloud (Kubernetes, OpenStack). Complété par une expertise en intégration de systèmes tiers, agents IA et automatisation des processus.",
+    "location": "Témara, Maroc",
+    "phone": "+212 6 71 26 54 78",
+    "email": "mohamed.mourabit@digitransform.co",
+    "linkedin": "linkedin.com/in/mohamed-mourabit",
+    "linkedinUrl": "https://www.linkedin.com/in/mohamed-mourabit",
+    "github": "github.com/mohamed-mourabit",
+    "githubUrl": "https://github.com/mohamed-mourabit",
+    "website": "mohamed-mourabit.com",
+    "websiteUrl": "https://mohamed-mourabit.com"
+  },
+
+  "experience": [
+    {
+      "company": "Digitransform",
+      "role": "Développeur Full Stack & DevOps / Chef de Projet Technique",
+      "period": "2021 – Présent",
+      "summary": "Pilotage technique de projets multi-clients en autonomie ou en tant que tech lead : de la conception d'architecture au déploiement en production, sur des applications web, plateformes SaaS et infrastructures cloud.",
+      "bullets": [
+        "Conception de plateformes SaaS multi-tenant (ASP.NET Core, Angular, PostgreSQL/EF Core) avec routage par sous-domaine (Traefik), authentification JWT multi-organisation et pipelines CI/CD",
+        "Déploiement et administration d'infrastructures cloud : clusters Kubernetes (k3s/k3d, ArgoCD, GitLab CI/CD) et cluster OpenStack (Kolla-Ansible, gestion de VM, réseaux VXLAN, IP flottantes)",
+        "Création d'ExosCloud, plateforme de cloud privé inspirée d'OVH, bâtie sur cette infrastructure OpenStack",
+        "Intégration système avec la plateforme bancaire Sopra Amplitude pour un établissement de microfinance (Al Amana)",
+        "Développement d'une plateforme e-commerce B2C/B2B multi-vendeurs (type AliExpress) : catalogue, panier, paiement, recommandations produit",
+        "Conception d'un agent IA de scraping web (Node.js, Playwright, crawl4ai) pour l'extraction et la structuration automatisées de données, incluant la gestion de pages dynamiques (SPA)",
+        "Génération automatisée de rapports de maintenance et de documentation technique (Word, Excel) à partir de données opérationnelles"
+      ]
+    },
+    {
+      "company": "MARIT",
+      "role": "Développeur Web Full Stack",
+      "period": "2020",
+      "bullets": [
+        "Développement de plusieurs applications web pour des organismes publics et privés (Angular, ASP.NET Core, Laravel, SQL Server, MySQL) : suivi des recommandations pour la DIDH, gestion commerciale pour un magasin de quincaillerie et gestion de parc informatique avec inventaire logiciel et matériel"
+      ]
+    },
+    {
+      "company": "Harmony Technology",
+      "role": "Développeur Web Full Stack",
+      "period": "2019",
+      "bullets": [
+        "Développement d'un système RFID de traçabilité de bandes de sauvegarde (API RFID, ASP.NET, SQL Server, Angular, SignalR)"
+      ]
+    },
+    {
+      "company": "Localhost (projet personnel)",
+      "role": "Développeur Web Full Stack",
+      "period": "2018",
+      "bullets": [
+        "Développement d'une plateforme de mise en relation avec des ouvriers/professionnels à proximité (Angular, Angular Material, ASP.NET Core, MySQL)",
+        "Développement d'une application web de recettes de cuisine avec rendu côté serveur (Angular Universal), API Node.js/Express, MongoDB, authentification JWT et fonctionnalités temps réel (Socket.io)"
+      ]
+    },
+    {
+      "company": "Pixie Web",
+      "role": "Développeur Web Full Stack",
+      "period": "2018",
+      "bullets": [
+        "Conception et développement d'une application web (Angular, ASP.NET Core, SignalR, SQL Server, Bootstrap 4)"
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "period": "2025",
+      "diploma": "MBA Management de Projets (Direction d'entreprise / Création / Reprise / Start-up)",
+      "school": "Wesford"
+    },
+    {
+      "period": "2024",
+      "diploma": "Master Génie Logiciel et Web Applications",
+      "school": "Supemir"
+    },
+    {
+      "period": "2020",
+      "diploma": "Licence Professionnelle — Métiers de l'Informatique : Conduite de Projet, Développement Web",
+      "school": "Faculté des Sciences & Techniques, Université de Limoges (France)"
+    },
+    {
+      "period": "2018",
+      "diploma": "DTS Développement Informatique",
+      "school": "Institut Spécialisé de Technologie Appliquée, Témara"
+    },
+    {
+      "period": "2017",
+      "diploma": "Certification Microsoft — ASP.NET MVC 5, SQL Server, C#, HTML/CSS/JS",
+      "school": "ISTA, Témara"
+    },
+    {
+      "period": "2015",
+      "diploma": "Licence Professionnelle en Pêche",
+      "school": "Institut Supérieur des Pêches Maritimes, Agadir"
+    },
+    {
+      "period": "2010",
+      "diploma": "DUT Lieutenant de Pêche",
+      "school": "Institut Supérieur des Pêches Maritimes, Agadir"
+    },
+    {
+      "period": "2008",
+      "diploma": "Baccalauréat, série Sciences Physiques",
+      "school": "Lycée Moulay Ali Cherif, Témara"
+    }
+  ],
+
+  "skills": [
+    { "category": "Front-end", "items": "Angular, TypeScript, Tailwind, HTML/CSS" },
+    { "category": "Back-end", "items": "ASP.NET Core, Spring Boot (Java), Node.js/Express" },
+    { "category": "Bases de données", "items": "PostgreSQL, SQL Server, MySQL, MongoDB" },
+    { "category": "DevOps & Cloud", "items": "Docker, Kubernetes (k3s/k3d), OpenStack (Kolla-Ansible), Traefik, Jenkins, GitLab CI/CD, ArgoCD" },
+    { "category": "IA & Automatisation", "items": "Agents IA, web scraping (Playwright, crawl4ai), intégrations API" },
+    { "category": "Gestion de projet", "items": "Pilotage technique, architecture logicielle, méthodologie agile" }
+  ],
+
+  "languages": [
+    { "name": "Arabe", "level": "Maternelle" },
+    { "name": "Français", "level": "Courant" },
+    { "name": "Anglais", "level": "Intermédiaire" }
+  ]
+}
